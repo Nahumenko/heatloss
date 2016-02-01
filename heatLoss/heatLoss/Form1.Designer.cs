@@ -49,6 +49,7 @@
             this.примерыРаботыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.обАвторахToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.редактированиеСправочныхТаблицToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -123,7 +124,8 @@
             // сервисToolStripMenuItem
             // 
             this.сервисToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.войтиToolStripMenuItem});
+            this.войтиToolStripMenuItem,
+            this.редактированиеСправочныхТаблицToolStripMenuItem});
             this.сервисToolStripMenuItem.Name = "сервисToolStripMenuItem";
             this.сервисToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.сервисToolStripMenuItem.Text = "Сервис";
@@ -133,6 +135,7 @@
             this.войтиToolStripMenuItem.Name = "войтиToolStripMenuItem";
             this.войтиToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.войтиToolStripMenuItem.Text = "Войти";
+            this.войтиToolStripMenuItem.Click += new System.EventHandler(this.войтиToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem
             // 
@@ -209,6 +212,13 @@
             this.обАвторахToolStripMenuItem.Text = "Об авторах";
             this.обАвторахToolStripMenuItem.Click += new System.EventHandler(this.обАвторахToolStripMenuItem_Click);
             // 
+            // редактированиеСправочныхТаблицToolStripMenuItem
+            // 
+            this.редактированиеСправочныхТаблицToolStripMenuItem.Name = "редактированиеСправочныхТаблицToolStripMenuItem";
+            this.редактированиеСправочныхТаблицToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
+            this.редактированиеСправочныхТаблицToolStripMenuItem.Text = "Редактирование справочных таблиц";
+            this.редактированиеСправочныхТаблицToolStripMenuItem.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -249,6 +259,7 @@
         private System.Windows.Forms.ToolStripMenuItem примерыРаботыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem обАвторахToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem редактированиеСправочныхТаблицToolStripMenuItem;
     }
 }
 

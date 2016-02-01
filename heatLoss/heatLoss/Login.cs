@@ -33,58 +33,8 @@ namespace heatLoss
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            da = new OleDbDataAdapter("select* from users where login='"+ tbLogin.Text+"' and Password='"+tbPass.Text+ "'", cn);
+            da = new OleDbDataAdapter("select* from users where login='" + tbLogin.Text + "' and Password='" + tbPass.Text + "'", cn);
             da.Fill(dt);
-            if (dt.Rows.Count <= 0)
-            {
-                if (panel1.Height == 0)
-                {
-                    label1.Text = "Login or password are invalid plese try again";
-                }
-                else if (panel1.Height == 100)
-                {
-                    timer2.Start();
-                    label1.Text = "";
-                }
-            }
-            else if (dt.Rows.Count > 0)
-            {
-                if (panel1.Height == 0)
-                {
-                    label1.Text = "Login Succsufully";
-                    timer1.Start();
-                }
-                else if (panel1.Height == 100)
-                {
-                    timer2.Start();
-                    label1.Text = "";
-                }
-            }
-            dt.Clear();
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            if(panel1.Height != 100)
-            {
-                panel1.Height += 5;
-                if(panel1.Height == 100)
-                {
-                    timer1.Stop();
-                }
-            }
-        }
-
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            if (panel1.Height != 0)
-            {
-                panel1.Height -= 5;
-                if (panel1.Height==0)
-                {
-                    timer2.Stop();
-                }
-            }
         }
     }
 }
