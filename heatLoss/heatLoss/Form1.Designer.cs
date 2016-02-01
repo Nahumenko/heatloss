@@ -131,7 +131,7 @@
             // войтиToolStripMenuItem
             // 
             this.войтиToolStripMenuItem.Name = "войтиToolStripMenuItem";
-            this.войтиToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.войтиToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.войтиToolStripMenuItem.Text = "Войти";
             // 
             // справкаToolStripMenuItem
@@ -207,6 +207,7 @@
             this.обАвторахToolStripMenuItem.Name = "обАвторахToolStripMenuItem";
             this.обАвторахToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.обАвторахToolStripMenuItem.Text = "Об авторах";
+            this.обАвторахToolStripMenuItem.Click += new System.EventHandler(this.обАвторахToolStripMenuItem_Click);
             // 
             // Form1
             // 
