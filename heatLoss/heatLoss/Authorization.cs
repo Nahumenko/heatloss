@@ -25,7 +25,7 @@ namespace heatLoss
         private void Authorization_Load(object sender, EventArgs e)
         {
             try
-            {               
+            {
                 connection.Open();
                 lblCheckConnection.Text = "подключение к БД прошло успешно.";
                 connection.Close();
@@ -39,8 +39,39 @@ namespace heatLoss
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             connection.Open();
-           
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            command.CommandText = "select * from users where Login='" + textBUserName.Text + "' and password='" + textBPass.Text + "'";
+
+            OleDbDataReader reder = command.ExecuteReader();
+            int count = 0;
+            while (reder.Read())
+            {
+                count++;
+            }
+            if (count <= 2)
+            {
+                switch (count)
+                {
+                    case 1:
+                        MessageBox.Show("Логин и пароль верны!");
+                        Close();                        
+                        break;
+                    case 2:
+                        MessageBox.Show("Логин и пароль верны! А также есть копия их в БД!!!");
+                        break;
+                    default:
+                        MessageBox.Show("не верный логин и пароль!");
+                        break;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Логин и пароль верны! А также есть копия их в БД.Кол-во повторений= "+count);
+            }
+
             connection.Close();
+
         }
     }
 }
