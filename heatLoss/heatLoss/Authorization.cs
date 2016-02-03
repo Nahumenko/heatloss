@@ -55,7 +55,10 @@ namespace heatLoss
                 {
                     case 1:
                         MessageBox.Show("Логин и пароль верны!");
-                        Close();                        
+                        this.Close();
+                       
+
+
                         break;
                     case 2:
                         MessageBox.Show("Логин и пароль верны! А также есть копия их в БД!!!");
@@ -67,7 +70,7 @@ namespace heatLoss
             }
             else
             {
-                MessageBox.Show("Логин и пароль верны! А также есть копия их в БД.Кол-во повторений= "+count);
+                MessageBox.Show("Логин и пароль верны! А также есть копия их в БД.Кол-во повторений= " + count);
             }
 
             connection.Close();

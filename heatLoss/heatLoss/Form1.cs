@@ -46,7 +46,13 @@ namespace heatLoss
         private void войтиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Authorization authorization = new Authorization();
+          
             authorization.Show();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
