@@ -27,16 +27,17 @@ namespace heatLoss
         {
             try
             {
-                OleDbConnection conection = new OleDbConnection();
-                conection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\BD01.02.2016.mdb";
-                conection.Open();
-                lblCheckConnection.Text = "conection successful";
-                conection.Close();
+                OleDbConnection connection = new OleDbConnection();
+                connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\BD01.02.2016.mdb";
+                connection.Open();
+                lblCheckConnection.Text = "подключение к БД прошло успешно.";
+                connection.Close();
             }catch(Exception ex)
             {
-                MessageBox.Show("Erorr   " + ex);
+                MessageBox.Show("ошибка, скорее всего не подключилась БД. Дальше идёт текст ошибки " + ex);
             }
-
+            
+            
 
         }
     }

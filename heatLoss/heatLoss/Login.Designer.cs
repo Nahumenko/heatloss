@@ -29,59 +29,62 @@
         private void InitializeComponent()
         {
             this.buttonLogin = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.lblLogin = new System.Windows.Forms.Label();
+            this.textBUserName = new System.Windows.Forms.TextBox();
+            this.textBPass = new System.Windows.Forms.TextBox();
+            this.lblUserName = new System.Windows.Forms.Label();
             this.lblPass = new System.Windows.Forms.Label();
             this.lblCheckConnection = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonLogin
             // 
+            this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonLogin.Location = new System.Drawing.Point(417, 113);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(160, 68);
             this.buttonLogin.TabIndex = 0;
-            this.buttonLogin.Text = "Login";
+            this.buttonLogin.Text = "Войти";
             this.buttonLogin.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // textBUserName
             // 
-            this.textBox1.Location = new System.Drawing.Point(212, 110);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(170, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBUserName.Location = new System.Drawing.Point(212, 110);
+            this.textBUserName.Name = "textBUserName";
+            this.textBUserName.Size = new System.Drawing.Size(170, 20);
+            this.textBUserName.TabIndex = 1;
             // 
-            // textBox2
+            // textBPass
             // 
-            this.textBox2.Location = new System.Drawing.Point(212, 161);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(170, 20);
-            this.textBox2.TabIndex = 2;
+            this.textBPass.Location = new System.Drawing.Point(212, 161);
+            this.textBPass.Name = "textBPass";
+            this.textBPass.Size = new System.Drawing.Size(170, 20);
+            this.textBPass.TabIndex = 2;
             // 
-            // lblLogin
+            // lblUserName
             // 
-            this.lblLogin.AutoSize = true;
-            this.lblLogin.Location = new System.Drawing.Point(123, 113);
-            this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(39, 13);
-            this.lblLogin.TabIndex = 3;
-            this.lblLogin.Text = "Login :";
-            this.lblLogin.Click += new System.EventHandler(this.lblLogin_Click);
+            this.lblUserName.AutoSize = true;
+            this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblUserName.Location = new System.Drawing.Point(139, 110);
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(48, 20);
+            this.lblUserName.TabIndex = 3;
+            this.lblUserName.Text = "Имя :";
+            this.lblUserName.Click += new System.EventHandler(this.lblLogin_Click);
             // 
             // lblPass
             // 
             this.lblPass.AutoSize = true;
-            this.lblPass.Location = new System.Drawing.Point(103, 168);
+            this.lblPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblPass.Location = new System.Drawing.Point(112, 161);
             this.lblPass.Name = "lblPass";
-            this.lblPass.Size = new System.Drawing.Size(59, 13);
+            this.lblPass.Size = new System.Drawing.Size(75, 20);
             this.lblPass.TabIndex = 4;
-            this.lblPass.Text = "Password :";
+            this.lblPass.Text = "Пароль :";
             // 
             // lblCheckConnection
             // 
             this.lblCheckConnection.AutoSize = true;
-            this.lblCheckConnection.Location = new System.Drawing.Point(317, 240);
+            this.lblCheckConnection.Location = new System.Drawing.Point(12, 9);
             this.lblCheckConnection.Name = "lblCheckConnection";
             this.lblCheckConnection.Size = new System.Drawing.Size(0, 13);
             this.lblCheckConnection.TabIndex = 5;
@@ -93,9 +96,9 @@
             this.ClientSize = new System.Drawing.Size(703, 303);
             this.Controls.Add(this.lblCheckConnection);
             this.Controls.Add(this.lblPass);
-            this.Controls.Add(this.lblLogin);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lblUserName);
+            this.Controls.Add(this.textBPass);
+            this.Controls.Add(this.textBUserName);
             this.Controls.Add(this.buttonLogin);
             this.Name = "Authorization";
             this.Text = "Authorization";
@@ -108,9 +111,9 @@
         #endregion
 
         private System.Windows.Forms.Button buttonLogin;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label lblLogin;
+        private System.Windows.Forms.TextBox textBUserName;
+        private System.Windows.Forms.TextBox textBPass;
+        private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Label lblPass;
         private System.Windows.Forms.Label lblCheckConnection;
     }
