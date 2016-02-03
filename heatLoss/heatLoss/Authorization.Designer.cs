@@ -70,7 +70,7 @@
             this.lblUserName.Size = new System.Drawing.Size(48, 20);
             this.lblUserName.TabIndex = 3;
             this.lblUserName.Text = "Имя :";
-            this.lblUserName.Click += new System.EventHandler(this.lblLogin_Click);
+          
             // 
             // lblPass
             // 
