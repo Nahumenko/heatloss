@@ -133,6 +133,7 @@
             this.войтиToolStripMenuItem.Name = "войтиToolStripMenuItem";
             this.войтиToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.войтиToolStripMenuItem.Text = "Войти";
+            this.войтиToolStripMenuItem.Click += new System.EventHandler(this.войтиToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem
             // 

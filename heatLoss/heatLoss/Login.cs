@@ -25,8 +25,18 @@ namespace heatLoss
 
         private void Authorization_Load(object sender, EventArgs e)
         {
-            OleDbConnection conection = new OleDbConnection();
-            conection.ConnectionString = @"";
+            try
+            {
+                OleDbConnection conection = new OleDbConnection();
+                conection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\BD01.02.2016.mdb";
+                conection.Open();
+                lblCheckConnection.Text = "conection successful";
+                conection.Close();
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Erorr   " + ex);
+            }
+
 
         }
     }
