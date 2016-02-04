@@ -5,7 +5,7 @@
         /// <summary>
         /// Обязательная переменная конструктора.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        public System.ComponentModel.IContainer components = null; //должен быть приват
 
         /// <summary>
         /// Освободить все используемые ресурсы.
@@ -49,6 +49,7 @@
             this.примерыРаботыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.обАвторахToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.редактированиеСправочныхТаблицToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,6 +77,7 @@
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.файлToolStripMenuItem.Text = "Файл";
+            this.файлToolStripMenuItem.Visible = false;
             // 
             // создатьToolStripMenuItem
             // 
@@ -123,7 +125,8 @@
             // сервисToolStripMenuItem
             // 
             this.сервисToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.войтиToolStripMenuItem});
+            this.войтиToolStripMenuItem,
+            this.редактированиеСправочныхТаблицToolStripMenuItem});
             this.сервисToolStripMenuItem.Name = "сервисToolStripMenuItem";
             this.сервисToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.сервисToolStripMenuItem.Text = "Сервис";
@@ -131,8 +134,9 @@
             // войтиToolStripMenuItem
             // 
             this.войтиToolStripMenuItem.Name = "войтиToolStripMenuItem";
-            this.войтиToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.войтиToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
             this.войтиToolStripMenuItem.Text = "Войти";
+            this.войтиToolStripMenuItem.Click += new System.EventHandler(this.войтиToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem
             // 
@@ -207,16 +211,26 @@
             this.обАвторахToolStripMenuItem.Name = "обАвторахToolStripMenuItem";
             this.обАвторахToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.обАвторахToolStripMenuItem.Text = "Об авторах";
+            this.обАвторахToolStripMenuItem.Click += new System.EventHandler(this.обАвторахToolStripMenuItem_Click);
+            // 
+            // редактированиеСправочныхТаблицToolStripMenuItem
+            // 
+            this.редактированиеСправочныхТаблицToolStripMenuItem.Name = "редактированиеСправочныхТаблицToolStripMenuItem";
+            this.редактированиеСправочныхТаблицToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
+            this.редактированиеСправочныхТаблицToolStripMenuItem.Text = "Редактирование справочных таблиц";
+            this.редактированиеСправочныхТаблицToolStripMenuItem.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(671, 340);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Main";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -226,8 +240,8 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
+        public System.Windows.Forms.MenuStrip menuStrip1;
+        public System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem; //изменил с привата на паблик для доступа к элементу из любой формы
         private System.Windows.Forms.ToolStripMenuItem создатьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem расчётToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
@@ -236,7 +250,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem последниеПроектыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сервисToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem войтиToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem войтиToolStripMenuItem; //изменил с привата на паблик для доступа к элементу из любой формы
         private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem просмотрСправкиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отправитьОтзывToolStripMenuItem;
@@ -247,6 +261,7 @@
         private System.Windows.Forms.ToolStripMenuItem примерыРаботыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem обАвторахToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem редактированиеСправочныхТаблицToolStripMenuItem; //изменил с привата на паблик для доступа к элементу из любой формы
     }
 }
 

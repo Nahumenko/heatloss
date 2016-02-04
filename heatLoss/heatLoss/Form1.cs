@@ -37,5 +37,28 @@ namespace heatLoss
         {
             System.Diagnostics.Process.Start("https://docs.google.com/forms/d/19d-rJdhVJezor4cf6tUDdQU5WJesmW7kTAM-NeCcshI/viewform?usp=send_form");
         }
+
+        private void обАвторахToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void войтиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //  Authorization authorization = new Authorization();
+            //  authorization.Show();
+            // authorization.ShowDialog(); //открывает окно модально
+
+            Authorization authorization = new Authorization();
+            authorization.Owner = this;
+            authorization.ShowDialog();
+
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
