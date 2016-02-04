@@ -5,7 +5,7 @@
         /// <summary>
         /// Обязательная переменная конструктора.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        public System.ComponentModel.IContainer components = null; //должен быть приват
 
         /// <summary>
         /// Освободить все используемые ресурсы.
@@ -240,8 +240,8 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
+        public System.Windows.Forms.MenuStrip menuStrip1;
+        public System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem; //изменил с привата на паблик для доступа к элементу из любой формы
         private System.Windows.Forms.ToolStripMenuItem создатьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem расчётToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
@@ -250,7 +250,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem последниеПроектыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сервисToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem войтиToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem войтиToolStripMenuItem; //изменил с привата на паблик для доступа к элементу из любой формы
         private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem просмотрСправкиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отправитьОтзывToolStripMenuItem;
@@ -261,7 +261,7 @@
         private System.Windows.Forms.ToolStripMenuItem примерыРаботыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem обАвторахToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem редактированиеСправочныхТаблицToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem редактированиеСправочныхТаблицToolStripMenuItem; //изменил с привата на паблик для доступа к элементу из любой формы
     }
 }
 

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using static System.Windows.Forms.MenuStrip;
+using static System.Windows.Forms.ToolStripMenuItem;
 
 namespace heatLoss
 {
@@ -44,6 +46,7 @@ namespace heatLoss
             command.CommandText = "select * from users where Login='" + textBUserName.Text + "' and password='" + textBPass.Text + "'";
 
             OleDbDataReader reder = command.ExecuteReader();
+            Form1 main = this.Owner as Form1; //обращение к форме1 как к main, через текущую форму как this
             int count = 0;
             while (reder.Read())
             {
@@ -54,9 +57,13 @@ namespace heatLoss
                 switch (count)
                 {
                     case 1:
-                        MessageBox.Show("Логин и пароль верны!");
-                        this.Close();
-                       
+                        
+                            MessageBox.Show("Логин и пароль верны!");
+                            main.редактированиеСправочныхТаблицToolStripMenuItem.Visible = true;                    
+                            main.файлToolStripMenuItem.Visible = true;
+                            main.войтиToolStripMenuItem.Visible = false;
+                            this.Close();
+                        
 
 
                         break;
