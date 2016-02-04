@@ -70,6 +70,36 @@
     <Compile Include="EditorReferenceTables.Designer.cs">
       <DependentUpon>EditorReferenceTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="TempRegion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TempRegion.Designer.cs">
+      <DependentUpon>TempRegion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutsideDiameter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OutsideDiameter.Designer.cs">
+      <DependentUpon>OutsideDiameter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NominalDiameter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NominalDiameter.Designer.cs">
+      <DependentUpon>NominalDiameter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysWaterVolume.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SysWaterVolume.Designer.cs">
+      <DependentUpon>SysWaterVolume.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Heatloss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Heatloss.Designer.cs">
+      <DependentUpon>Heatloss.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_BD01_02_2016DataSet.Designer.cs">
@@ -88,6 +118,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditorReferenceTables.resx">
       <DependentUpon>EditorReferenceTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Heatloss.resx">
+      <DependentUpon>Heatloss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysWaterVolume.resx">
+      <DependentUpon>SysWaterVolume.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NominalDiameter.resx">
+      <DependentUpon>NominalDiameter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutsideDiameter.resx">
+      <DependentUpon>OutsideDiameter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TempRegion.resx">
+      <DependentUpon>TempRegion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
