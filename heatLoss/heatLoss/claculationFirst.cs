@@ -13,11 +13,17 @@ namespace heatLoss
         double t2_crG;      //из проектного температурного графика, градус Цельсия
         double taoGr_crG;   //среднегодовая температура грунта согласно ТАБЛИЦЫ КОТОРУЮ НУЖНО ДАБОАВИТЬ, Цельсий
         double depth;       //Примечание. Если глубина 0,7 и менее тогда вместо тао грунта берёться тао воздуха но только для
-                            //СНиП 2.04.14-88 «Тепловая изоляция оборудования и трубопроводов»
-        double deltaT1_podz;// подача одиночная подземная прокладка
-        double deltaT2_podz;// обратка одиночная подземная прокладка
-        double deltaT1_vozd;// подача воздушка
-        double deltaT2_vozd;// обратка воздушка
+                            //СНиП 2.04.14-88 «Тепловая изоляция оборудования и трубопроводов», метры
+        double deltaT1_podz;// подача одиночная подземная прокладка температкрный напор, цельсий
+        double deltaT2_podz;// обратка одиночная подземная прокладка температкрный напор, цельсий
+        double deltaT1_vozd;// подача воздушка температкрный напор, цельсий
+        double deltaT2_vozd;// обратка воздушка температкрный напор, цельсий
+        double taoV_crG;    // среднегодова температура воздуха всё их ТОЙ ЖЕ ТАБЛИЦЫ, цельсий
+        double deltaT1_pom;  // температурный напор для подачи при прокладки в помещении или тех подвале ,цельсий
+        double deltaT2_pom;  // температурный напор для обратки при прокладки в помещении или тех подвале ,цельсий
+        double deltaT1_tunel;// температурный напор для обратки при прокладки в проходном канале или тоннеле ,цельсий 
+        double deltaT2_tunel;// температурный напор для обратки при прокладки в проходном канале или тоннеле ,цельсий
+
 
 
 
@@ -43,13 +49,29 @@ namespace heatLoss
 
         //5,44 пропустил там голая выборка
 
-
+        // надземная прокладка
         public double onePipeAir(Direction direction, double t1_crG, double t2_crG, double taoGr_crG)
         {
             if (direction == Direction.FLOW)
-                return deltaT1_podz = t1_crG - taoGr_crG;            //для подачи
-            else return deltaT2_podz = t2_crG - taoGr_crG;           //для обратки
+                return deltaT1_vozd = t1_crG - taoV_crG;            //для подачи
+            else return deltaT2_vozd = t2_crG - taoV_crG;           //для обратки
         }
 
+        //для трубопроводов расположенных в помещении (техническом подполье) или тоннеле (проходном канале)
+
+        public double onePipeHouse(Direction direction, double t1_crG, double t2_crG)
+        {
+            if (direction == Direction.FLOW)
+                return deltaT1_pom = t1_crG - 15;            //для подачи
+            else return deltaT2_pom = t2_crG - 15;           //для обратки
+        }
+
+        //для трубопроводов расположенных в канале туннеле
+        public double onePipeTunnel(Direction direction, double t1_crG, double t2_crG)
+        {
+            if (direction == Direction.FLOW)
+                return deltaT1_tunel = t1_crG - 40;            //для подачи
+            else return deltaT2_tunel = t2_crG - 40;           //для обратки
+        }
     }
 }
