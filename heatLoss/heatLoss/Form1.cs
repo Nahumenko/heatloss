@@ -52,6 +52,7 @@ namespace heatLoss
             Authorization authorization = new Authorization();
             authorization.Owner = this;
             authorization.ShowDialog();
+            Math.
 
 
         }

@@ -56,7 +56,7 @@ namespace heatLoss
                 return deltaT1_vozd = t1_crG - taoV_crG;            //для подачи
             else return deltaT2_vozd = t2_crG - taoV_crG;           //для обратки
         }
-
+        //Спросить у ВНА о константах 15,40 нужно ли их изменение
         //для трубопроводов расположенных в помещении (техническом подполье) или тоннеле (проходном канале)
 
         public double onePipeHouse(Direction direction, double t1_crG, double t2_crG)
@@ -73,5 +73,6 @@ namespace heatLoss
                 return deltaT1_tunel = t1_crG - 40;            //для подачи
             else return deltaT2_tunel = t2_crG - 40;           //для обратки
         }
+        
     }
 }
