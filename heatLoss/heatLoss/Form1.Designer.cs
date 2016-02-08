@@ -143,7 +143,6 @@
             this.редактированиеСправочныхТаблицToolStripMenuItem.Name = "редактированиеСправочныхТаблицToolStripMenuItem";
             this.редактированиеСправочныхТаблицToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
             this.редактированиеСправочныхТаблицToolStripMenuItem.Text = "Редактирование справочных таблиц";
-            this.редактированиеСправочныхТаблицToolStripMenuItem.Visible = false;
             this.редактированиеСправочныхТаблицToolStripMenuItem.Click += new System.EventHandler(this.редактированиеСправочныхТаблицToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem
