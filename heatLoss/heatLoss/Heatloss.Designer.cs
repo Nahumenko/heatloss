@@ -30,26 +30,25 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.outsideDiameterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._BD01_02_2016DataSet = new heatLoss._BD01_02_2016DataSet();
+            this.deltaTBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.heatDissipationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.methodOfLayingstandardHeatLossBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.methodOfLayingBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.standardHeatLossBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.standardHeatLossTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.standardHeatLossTableAdapter();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.сохранитьИзмененияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pipelineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pipelineTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.pipelineTableAdapter();
-            this.outsideDiameterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.outsideDiameterTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.outsideDiameterTableAdapter();
-            this.deltaTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.deltaTTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.deltaTTableAdapter();
-            this.heatDissipationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.heatDissipationTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.heatDissipationTableAdapter();
             this.methodOfLayingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.methodOfLayingTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.methodOfLayingTableAdapter();
             this.insulationTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.insulationTypeTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.insulationTypeTableAdapter();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.methodOfLayingBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.methodOfLayingstandardHeatLossBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.keyStandardHeatLossDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codePipelineSortDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeOutsideDiameterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -68,18 +67,18 @@
             this.kt2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kt3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeInsulationTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.standardHeatLossBindingSource)).BeginInit();
-            this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pipelineBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.outsideDiameterBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deltaTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.heatDissipationBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.methodOfLayingstandardHeatLossBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.methodOfLayingBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.standardHeatLossBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipelineBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.methodOfLayingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.insulationTypeBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.methodOfLayingBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.methodOfLayingstandardHeatLossBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -115,10 +114,35 @@
             this.dataGridView1.Size = new System.Drawing.Size(921, 474);
             this.dataGridView1.TabIndex = 0;
             // 
+            // outsideDiameterBindingSource
+            // 
+            this.outsideDiameterBindingSource.DataMember = "outsideDiameter";
+            this.outsideDiameterBindingSource.DataSource = this._BD01_02_2016DataSet;
+            // 
             // _BD01_02_2016DataSet
             // 
             this._BD01_02_2016DataSet.DataSetName = "_BD01_02_2016DataSet";
             this._BD01_02_2016DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // deltaTBindingSource
+            // 
+            this.deltaTBindingSource.DataMember = "deltaT";
+            this.deltaTBindingSource.DataSource = this._BD01_02_2016DataSet;
+            // 
+            // heatDissipationBindingSource
+            // 
+            this.heatDissipationBindingSource.DataMember = "heatDissipation";
+            this.heatDissipationBindingSource.DataSource = this._BD01_02_2016DataSet;
+            // 
+            // methodOfLayingstandardHeatLossBindingSource
+            // 
+            this.methodOfLayingstandardHeatLossBindingSource.DataMember = "methodOfLayingstandardHeatLoss";
+            this.methodOfLayingstandardHeatLossBindingSource.DataSource = this.methodOfLayingBindingSource1;
+            // 
+            // methodOfLayingBindingSource1
+            // 
+            this.methodOfLayingBindingSource1.DataMember = "methodOfLaying";
+            this.methodOfLayingBindingSource1.DataSource = this._BD01_02_2016DataSet;
             // 
             // standardHeatLossBindingSource
             // 
@@ -131,20 +155,11 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.сохранитьИзмененияToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(925, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // сохранитьИзмененияToolStripMenuItem
-            // 
-            this.сохранитьИзмененияToolStripMenuItem.Name = "сохранитьИзмененияToolStripMenuItem";
-            this.сохранитьИзмененияToolStripMenuItem.Size = new System.Drawing.Size(140, 20);
-            this.сохранитьИзмененияToolStripMenuItem.Text = "Сохранить изменения";
-            this.сохранитьИзмененияToolStripMenuItem.Click += new System.EventHandler(this.сохранитьИзмененияToolStripMenuItem_Click);
             // 
             // pipelineBindingSource
             // 
@@ -155,28 +170,13 @@
             // 
             this.pipelineTableAdapter.ClearBeforeFill = true;
             // 
-            // outsideDiameterBindingSource
-            // 
-            this.outsideDiameterBindingSource.DataMember = "outsideDiameter";
-            this.outsideDiameterBindingSource.DataSource = this._BD01_02_2016DataSet;
-            // 
             // outsideDiameterTableAdapter
             // 
             this.outsideDiameterTableAdapter.ClearBeforeFill = true;
             // 
-            // deltaTBindingSource
-            // 
-            this.deltaTBindingSource.DataMember = "deltaT";
-            this.deltaTBindingSource.DataSource = this._BD01_02_2016DataSet;
-            // 
             // deltaTTableAdapter
             // 
             this.deltaTTableAdapter.ClearBeforeFill = true;
-            // 
-            // heatDissipationBindingSource
-            // 
-            this.heatDissipationBindingSource.DataMember = "heatDissipation";
-            this.heatDissipationBindingSource.DataSource = this._BD01_02_2016DataSet;
             // 
             // heatDissipationTableAdapter
             // 
@@ -207,21 +207,11 @@
             this.comboBox1.DataSource = this.methodOfLayingBindingSource1;
             this.comboBox1.DisplayMember = "methodOflayingSortPipeLine";
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(175, 2);
+            this.comboBox1.Location = new System.Drawing.Point(0, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(746, 21);
+            this.comboBox1.Size = new System.Drawing.Size(584, 21);
             this.comboBox1.TabIndex = 2;
             this.comboBox1.ValueMember = "keyMethodOfLaying";
-            // 
-            // methodOfLayingBindingSource1
-            // 
-            this.methodOfLayingBindingSource1.DataMember = "methodOfLaying";
-            this.methodOfLayingBindingSource1.DataSource = this._BD01_02_2016DataSet;
-            // 
-            // methodOfLayingstandardHeatLossBindingSource
-            // 
-            this.methodOfLayingstandardHeatLossBindingSource.DataMember = "methodOfLayingstandardHeatLoss";
-            this.methodOfLayingstandardHeatLossBindingSource.DataSource = this.methodOfLayingBindingSource1;
             // 
             // keyStandardHeatLossDataGridViewTextBoxColumn
             // 
@@ -239,69 +229,84 @@
             // 
             // codeOutsideDiameterDataGridViewTextBoxColumn
             // 
+            this.codeOutsideDiameterDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.codeOutsideDiameterDataGridViewTextBoxColumn.DataPropertyName = "CodeOutsideDiameter";
             this.codeOutsideDiameterDataGridViewTextBoxColumn.DataSource = this.outsideDiameterBindingSource;
             this.codeOutsideDiameterDataGridViewTextBoxColumn.DisplayMember = "nameOutsideDiameter";
             this.codeOutsideDiameterDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.codeOutsideDiameterDataGridViewTextBoxColumn.FillWeight = 50F;
             this.codeOutsideDiameterDataGridViewTextBoxColumn.HeaderText = "Dнаруж";
+            this.codeOutsideDiameterDataGridViewTextBoxColumn.MinimumWidth = 20;
             this.codeOutsideDiameterDataGridViewTextBoxColumn.Name = "codeOutsideDiameterDataGridViewTextBoxColumn";
             this.codeOutsideDiameterDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.codeOutsideDiameterDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.codeOutsideDiameterDataGridViewTextBoxColumn.ValueMember = "keyOutsideDiameter";
+            this.codeOutsideDiameterDataGridViewTextBoxColumn.Width = 71;
             // 
             // codeDeltaTDataGridViewTextBoxColumn
             // 
+            this.codeDeltaTDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.codeDeltaTDataGridViewTextBoxColumn.DataPropertyName = "codeDeltaT";
             this.codeDeltaTDataGridViewTextBoxColumn.DataSource = this.deltaTBindingSource;
             this.codeDeltaTDataGridViewTextBoxColumn.DisplayMember = "valueDeltaT";
             this.codeDeltaTDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.codeDeltaTDataGridViewTextBoxColumn.FillWeight = 189.4798F;
             this.codeDeltaTDataGridViewTextBoxColumn.HeaderText = "dT";
             this.codeDeltaTDataGridViewTextBoxColumn.Name = "codeDeltaTDataGridViewTextBoxColumn";
             this.codeDeltaTDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.codeDeltaTDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.codeDeltaTDataGridViewTextBoxColumn.ValueMember = "keyDeltaT";
+            this.codeDeltaTDataGridViewTextBoxColumn.Width = 45;
             // 
             // valueOfHeatlossMVTDataGridViewTextBoxColumn
             // 
             this.valueOfHeatlossMVTDataGridViewTextBoxColumn.DataPropertyName = "ValueOfHeatlossMVT";
+            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.FillWeight = 33.92268F;
             this.valueOfHeatlossMVTDataGridViewTextBoxColumn.HeaderText = "Вт/м";
             this.valueOfHeatlossMVTDataGridViewTextBoxColumn.Name = "valueOfHeatlossMVTDataGridViewTextBoxColumn";
             // 
             // valueOfHeatlossKALDataGridViewTextBoxColumn
             // 
             this.valueOfHeatlossKALDataGridViewTextBoxColumn.DataPropertyName = "ValueOfHeatlossKAL";
+            this.valueOfHeatlossKALDataGridViewTextBoxColumn.FillWeight = 33.92268F;
             this.valueOfHeatlossKALDataGridViewTextBoxColumn.HeaderText = "ккал/м*ч";
             this.valueOfHeatlossKALDataGridViewTextBoxColumn.Name = "valueOfHeatlossKALDataGridViewTextBoxColumn";
             // 
             // startupDataGridViewCheckBoxColumn
             // 
             this.startupDataGridViewCheckBoxColumn.DataPropertyName = "startup";
+            this.startupDataGridViewCheckBoxColumn.FillWeight = 33.92268F;
             this.startupDataGridViewCheckBoxColumn.HeaderText = "Год?";
             this.startupDataGridViewCheckBoxColumn.Name = "startupDataGridViewCheckBoxColumn";
             // 
             // nhwINyearDataGridViewCheckBoxColumn
             // 
             this.nhwINyearDataGridViewCheckBoxColumn.DataPropertyName = "nhwINyear";
+            this.nhwINyearDataGridViewCheckBoxColumn.FillWeight = 33.92268F;
             this.nhwINyearDataGridViewCheckBoxColumn.HeaderText = "Часов?";
             this.nhwINyearDataGridViewCheckBoxColumn.Name = "nhwINyearDataGridViewCheckBoxColumn";
             // 
             // superPositionDataGridViewCheckBoxColumn
             // 
             this.superPositionDataGridViewCheckBoxColumn.DataPropertyName = "superPosition";
+            this.superPositionDataGridViewCheckBoxColumn.FillWeight = 33.92268F;
             this.superPositionDataGridViewCheckBoxColumn.HeaderText = "СП?";
             this.superPositionDataGridViewCheckBoxColumn.Name = "superPositionDataGridViewCheckBoxColumn";
             // 
             // codeHeatDissipationSortDataGridViewTextBoxColumn
             // 
+            this.codeHeatDissipationSortDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.codeHeatDissipationSortDataGridViewTextBoxColumn.DataPropertyName = "codeHeatDissipationSort";
             this.codeHeatDissipationSortDataGridViewTextBoxColumn.DataSource = this.heatDissipationBindingSource;
             this.codeHeatDissipationSortDataGridViewTextBoxColumn.DisplayMember = "heatDissipationSort";
             this.codeHeatDissipationSortDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.codeHeatDissipationSortDataGridViewTextBoxColumn.FillWeight = 390.9069F;
             this.codeHeatDissipationSortDataGridViewTextBoxColumn.HeaderText = "Потери";
             this.codeHeatDissipationSortDataGridViewTextBoxColumn.Name = "codeHeatDissipationSortDataGridViewTextBoxColumn";
             this.codeHeatDissipationSortDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.codeHeatDissipationSortDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.codeHeatDissipationSortDataGridViewTextBoxColumn.ValueMember = "keyHeatDissipation";
+            this.codeHeatDissipationSortDataGridViewTextBoxColumn.Width = 69;
             // 
             // codeMethodOfLayingDataGridViewTextBoxColumn
             // 
@@ -313,36 +318,42 @@
             // assessedValueDataGridViewCheckBoxColumn
             // 
             this.assessedValueDataGridViewCheckBoxColumn.DataPropertyName = "assessedValue";
+            this.assessedValueDataGridViewCheckBoxColumn.FillWeight = 33.92268F;
             this.assessedValueDataGridViewCheckBoxColumn.HeaderText = "Оценочное?";
             this.assessedValueDataGridViewCheckBoxColumn.Name = "assessedValueDataGridViewCheckBoxColumn";
             // 
             // extrapolationDataGridViewCheckBoxColumn
             // 
             this.extrapolationDataGridViewCheckBoxColumn.DataPropertyName = "extrapolation";
+            this.extrapolationDataGridViewCheckBoxColumn.FillWeight = 33.92268F;
             this.extrapolationDataGridViewCheckBoxColumn.HeaderText = "Экстраполяция?";
             this.extrapolationDataGridViewCheckBoxColumn.Name = "extrapolationDataGridViewCheckBoxColumn";
             // 
             // influenccePipelineINcanalDataGridViewCheckBoxColumn
             // 
             this.influenccePipelineINcanalDataGridViewCheckBoxColumn.DataPropertyName = "influenccePipelineINcanal";
+            this.influenccePipelineINcanalDataGridViewCheckBoxColumn.FillWeight = 33.92268F;
             this.influenccePipelineINcanalDataGridViewCheckBoxColumn.HeaderText = "Влияние?";
             this.influenccePipelineINcanalDataGridViewCheckBoxColumn.Name = "influenccePipelineINcanalDataGridViewCheckBoxColumn";
             // 
             // kt1DataGridViewTextBoxColumn
             // 
             this.kt1DataGridViewTextBoxColumn.DataPropertyName = "Kt1";
+            this.kt1DataGridViewTextBoxColumn.FillWeight = 33.92268F;
             this.kt1DataGridViewTextBoxColumn.HeaderText = "Kt1";
             this.kt1DataGridViewTextBoxColumn.Name = "kt1DataGridViewTextBoxColumn";
             // 
             // kt2DataGridViewTextBoxColumn
             // 
             this.kt2DataGridViewTextBoxColumn.DataPropertyName = "Kt2";
+            this.kt2DataGridViewTextBoxColumn.FillWeight = 33.92268F;
             this.kt2DataGridViewTextBoxColumn.HeaderText = "Kt2";
             this.kt2DataGridViewTextBoxColumn.Name = "kt2DataGridViewTextBoxColumn";
             // 
             // kt3DataGridViewTextBoxColumn
             // 
             this.kt3DataGridViewTextBoxColumn.DataPropertyName = "Kt3";
+            this.kt3DataGridViewTextBoxColumn.FillWeight = 33.92268F;
             this.kt3DataGridViewTextBoxColumn.HeaderText = "Kt3";
             this.kt3DataGridViewTextBoxColumn.Name = "kt3DataGridViewTextBoxColumn";
             // 
@@ -353,11 +364,23 @@
             this.codeInsulationTypeDataGridViewTextBoxColumn.Name = "codeInsulationTypeDataGridViewTextBoxColumn";
             this.codeInsulationTypeDataGridViewTextBoxColumn.Visible = false;
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(756, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(165, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Сохранить изменение БД";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Heatloss
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(925, 517);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
@@ -366,18 +389,16 @@
             this.Text = "Теплопотери";
             this.Load += new System.EventHandler(this.Heatloss_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.standardHeatLossBindingSource)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pipelineBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.outsideDiameterBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deltaTBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.heatDissipationBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.methodOfLayingstandardHeatLossBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.methodOfLayingBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.standardHeatLossBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipelineBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.methodOfLayingBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.insulationTypeBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.methodOfLayingBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.methodOfLayingstandardHeatLossBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -390,7 +411,6 @@
         private System.Windows.Forms.BindingSource standardHeatLossBindingSource;
         private _BD01_02_2016DataSetTableAdapters.standardHeatLossTableAdapter standardHeatLossTableAdapter;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem сохранитьИзмененияToolStripMenuItem;
         private System.Windows.Forms.BindingSource pipelineBindingSource;
         private _BD01_02_2016DataSetTableAdapters.pipelineTableAdapter pipelineTableAdapter;
         private System.Windows.Forms.BindingSource outsideDiameterBindingSource;
@@ -424,5 +444,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn kt2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kt3DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeInsulationTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button1;
     }
 }
