@@ -38,7 +38,6 @@ namespace heatLoss
 
         private void сохранитьИзмененияToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //this.standardHeatLossTableAdapter.Update(this._BD01_02_2016DataSet);
             this.standardHeatLossTableAdapter.Update(this._BD01_02_2016DataSet.standardHeatLoss);
             //MessageBox.Show("Проверка работы кнопки","Проверка");
         }
