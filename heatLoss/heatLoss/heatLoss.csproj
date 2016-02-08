@@ -58,6 +58,7 @@
     <Compile Include="CalcNormLossThroughIsolation.Designer.cs">
       <DependentUpon>CalcNormLossThroughIsolation.cs</DependentUpon>
     </Compile>
+    <Compile Include="claculationFirst.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
