@@ -59,7 +59,9 @@ namespace heatLoss
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            linterp lini = new linterp();
+            MessageBox.Show("проверка интерполяции=   "+ lini.lint(6, 8, 10, 97, 0, 50, 1));
+            ;
         }
     }
 }

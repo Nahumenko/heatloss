@@ -22,7 +22,7 @@ namespace heatLoss
                 switch (sought) // счетчик какую переменную считать
                 {
                     case 0:
-                        return y0 = (y1 * ((x2 - x0) / (x1 - x0)) - y2) / (((x2 - x0) / (x1 - x0)) + 1); 
+                        return y0 = (y1*(x0- x2)+y2*(x1-x0))/(x1- x2); 
                         break;
                     case 1:
                         return y1 = y0 + (x1 - x0) / (x2 - x0) * (y2 - y0);
