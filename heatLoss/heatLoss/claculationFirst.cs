@@ -29,6 +29,21 @@ namespace heatLoss
         double q1nf_nadz;   //персчёт надземные подача
         double q1n_nadz;    //табличные надземные подача
         double q2n_nadz;    //табличные надземные обратка
+        double Beta;        //коэффициент местных тепловых потерь i-го участка теплосети
+        double L;           //длина участка, метры
+        double qni;         //ранее полученные пароксимированные потери;
+        double Qn_crG;             // потери средне годовые
+        double Q1n_crG;             // потери средне годовые подача
+        double Q2n_crG;             // потери средне годовые обратка
+        double qbi;                  // для ТП принемаемых на баланс
+        double Zbi;             // Чичсло часов в расматриваемом периоде
+        double Qnb_crG;         // понятно да
+        double Z_per;           //часы периода
+        double Zotkl;           //часы отключения
+        double QnOtkl_crG;      // потери отключения
+        double qotkl;
+
+
 
 
 
@@ -113,6 +128,42 @@ namespace heatLoss
         }
 
         //Расчет нормативных среднегодовых потерь 
+        //Для водяной тепловой сети значения часовых среднегодовых нормативных тепло-вых потерь
+        //для участков подземной двухтрубной прокладки
+       public double LossTwoTubesUnderground(double qni, double Beta, double L)
+        {
+            return Qn_crG = qni * L * Beta;
+        }
 
+
+        //для участков надземной прокладки, прокладки в помещениях (технических подпо-льях), 
+        //в тоннелях (проходных каналах), а также отдельно уложенных трубопрово-дов подземной прокладки
+        //Написал два одинаковых метода, потом выщемими
+        public double LossOnePipe(double qni, double Beta, double L,Direction direction)
+        {
+            if (direction == Direction.FLOW)
+            {
+                return Q1n_crG = qni * L * Beta;
+            }
+            else
+            {
+                return Q2n_crG = qni * L * Beta;
+            }
+        }
+
+        //Для трубопроводов принимаемых на баланс в течение расчетного периода  норма-тивные часовые значения 
+        //среднегодовых тепловых потерь определяются раздельно по каждому виду прокладки с предполагаемым числом 
+        //часов их работы в расчет-ный период 
+        public double LossPipeBalans(double qbi, double Zbi, double Qnb_crG, double Z_per)
+        {
+            return Qnb_crG = qbi * Beta * L * Zbi / Z_per;
+        }
+
+        //Для трубопроводов, отключаемых в течении расчетного периода, нормативные ча-совые значения среднегодовых потерь
+        //определяются раздельно по каждому виду прокладки с предполагаемым числом часов отключения
+        public double lossPipeOff(double qotkl, double Zotkl, double Qnb_crG, double Z_per)
+        {
+           return QnOtkl_crG = qotkl * Beta * L * Zotkl / Z_per;
+        }
     }
 }
