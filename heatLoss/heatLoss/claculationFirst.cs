@@ -25,6 +25,12 @@ namespace heatLoss
         double deltaT2_tunel;// температурный напор для обратки при прокладки в проходном канале или тоннеле ,цельсий
         double qnf_crG;      // значение для подземной прокоадки на непроектный режим режим работы 
         double qn_crG;       // значения интерполированые из таблицы
+        double q2nf_nadz;    //персчёт надземные обратка
+        double q1nf_nadz;   //персчёт надземные подача
+        double q1n_nadz;    //табличные надземные подача
+        double q2n_nadz;    //табличные надземные обратка
+
+
 
 
 
@@ -88,11 +94,25 @@ namespace heatLoss
             return qnf_crG = qn_crG * (t1_crG - taoGr_crG) / (0.5 * (t1_crG + t2_crG) - taoGr_crG);//подача 
             else
             {
-                return qnf_crG = qn_crG * (t2_crG - taoGr_crG) / (0.5 * (t1_crG + t2_crG) - taoGr_crG);//обратка
+                return qnf_crG = qn_crG * (t2_crG - taoGr_crG) / (0.5 * (t1_crG + t2_crG) - taoGr_crG);
             }
 
         }
-        
+        //Спросить у ВНА, ЧТо за таоН
+        //надземная прокладка
+        public double onePipeAirChanged(double q1n_nadz, double t1_crG, double t2_crG, double taoV_crG, Direction direction)
+        {
+            if (direction == Direction.FLOW)
+            {
+                return q2nf_nadz = q1n_nadz * (t2_crG - taoV_crG) / (t1_crG - taoV_crG);
+            }
+            else
+            {
+                return q1nf_nadz = q2n_nadz * (t1_crG - taoV_crG) / (t2_crG - taoV_crG);
+            }
+        }
+
+        //Расчет нормативных среднегодовых потерь 
 
     }
 }
