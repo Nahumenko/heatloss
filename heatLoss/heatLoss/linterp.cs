@@ -15,29 +15,18 @@ namespace heatLoss
         double y1;
         double y2;
 
-        public double lint(double x0, double x1, double x2, double y0, double y1, double y2, int sought)
+        public double lint(double x0, double x1, double x2, double y0, double y1, double y2)
         {
             if (x0 < x1 && x1 < x2)
             {
-                switch (sought) // счетчик какую переменную считать
-                {
-                    case 0:
-                        return y0 = (y1*(x0- x2)+y2*(x1-x0))/(x1- x2); 
-                        break;
-                    case 1:
-                        return y1 = y0 + (x1 - x0) / (x2 - x0) * (y2 - y0);
-                        break;
-                    case 2:
-                        return y2 = y0 + (y1 - y0) * (x2 - x0) / (x1 - x0);
-
-                    default:
-                        return 666999123.0;
-                        break;
-                }
+                if (y0 == 0) { return y0 = (y1 * (x0 - x2) + y2 * (x1 - x0)) / (x1 - x2); }
+                if (y1 == 0) { return y1 = y0 + (x1 - x0) / (x2 - x0) * (y2 - y0); }
+                if (y2 == 0) { return y2 = y0 + (y1 - y0) * (x2 - x0) / (x1 - x0); }
+                else { return 666999; }
             }
             else
             {
-                return 666999123;
+                return 666999;
             }
         }
     }
