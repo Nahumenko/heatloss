@@ -23,6 +23,9 @@ namespace heatLoss
         double deltaT2_pom;  // температурный напор для обратки при прокладки в помещении или тех подвале ,цельсий
         double deltaT1_tunel;// температурный напор для обратки при прокладки в проходном канале или тоннеле ,цельсий 
         double deltaT2_tunel;// температурный напор для обратки при прокладки в проходном канале или тоннеле ,цельсий
+        double qnf_crG;      // значение для подземной прокоадки на непроектный режим режим работы 
+        double qn_crG;       // значения интерполированые из таблицы
+
 
 
 
@@ -73,6 +76,23 @@ namespace heatLoss
                 return deltaT1_tunel = t1_crG - 40;            //для подачи
             else return deltaT2_tunel = t2_crG - 40;           //для обратки
         }
+
+        //Производится пересчет нормативных значений, определенных в соответствии с 5.4.7.1, 
+        //на фактический среднегодовой режим работы участков теплосети по фор-мулам:
+
+        //подземная прокладка
+        //два трубопровода в режиме подающего трубопровода
+        public double twoTubesUndergroundChanged(double qn_crG, double t1_crG, double t2_crG, double taoGr_crG,Direction direction)
+        {
+            if(direction == Direction.FLOW)
+            return qnf_crG = qn_crG * (t1_crG - taoGr_crG) / (0.5 * (t1_crG + t2_crG) - taoGr_crG);//подача 
+            else
+            {
+                return qnf_crG = qn_crG * (t2_crG - taoGr_crG) / (0.5 * (t1_crG + t2_crG) - taoGr_crG);//обратка
+            }
+
+        }
         
+
     }
 }
