@@ -52,6 +52,7 @@ namespace heatLoss
             Authorization authorization = new Authorization();
             authorization.Owner = this;
             authorization.ShowDialog();
+      
 
 
         }
@@ -59,6 +60,14 @@ namespace heatLoss
         private void Form1_Load(object sender, EventArgs e)
         {
 
+           
+        }
+
+        private void редактированиеСправочныхТаблицToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditorReferenceTables editor_reference_tables = new EditorReferenceTables();
+            editor_reference_tables.Owner = this;
+            editor_reference_tables.ShowDialog();
         }
     }
 }
