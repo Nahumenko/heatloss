@@ -62,5 +62,12 @@ namespace heatLoss
 
            
         }
+
+        private void редактированиеСправочныхТаблицToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditorReferenceTables editor_reference_tables = new EditorReferenceTables();
+            editor_reference_tables.Owner = this;
+            editor_reference_tables.ShowDialog();
+        }
     }
 }
