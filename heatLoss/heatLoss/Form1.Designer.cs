@@ -39,6 +39,7 @@
             this.последниеПроектыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сервисToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.войтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.редактированиеСправочныхТаблицToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.просмотрСправкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отправитьОтзывToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,7 +50,6 @@
             this.примерыРаботыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.обАвторахToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.редактированиеСправочныхТаблицToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -138,6 +138,13 @@
             this.войтиToolStripMenuItem.Text = "Войти";
             this.войтиToolStripMenuItem.Click += new System.EventHandler(this.войтиToolStripMenuItem_Click);
             // 
+            // редактированиеСправочныхТаблицToolStripMenuItem
+            // 
+            this.редактированиеСправочныхТаблицToolStripMenuItem.Name = "редактированиеСправочныхТаблицToolStripMenuItem";
+            this.редактированиеСправочныхТаблицToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
+            this.редактированиеСправочныхТаблицToolStripMenuItem.Text = "Редактирование справочных таблиц";
+            this.редактированиеСправочныхТаблицToolStripMenuItem.Click += new System.EventHandler(this.редактированиеСправочныхТаблицToolStripMenuItem_Click);
+            // 
             // справкаToolStripMenuItem
             // 
             this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -213,13 +220,6 @@
             this.обАвторахToolStripMenuItem.Text = "Об авторах";
             this.обАвторахToolStripMenuItem.Click += new System.EventHandler(this.обАвторахToolStripMenuItem_Click);
             // 
-            // редактированиеСправочныхТаблицToolStripMenuItem
-            // 
-            this.редактированиеСправочныхТаблицToolStripMenuItem.Name = "редактированиеСправочныхТаблицToolStripMenuItem";
-            this.редактированиеСправочныхТаблицToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
-            this.редактированиеСправочныхТаблицToolStripMenuItem.Text = "Редактирование справочных таблиц";
-            this.редактированиеСправочныхТаблицToolStripMenuItem.Visible = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,7 +240,7 @@
 
         #endregion
 
-        public System.Windows.Forms.MenuStrip menuStrip1;
+        public System.Windows.Forms.MenuStrip menuStrip1; //изменил с привата на паблик для доступа к элементу из любой формы
         public System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem; //изменил с привата на паблик для доступа к элементу из любой формы
         private System.Windows.Forms.ToolStripMenuItem создатьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem расчётToolStripMenuItem;
