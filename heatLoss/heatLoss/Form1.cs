@@ -11,7 +11,9 @@ using System.Windows.Forms;
 namespace heatLoss
 {
     public partial class Form1 : Form
-    {   
+    {
+        fCalculation fcalc = new fCalculation();
+        
         
         public Form1()
         {
@@ -73,6 +75,11 @@ namespace heatLoss
         private void закрытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void расчётToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fcalc.ShowDialog();
         }
     }
 }

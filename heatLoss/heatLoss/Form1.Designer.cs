@@ -77,7 +77,6 @@
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.файлToolStripMenuItem.Text = "Файл";
-            this.файлToolStripMenuItem.Visible = false;
             // 
             // создатьToolStripMenuItem
             // 
@@ -90,8 +89,9 @@
             // расчётToolStripMenuItem
             // 
             this.расчётToolStripMenuItem.Name = "расчётToolStripMenuItem";
-            this.расчётToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.расчётToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.расчётToolStripMenuItem.Text = "Расчёт";
+            this.расчётToolStripMenuItem.Click += new System.EventHandler(this.расчётToolStripMenuItem_Click);
             // 
             // открытьToolStripMenuItem
             // 
@@ -144,6 +144,7 @@
             this.редактированиеСправочныхТаблицToolStripMenuItem.Name = "редактированиеСправочныхТаблицToolStripMenuItem";
             this.редактированиеСправочныхТаблицToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
             this.редактированиеСправочныхТаблицToolStripMenuItem.Text = "Редактирование справочных таблиц";
+            this.редактированиеСправочныхТаблицToolStripMenuItem.Visible = false;
             this.редактированиеСправочныхТаблицToolStripMenuItem.Click += new System.EventHandler(this.редактированиеСправочныхТаблицToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem
@@ -262,7 +263,7 @@
         private System.Windows.Forms.ToolStripMenuItem примерыРаботыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem обАвторахToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem редактированиеСправочныхТаблицToolStripMenuItem; //изменил с привата на паблик для доступа к элементу из любой формы
+        public System.Windows.Forms.ToolStripMenuItem редактированиеСправочныхТаблицToolStripMenuItem;
     }
 }
 

@@ -54,6 +54,18 @@
     </Compile>
     <Compile Include="claculationFirst.cs" />
     <Compile Include="Direction.cs" />
+    <Compile Include="fCalculation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fCalculation.Designer.cs">
+      <DependentUpon>fCalculation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fInitalData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fInitalData.Designer.cs">
+      <DependentUpon>fInitalData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +124,12 @@
     </Compile>
     <EmbeddedResource Include="AboutBox1.resx">
       <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fCalculation.resx">
+      <DependentUpon>fCalculation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fInitalData.resx">
+      <DependentUpon>fInitalData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
