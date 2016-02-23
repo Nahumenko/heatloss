@@ -50,6 +50,7 @@
             this.примерыРаботыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.обАвторахToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,7 +90,7 @@
             // расчётToolStripMenuItem
             // 
             this.расчётToolStripMenuItem.Name = "расчётToolStripMenuItem";
-            this.расчётToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.расчётToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.расчётToolStripMenuItem.Text = "Расчёт";
             this.расчётToolStripMenuItem.Click += new System.EventHandler(this.расчётToolStripMenuItem_Click);
             // 
@@ -222,12 +223,19 @@
             this.обАвторахToolStripMenuItem.Text = "Об авторах";
             this.обАвторахToolStripMenuItem.Click += new System.EventHandler(this.обАвторахToolStripMenuItem_Click);
             // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(489, 33);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(671, 340);
+            this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -264,6 +272,7 @@
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem обАвторахToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem редактированиеСправочныхТаблицToolStripMenuItem;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
     }
 }
 
