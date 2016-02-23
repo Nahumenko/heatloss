@@ -110,6 +110,7 @@
             this.закрытьToolStripMenuItem.Name = "закрытьToolStripMenuItem";
             this.закрытьToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.закрытьToolStripMenuItem.Text = "Выйти";
+            this.закрытьToolStripMenuItem.Click += new System.EventHandler(this.закрытьToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
