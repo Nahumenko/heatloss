@@ -20,6 +20,10 @@ namespace heatLoss
 
         private void fInitalData_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "_BD01_02_2016DataSet.season". При необходимости она может быть перемещена или удалена.
+            this.seasonTableAdapter.Fill(this._BD01_02_2016DataSet.season);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "_BD01_02_2016DataSet.temperature". При необходимости она может быть перемещена или удалена.
+            this.temperatureTableAdapter.Fill(this._BD01_02_2016DataSet.temperature);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "_BD01_02_2016DataSet.region". При необходимости она может быть перемещена или удалена.
             this.regionTableAdapter.Fill(this._BD01_02_2016DataSet.region);
 
@@ -33,6 +37,7 @@ namespace heatLoss
                 lblTo.Visible = true;
                 cbFrom.Visible = true;
                 cbTo.Visible = true;
+                //this.dgvTemptable.DataSource = this.temperatureTableAdapter.selectSeasonName(Convert.ToInt32(this.cbFrom.Text), Convert.ToInt32(this.cbTo.Text));
             }
             else
             {
@@ -53,6 +58,33 @@ namespace heatLoss
             this.Hide();
             // тут должен быть код который сохраняет данные в какой-то массив
             //и добавляет кнопку начала рапсчёта на форму  Fcalculation
+        }
+
+        private void selectSeasonNameToolStripButton_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void cbTo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void cbTo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.dgvTemptable.DataSource = this.temperatureTableAdapter.selectSeasonName(Convert.ToInt32(cbFrom.SelectedValue.ToString()), Convert.ToInt32(cbTo.SelectedValue.ToString()), Convert.ToInt32(comboBox1.SelectedValue.ToString()));
+        }
+
+        private void cbFrom_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.dgvTemptable.DataSource = this.temperatureTableAdapter.selectSeasonName(Convert.ToInt32(cbFrom.SelectedValue.ToString()), Convert.ToInt32(cbTo.SelectedValue.ToString()), Convert.ToInt32(comboBox1.SelectedValue.ToString()));
         }
     }
 }
