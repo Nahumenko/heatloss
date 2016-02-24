@@ -42,5 +42,17 @@ namespace heatLoss
                 cbTo.Visible = false;
             }
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            // тут должен быть код который сохраняет данные в какой-то массив
+            //и добавляет кнопку начала рапсчёта на форму  Fcalculation
+        }
     }
 }

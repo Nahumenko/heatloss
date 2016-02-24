@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.lblCitySelect = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this._BD01_02_2016DataSet = new heatLoss._BD01_02_2016DataSet();
             this.regionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._BD01_02_2016DataSet = new heatLoss._BD01_02_2016DataSet();
             this.regionTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.regionTableAdapter();
             this.cbBetweenHeating = new System.Windows.Forms.CheckBox();
             this.cbchoseMouth = new System.Windows.Forms.CheckBox();
@@ -43,8 +43,10 @@
             this.cbChangesTable = new System.Windows.Forms.CheckBox();
             this.dgvTemptable = new System.Windows.Forms.DataGridView();
             this.mouth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).BeginInit();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.regionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTemptable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,15 +70,15 @@
             this.comboBox1.TabIndex = 1;
             this.comboBox1.ValueMember = "keyRegion";
             // 
-            // _BD01_02_2016DataSet
-            // 
-            this._BD01_02_2016DataSet.DataSetName = "_BD01_02_2016DataSet";
-            this._BD01_02_2016DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // regionBindingSource
             // 
             this.regionBindingSource.DataMember = "region";
             this.regionBindingSource.DataSource = this._BD01_02_2016DataSet;
+            // 
+            // _BD01_02_2016DataSet
+            // 
+            this._BD01_02_2016DataSet.DataSetName = "_BD01_02_2016DataSet";
+            this._BD01_02_2016DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // regionTableAdapter
             // 
@@ -167,11 +169,33 @@
             this.mouth.HeaderText = "Месяц";
             this.mouth.Name = "mouth";
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(539, 569);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 10;
+            this.btnSave.Text = "сохранить";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(620, 569);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 11;
+            this.btnCancel.Text = "Отмена";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // fInitalData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 474);
+            this.ClientSize = new System.Drawing.Size(707, 604);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dgvTemptable);
             this.Controls.Add(this.cbChangesTable);
             this.Controls.Add(this.lblTo);
@@ -185,8 +209,8 @@
             this.Name = "fInitalData";
             this.Text = "fInitalData";
             this.Load += new System.EventHandler(this.fInitalData_Load);
-            ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.regionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTemptable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -209,5 +233,7 @@
         private System.Windows.Forms.CheckBox cbChangesTable;
         private System.Windows.Forms.DataGridView dgvTemptable;
         private System.Windows.Forms.DataGridViewTextBoxColumn mouth;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnCancel;
     }
 }
