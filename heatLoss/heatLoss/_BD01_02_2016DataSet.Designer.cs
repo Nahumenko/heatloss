@@ -17994,7 +17994,7 @@ namespace heatLoss._BD01_02_2016DataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[2];
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[3];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT keyTemperature, codeRegion, codeSeason, avarageTemperatureAir, avarageTemp" +
@@ -18007,11 +18007,21 @@ namespace heatLoss._BD01_02_2016DataSetTableAdapters {
 FROM            ((temperature INNER JOIN
                          season ON temperature.codeSeason = season.keySeason) INNER JOIN
                          region ON temperature.codeRegion = region.keyRegion)
-WHERE        (temperature.codeSeason BETWEEN ? AND ?) AND (temperature.codeRegion = ?)";
+WHERE         (temperature.codeRegion = ?)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("codeSeason", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "codeSeason", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("codeSeason1", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "codeSeason", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("codeRegion", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "codeRegion", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[2] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT        temperature.keyTemperature, temperature.codeRegion, temperature.codeSeason, temperature.avarageTemperatureAir, 
+                         temperature.avarageTemperatureGround
+FROM            ((temperature INNER JOIN
+                         season ON temperature.codeSeason = season.keySeason) INNER JOIN
+                         region ON temperature.codeRegion = region.keyRegion)
+WHERE        (temperature.codeSeason BETWEEN ? AND ?) AND (temperature.codeRegion = ?)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("codeSeason", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "codeSeason", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("codeSeason1", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "codeSeason", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("codeRegion", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "codeRegion", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -18042,8 +18052,20 @@ WHERE        (temperature.codeSeason BETWEEN ? AND ?) AND (temperature.codeRegio
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual _BD01_02_2016DataSet.temperatureDataTable selectSeasonName(int codeSeason, int codeSeason1, int codeRegion) {
+        public virtual _BD01_02_2016DataSet.temperatureDataTable selectRegionName(int codeRegion) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(codeRegion));
+            _BD01_02_2016DataSet.temperatureDataTable dataTable = new _BD01_02_2016DataSet.temperatureDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual _BD01_02_2016DataSet.temperatureDataTable selectSeasonName(int codeSeason, int codeSeason1, int codeRegion) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(codeSeason));
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(codeSeason1));
             this.Adapter.SelectCommand.Parameters[2].Value = ((int)(codeRegion));

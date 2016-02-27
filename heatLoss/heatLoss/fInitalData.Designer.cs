@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.lblCitySelect = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.regionName = new System.Windows.Forms.ComboBox();
             this.regionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._BD01_02_2016DataSet = new heatLoss._BD01_02_2016DataSet();
             this.regionTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.regionTableAdapter();
@@ -65,7 +65,6 @@
             this.seasonTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.seasonTableAdapter();
             this.seasontemperatureBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.seasontemperatureBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.regionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seasonBindingSource1)).BeginInit();
@@ -86,16 +85,17 @@
             this.lblCitySelect.TabIndex = 0;
             this.lblCitySelect.Text = "Выберите область";
             // 
-            // comboBox1
+            // regionName
             // 
-            this.comboBox1.DataSource = this.regionBindingSource;
-            this.comboBox1.DisplayMember = "region";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(142, 20);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.ValueMember = "keyRegion";
+            this.regionName.DataSource = this.regionBindingSource;
+            this.regionName.DisplayMember = "region";
+            this.regionName.FormattingEnabled = true;
+            this.regionName.Location = new System.Drawing.Point(142, 20);
+            this.regionName.Name = "regionName";
+            this.regionName.Size = new System.Drawing.Size(121, 21);
+            this.regionName.TabIndex = 1;
+            this.regionName.ValueMember = "keyRegion";
+            this.regionName.SelectedIndexChanged += new System.EventHandler(this.season_SelectedIndexChanged);
             // 
             // regionBindingSource
             // 
@@ -352,22 +352,11 @@
             this.seasontemperatureBindingSource1.DataMember = "seasontemperature";
             this.seasontemperatureBindingSource1.DataSource = this.seasonBindingSource;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(715, 74);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // fInitalData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(863, 612);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dgvTemptable);
@@ -378,7 +367,7 @@
             this.Controls.Add(this.cbFrom);
             this.Controls.Add(this.cbchoseMouth);
             this.Controls.Add(this.cbBetweenHeating);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.regionName);
             this.Controls.Add(this.lblCitySelect);
             this.Name = "fInitalData";
             this.Text = "fInitalData";
@@ -400,7 +389,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblCitySelect;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox regionName;
         private _BD01_02_2016DataSet _BD01_02_2016DataSet;
         private System.Windows.Forms.BindingSource regionBindingSource;
         private _BD01_02_2016DataSetTableAdapters.regionTableAdapter regionTableAdapter;
@@ -435,6 +424,5 @@
         private System.Windows.Forms.BindingSource seasonBindingSource1;
         private System.Windows.Forms.BindingSource seasontemperatureBindingSource;
         private System.Windows.Forms.BindingSource seasontemperatureBindingSource1;
-        private System.Windows.Forms.Button button1;
     }
 }
