@@ -46,6 +46,12 @@
             this.lblTo = new System.Windows.Forms.Label();
             this.cbChangesTable = new System.Windows.Forms.CheckBox();
             this.dgvTemptable = new System.Windows.Forms.DataGridView();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.temperatureTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.temperatureTableAdapter();
+            this.seasonTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.seasonTableAdapter();
+            this.seasontemperatureBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.seasontemperatureBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.mouth = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.TempVozd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tempGrunt = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,12 +65,9 @@
             this.codeSeasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.avarageTemperatureAirDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.avarageTemperatureGroundDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.temperatureTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.temperatureTableAdapter();
-            this.seasonTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.seasonTableAdapter();
-            this.seasontemperatureBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.seasontemperatureBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.cbSystemOpen = new System.Windows.Forms.CheckBox();
+            this.cbCirculation = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.regionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seasonBindingSource1)).BeginInit();
@@ -120,6 +123,7 @@
             this.cbBetweenHeating.TabIndex = 2;
             this.cbBetweenHeating.Text = "Учитывать меж отопительный сезон?";
             this.cbBetweenHeating.UseVisualStyleBackColor = true;
+            this.cbBetweenHeating.CheckedChanged += new System.EventHandler(this.cbBetweenHeating_CheckedChanged);
             // 
             // cbchoseMouth
             // 
@@ -210,6 +214,7 @@
             // 
             // dgvTemptable
             // 
+            this.dgvTemptable.AllowUserToAddRows = false;
             this.dgvTemptable.AutoGenerateColumns = false;
             this.dgvTemptable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTemptable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -232,6 +237,44 @@
             this.dgvTemptable.RowHeadersVisible = false;
             this.dgvTemptable.Size = new System.Drawing.Size(800, 367);
             this.dgvTemptable.TabIndex = 9;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(671, 569);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 10;
+            this.btnSave.Text = "сохранить";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(752, 569);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 11;
+            this.btnCancel.Text = "Отмена";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // temperatureTableAdapter
+            // 
+            this.temperatureTableAdapter.ClearBeforeFill = true;
+            // 
+            // seasonTableAdapter
+            // 
+            this.seasonTableAdapter.ClearBeforeFill = true;
+            // 
+            // seasontemperatureBindingSource
+            // 
+            this.seasontemperatureBindingSource.DataMember = "seasontemperature";
+            this.seasontemperatureBindingSource.DataSource = this.seasonBindingSource;
+            // 
+            // seasontemperatureBindingSource1
+            // 
+            this.seasontemperatureBindingSource1.DataMember = "seasontemperature";
+            this.seasontemperatureBindingSource1.DataSource = this.seasonBindingSource;
             // 
             // mouth
             // 
@@ -307,56 +350,57 @@
             this.avarageTemperatureAirDataGridViewTextBoxColumn.DataPropertyName = "avarageTemperatureAir";
             this.avarageTemperatureAirDataGridViewTextBoxColumn.HeaderText = "avarageTemperatureAir";
             this.avarageTemperatureAirDataGridViewTextBoxColumn.Name = "avarageTemperatureAirDataGridViewTextBoxColumn";
+            this.avarageTemperatureAirDataGridViewTextBoxColumn.Visible = false;
             // 
             // avarageTemperatureGroundDataGridViewTextBoxColumn
             // 
             this.avarageTemperatureGroundDataGridViewTextBoxColumn.DataPropertyName = "avarageTemperatureGround";
             this.avarageTemperatureGroundDataGridViewTextBoxColumn.HeaderText = "avarageTemperatureGround";
             this.avarageTemperatureGroundDataGridViewTextBoxColumn.Name = "avarageTemperatureGroundDataGridViewTextBoxColumn";
+            this.avarageTemperatureGroundDataGridViewTextBoxColumn.Visible = false;
             // 
-            // btnSave
+            // cbSystemOpen
             // 
-            this.btnSave.Location = new System.Drawing.Point(671, 569);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 10;
-            this.btnSave.Text = "сохранить";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.cbSystemOpen.AutoSize = true;
+            this.cbSystemOpen.Location = new System.Drawing.Point(332, 54);
+            this.cbSystemOpen.Name = "cbSystemOpen";
+            this.cbSystemOpen.Size = new System.Drawing.Size(130, 17);
+            this.cbSystemOpen.TabIndex = 12;
+            this.cbSystemOpen.Text = "Система открытая ?";
+            this.cbSystemOpen.UseVisualStyleBackColor = true;
+            this.cbSystemOpen.Visible = false;
+            this.cbSystemOpen.CheckedChanged += new System.EventHandler(this.cbSystemOpen_CheckedChanged);
             // 
-            // btnCancel
+            // cbCirculation
             // 
-            this.btnCancel.Location = new System.Drawing.Point(752, 569);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 11;
-            this.btnCancel.Text = "Отмена";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.cbCirculation.AutoSize = true;
+            this.cbCirculation.Location = new System.Drawing.Point(512, 54);
+            this.cbCirculation.Name = "cbCirculation";
+            this.cbCirculation.Size = new System.Drawing.Size(144, 17);
+            this.cbCirculation.TabIndex = 13;
+            this.cbCirculation.Text = "работа с циркуляцией?";
+            this.cbCirculation.UseVisualStyleBackColor = true;
+            this.cbCirculation.Visible = false;
+            this.cbCirculation.CheckedChanged += new System.EventHandler(this.cbCirculation_CheckedChanged);
             // 
-            // temperatureTableAdapter
+            // button1
             // 
-            this.temperatureTableAdapter.ClearBeforeFill = true;
-            // 
-            // seasonTableAdapter
-            // 
-            this.seasonTableAdapter.ClearBeforeFill = true;
-            // 
-            // seasontemperatureBindingSource
-            // 
-            this.seasontemperatureBindingSource.DataMember = "seasontemperature";
-            this.seasontemperatureBindingSource.DataSource = this.seasonBindingSource;
-            // 
-            // seasontemperatureBindingSource1
-            // 
-            this.seasontemperatureBindingSource1.DataMember = "seasontemperature";
-            this.seasontemperatureBindingSource1.DataSource = this.seasonBindingSource;
+            this.button1.Location = new System.Drawing.Point(737, 75);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // fInitalData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(863, 612);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.cbCirculation);
+            this.Controls.Add(this.cbSystemOpen);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dgvTemptable);
@@ -408,6 +452,9 @@
         private System.Windows.Forms.BindingSource regiontemperatureBindingSource1;
         private System.Windows.Forms.BindingSource seasonBindingSource;
         private _BD01_02_2016DataSetTableAdapters.seasonTableAdapter seasonTableAdapter;
+        private System.Windows.Forms.BindingSource seasonBindingSource1;
+        private System.Windows.Forms.BindingSource seasontemperatureBindingSource;
+        private System.Windows.Forms.BindingSource seasontemperatureBindingSource1;
         private System.Windows.Forms.DataGridViewComboBoxColumn mouth;
         private System.Windows.Forms.DataGridViewTextBoxColumn TempVozd;
         private System.Windows.Forms.DataGridViewTextBoxColumn tempGrunt;
@@ -421,8 +468,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn codeSeasonDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn avarageTemperatureAirDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn avarageTemperatureGroundDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource seasonBindingSource1;
-        private System.Windows.Forms.BindingSource seasontemperatureBindingSource;
-        private System.Windows.Forms.BindingSource seasontemperatureBindingSource1;
+        private System.Windows.Forms.CheckBox cbSystemOpen;
+        private System.Windows.Forms.CheckBox cbCirculation;
+        private System.Windows.Forms.Button button1;
     }
 }

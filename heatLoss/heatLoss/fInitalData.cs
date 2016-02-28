@@ -26,7 +26,7 @@ namespace heatLoss
             this.temperatureTableAdapter.Fill(this._BD01_02_2016DataSet.temperature);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "_BD01_02_2016DataSet.region". При необходимости она может быть перемещена или удалена.
             this.regionTableAdapter.Fill(this._BD01_02_2016DataSet.region);
-           
+
 
         }
 
@@ -56,9 +56,31 @@ namespace heatLoss
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            // try
+            // {
+            for (int j = 1; j < dgvTemptable.RowCount; j++) //бегаем по строкам
+            {
+                for (int i = 1; i < dgvTemptable.ColumnCount; i++) //бегаем по столбцам
+                    if (dgvTemptable.Rows[j - 1].Cells[i - 1].Value != null)
+                    {
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Таблица не заполнена");
+                        break;
+                    }
+                break;
+            }
+            // }
+            //  catch { }
+
+
+
+
+            /*Hide();
             // тут должен быть код который сохраняет данные в какой-то массив
-            //и добавляет кнопку начала рапсчёта на форму  Fcalculation
+            //и добавляет кнопку начала рапсчёта на форму  Fcalculation*/
         }
 
         private void selectSeasonNameToolStripButton_Click(object sender, EventArgs e)
@@ -74,26 +96,31 @@ namespace heatLoss
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
 
         }
 
-       private void cbTo_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbTo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbchoseMouth.Checked)
+            if (cbTo.Visible == true)
             {
                 this.dgvTemptable.DataSource = this.temperatureTableAdapter.selectSeasonName(Convert.ToInt32(cbFrom.SelectedValue.ToString()), Convert.ToInt32(cbTo.SelectedValue.ToString()), Convert.ToInt32(regionName.SelectedValue.ToString()));
             }
-                                        
 
-         }
+
+        }
 
         private void cbFrom_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbchoseMouth.Checked)
+            if (cbFrom.Visible == true)
             {
-                this.dgvTemptable.DataSource = this.temperatureTableAdapter.selectSeasonName(Convert.ToInt32(cbFrom.SelectedValue.ToString()), Convert.ToInt32(cbTo.SelectedValue.ToString()), Convert.ToInt32(regionName.SelectedValue.ToString()));
+                try
+                {
+                    this.dgvTemptable.DataSource = this.temperatureTableAdapter.selectSeasonName(Convert.ToInt32(cbFrom.SelectedValue.ToString()), Convert.ToInt32(cbTo.SelectedValue.ToString()), Convert.ToInt32(regionName.SelectedValue.ToString()));
+                }
+                catch { }
             }
+
 
         }
 
@@ -105,8 +132,89 @@ namespace heatLoss
             }
             else
             {
-                this.dgvTemptable.DataSource = this.temperatureTableAdapter.selectRegionName(Convert.ToInt32(regionName.SelectedValue.ToString()));
+                try
+                {
+                    this.dgvTemptable.DataSource = this.temperatureTableAdapter.selectRegionName(Convert.ToInt32(regionName.SelectedValue.ToString()));
+                }
+                catch { }
+            }
+        }
+
+        private void cbBetweenHeating_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbBetweenHeating.Checked)
+            {
+                cbSystemOpen.Visible = true;
+                //тут должен быть код который добавит два меж отопительных месяца в таблицу
+                // или куда-нибудь в массив
+            }
+            else
+            {
+                cbSystemOpen.Visible = false;
+            }
+        }
+
+        private void cbSystemOpen_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbSystemOpen.Checked)
+            {
+                cbCirculation.Visible = true;
+
+            }
+            else
+            {
+                cbCirculation.Visible = false;
+                //код который добавит температуру для Меж отопительного сесяца
+                //подача 70
+                //обратка 35
+            }
+        }
+
+        private void cbCirculation_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbCirculation.Checked)
+            {
+                // код который добавит температуру для МЕж отопительного месяца
+                // без циркуляции 60
+            }
+            else
+            {
+                // код который добавит температуру для МЕж отопительного месяца
+                // подача 60
+                //обратка 50
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            for (int j = 3; j <= 7; j++) //бегаем по столбцам
+            {
+                for(int i=0; i < dgvTemptable.RowCount; i++)
+                {
+                    dgvTemptable.Rows[i].Cells[j].Value = rnd.Next(-10, 30);
+                }
             }
         }
     }
 }
+
+/*
+ private void button1_Click_1(object sender, EventArgs e) //считывание значения с ячейки
+        {
+            int r = Convert.ToInt32(this.rowsText.Text);
+            int c = Convert.ToInt32(this.cellsText.Text);
+
+            label1.Text = this.dgvTemptable.Rows[r-1].Cells[c-1].Value.ToString(); //rows-строка cells-столбец
+        }
+
+        private void button2_Click(object sender, EventArgs e) //занесение данных в ячейку
+        {
+            int r = Convert.ToInt32(this.rowsText.Text);
+            int c = Convert.ToInt32(this.cellsText.Text);
+            this.dgvTemptable.Rows[r - 1].Cells[c - 1].Value = textBox1.Text;
+        }
+
+
+
+    */
