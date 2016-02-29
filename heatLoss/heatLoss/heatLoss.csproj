@@ -78,6 +78,7 @@
     <Compile Include="Authorization.Designer.cs">
       <DependentUpon>Authorization.cs</DependentUpon>
     </Compile>
+    <Compile Include="InputData.cs" />
     <Compile Include="linterp.cs" />
     <Compile Include="EditorReferenceTables.cs">
       <SubType>Form</SubType>

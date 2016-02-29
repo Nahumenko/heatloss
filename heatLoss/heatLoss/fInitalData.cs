@@ -190,11 +190,34 @@ namespace heatLoss
             Random rnd = new Random();
             for (int j = 3; j <= 7; j++) //бегаем по столбцам
             {
-                for(int i=0; i < dgvTemptable.RowCount; i++)
+                for (int i = 0; i < dgvTemptable.RowCount; i++)
                 {
                     dgvTemptable.Rows[i].Cells[j].Value = rnd.Next(-10, 30);
                 }
             }
+        }
+
+        private void btnMass_Click(object sender, EventArgs e)
+        {
+            //создаю массив таблицы
+            List<InputData> TableList = new List<InputData>();
+            
+
+            InputData stringOFtable = new InputData(Convert.ToString(dgvTemptable[0, 0].FormattedValue), 
+                                                    Convert.ToDouble(dgvTemptable[1, 0].FormattedValue),
+                                                    Convert.ToDouble(dgvTemptable[2, 0].FormattedValue),
+                                                    Convert.ToDouble(dgvTemptable[3, 0].FormattedValue),
+                                                    Convert.ToDouble(dgvTemptable[4, 0].FormattedValue),   //заебеню одну строку 
+                                                    Convert.ToDouble(dgvTemptable[5, 0].FormattedValue),
+                                                    Convert.ToDouble(dgvTemptable[6, 0].FormattedValue),
+                                                    Convert.ToDouble(dgvTemptable[7, 0].FormattedValue));
+            label1.Text = ("1="+stringOFtable.month+" 2="+stringOFtable.Tcrm_vozd);
+            TableList.Add(stringOFtable);
+
+
+
+
+
         }
     }
 }
