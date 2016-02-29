@@ -200,19 +200,43 @@ namespace heatLoss
         private void btnMass_Click(object sender, EventArgs e)
         {
             //создаю массив таблицы
-            List<InputData> TableList = new List<InputData>();
+            List<InputTableData> TableList = new List<InputTableData>();
             
 
-            InputData stringOFtable = new InputData(Convert.ToString(dgvTemptable[0, 0].FormattedValue), 
-                                                    Convert.ToDouble(dgvTemptable[1, 0].FormattedValue),
-                                                    Convert.ToDouble(dgvTemptable[2, 0].FormattedValue),
-                                                    Convert.ToDouble(dgvTemptable[3, 0].FormattedValue),
-                                                    Convert.ToDouble(dgvTemptable[4, 0].FormattedValue),   //заебеню одну строку 
-                                                    Convert.ToDouble(dgvTemptable[5, 0].FormattedValue),
-                                                    Convert.ToDouble(dgvTemptable[6, 0].FormattedValue),
-                                                    Convert.ToDouble(dgvTemptable[7, 0].FormattedValue));
-            label1.Text = ("1="+stringOFtable.month+" 2="+stringOFtable.Tcrm_vozd);
-            TableList.Add(stringOFtable);
+            for (int i = 1; i < dgvTemptable.RowCount; i++)
+              {
+                for (int j = 1; j < dgvTemptable.DisplayedColumnCount(false); j++)
+                    
+                  {
+                   
+                    InputTableData stringOFtable = new InputTableData(/*Convert.ToString(dgvTemptable[j, i].FormattedValue),*/
+                                                        /* (this.dgvTemptable[j, i].EditedFormattedValue),
+                                                         (this.dgvTemptable[j, i].EditedFormattedValue),
+                                                         (this.dgvTemptable[j, i].EditedFormattedValue),
+                                                         (this.dgvTemptable[j, i].EditedFormattedValue),   //заебеню одну строку 
+                                                         (this.dgvTemptable[j, i].EditedFormattedValue),
+                                                         (this.dgvTemptable[j, i].EditedFormattedValue),
+                                                         (this.dgvTemptable[j, i].EditedFormattedValue)*/
+                                                         );
+                    MessageBox.Show(j.ToString()+"     "+i.ToString());
+                    var x = this.dgvTemptable.Rows[j].Cells[i].EditedFormattedValue;
+                    stringOFtable.Tcrm_vozd = Convert.ToDouble(x);
+                    TableList.Add(stringOFtable);
+                  }
+              }
+            
+           /* InputData stringOFtable = new InputData(Convert.ToString(dgvTemptable[0, 0].FormattedValue),
+                                                           Convert.ToDouble(dgvTemptable[1, 0].FormattedValue),
+                                                           Convert.ToDouble(dgvTemptable[2, 0].FormattedValue),
+                                                           Convert.ToDouble(dgvTemptable[3, 0].FormattedValue),
+                                                           Convert.ToDouble(dgvTemptable[4, 0].FormattedValue),   //заебеню одну строку 
+                                                           Convert.ToDouble(dgvTemptable[5, 0].FormattedValue),
+                                                           Convert.ToDouble(dgvTemptable[6, 0].FormattedValue),
+                                                           Convert.ToDouble(dgvTemptable[7, 0].FormattedValue));
+                                TableList.Add(stringOFtable);*/
+
+            label1.Text = ("1=" + TableList[0].Tcrm_vozd + " 2=" /*+ TableList[1].month*/);
+
 
 
 
