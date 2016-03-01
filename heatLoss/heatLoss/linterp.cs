@@ -8,14 +8,15 @@ namespace heatLoss
 {
     class linterp
     {
-        double x0;
-        double x1;
-        double x2;
-        double y0;
-        double y1;
-        double y2;
+        public double x0;
+        public double x1;
+        public double x2;
+        public double y0;
+        public double y1;
+        public double y2;
 
         public double lint(double x0, double x1, double x2, double y0, double y1, double y2)
+
         {
             if (x0 < x1 && x1 < x2)
             {

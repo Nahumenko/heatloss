@@ -12,6 +12,8 @@ namespace heatLoss
 {
     public partial class fInitalData : Form
     {
+        //общий класс
+        InputTableData stringOftable;
         public fInitalData()
         {
             InitializeComponent();
@@ -52,6 +54,7 @@ namespace heatLoss
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Hide();
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -199,69 +202,64 @@ namespace heatLoss
 
         private void btnMass_Click(object sender, EventArgs e)
         {
-            //создаю массив таблицы
-            List<InputTableData> TableList = new List<InputTableData>();
-            
 
-            for (int i = 1; i < dgvTemptable.RowCount; i++)
-              {
-                for (int j = 1; j < dgvTemptable.DisplayedColumnCount(false); j++)
-                    
-                  {
-                   
-                    InputTableData stringOFtable = new InputTableData(/*Convert.ToString(dgvTemptable[j, i].FormattedValue),*/
-                                                        /* (this.dgvTemptable[j, i].EditedFormattedValue),
-                                                         (this.dgvTemptable[j, i].EditedFormattedValue),
-                                                         (this.dgvTemptable[j, i].EditedFormattedValue),
-                                                         (this.dgvTemptable[j, i].EditedFormattedValue),   //заебеню одну строку 
-                                                         (this.dgvTemptable[j, i].EditedFormattedValue),
-                                                         (this.dgvTemptable[j, i].EditedFormattedValue),
-                                                         (this.dgvTemptable[j, i].EditedFormattedValue)*/
-                                                         );
-                    MessageBox.Show(j.ToString()+"     "+i.ToString());
-                    var x = this.dgvTemptable.Rows[j].Cells[i].EditedFormattedValue;
-                    stringOFtable.Tcrm_vozd = Convert.ToDouble(x);
-                    TableList.Add(stringOFtable);
-                  }
-              }
-            
-           /* InputData stringOFtable = new InputData(Convert.ToString(dgvTemptable[0, 0].FormattedValue),
-                                                           Convert.ToDouble(dgvTemptable[1, 0].FormattedValue),
-                                                           Convert.ToDouble(dgvTemptable[2, 0].FormattedValue),
-                                                           Convert.ToDouble(dgvTemptable[3, 0].FormattedValue),
-                                                           Convert.ToDouble(dgvTemptable[4, 0].FormattedValue),   //заебеню одну строку 
-                                                           Convert.ToDouble(dgvTemptable[5, 0].FormattedValue),
-                                                           Convert.ToDouble(dgvTemptable[6, 0].FormattedValue),
-                                                           Convert.ToDouble(dgvTemptable[7, 0].FormattedValue));
-                                TableList.Add(stringOFtable);*/
 
-            label1.Text = ("1=" + TableList[0].Tcrm_vozd + " 2=" /*+ TableList[1].month*/);
+            //заношу данные в класс, а потом в список
+
+            for (int i = 0; i < dgvTemptable.RowCount; i++)
+            {
+                stringOftable = new InputTableData(Convert.ToString(dgvTemptable[0, i].FormattedValue),
+                                                     (Convert.ToDouble(dgvTemptable[1, i].Value)),
+                                                     (Convert.ToDouble(dgvTemptable[2, i].Value)),
+                                                     (Convert.ToDouble(dgvTemptable[3, i].Value)),
+                                                     (Convert.ToDouble(dgvTemptable[4, i].Value)),   //заебеню одну строку 
+                                                     (Convert.ToDouble(dgvTemptable[5, i].Value)),
+                                                     (Convert.ToDouble(dgvTemptable[6, i].Value)),
+                                                     (Convert.ToDouble(dgvTemptable[7, i].Value))
+                                                     );
+
+
+
+                //  TableList.Add(stringOFtable);
+
+            }
+
+            /* InputData stringOFtable = new InputData(Convert.ToString(dgvTemptable[0, 0].FormattedValue),
+                                                            Convert.ToDouble(dgvTemptable[1, 0].FormattedValue),
+                                                            Convert.ToDouble(dgvTemptable[2, 0].FormattedValue),
+                                                            Convert.ToDouble(dgvTemptable[3, 0].FormattedValue),
+                                                            Convert.ToDouble(dgvTemptable[4, 0].FormattedValue),   //заебеню одну строку 
+                                                            Convert.ToDouble(dgvTemptable[5, 0].FormattedValue),
+                                                            Convert.ToDouble(dgvTemptable[6, 0].FormattedValue),
+                                                            Convert.ToDouble(dgvTemptable[7, 0].FormattedValue));
+                                 TableList.Add(stringOFtable);*/
 
 
 
 
 
+
+
+
+        }
+
+        private void btnMassReturn_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dgvTemptable.RowCount; i++)
+            {
+                /* dgvTemptable[0, i].Value*/
+                MessageBox.Show(stringOftable.tempTable[i].month.ToString());
+                //dgvTemptable[1, i].Value = stringOftable.tempTable[i].Tcrm_vozd;
+                //dgvTemptable[2, i].Value = stringOftable.tempTable[i].Tcrm_grunt;
+                //dgvTemptable[3, i].Value = stringOftable.tempTable[i].Tcrm_H20;
+                //dgvTemptable[4, i].Value = stringOftable.tempTable[i].T1_P;
+                //dgvTemptable[5, i].Value = stringOftable.tempTable[i].T1_F;
+                //dgvTemptable[6, i].Value = stringOftable.tempTable[i].T2_P;
+                //dgvTemptable[7, i].Value = stringOftable.tempTable[i].T2_F;
+            }
 
         }
     }
 }
 
-/*
- private void button1_Click_1(object sender, EventArgs e) //считывание значения с ячейки
-        {
-            int r = Convert.ToInt32(this.rowsText.Text);
-            int c = Convert.ToInt32(this.cellsText.Text);
 
-            label1.Text = this.dgvTemptable.Rows[r-1].Cells[c-1].Value.ToString(); //rows-строка cells-столбец
-        }
-
-        private void button2_Click(object sender, EventArgs e) //занесение данных в ячейку
-        {
-            int r = Convert.ToInt32(this.rowsText.Text);
-            int c = Convert.ToInt32(this.cellsText.Text);
-            this.dgvTemptable.Rows[r - 1].Cells[c - 1].Value = textBox1.Text;
-        }
-
-
-
-    */
