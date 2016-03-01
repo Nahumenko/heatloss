@@ -14,6 +14,7 @@ namespace heatLoss
     {
         //общий класс
         InputTableData stringOftable;
+        claculationFirst calc = new claculationFirst();
         public fInitalData()
         {
             InitializeComponent();
@@ -217,7 +218,8 @@ namespace heatLoss
                                                      (Convert.ToDouble(dgvTemptable[6, i].Value)),
                                                      (Convert.ToDouble(dgvTemptable[7, i].Value))
                                                      );
-
+                
+                calc.vvod(stringOftable);
 
 
                 //  TableList.Add(stringOFtable);
@@ -245,10 +247,11 @@ namespace heatLoss
 
         private void btnMassReturn_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < dgvTemptable.RowCount; i++)
+            for (int i = 1; i < dgvTemptable.RowCount; i++)
             {
+               
                 /* dgvTemptable[0, i].Value*/
-                MessageBox.Show(stringOftable.tempTable[i].month.ToString());
+                MessageBox.Show(calc.tempTable[i].month.ToString());
                 //dgvTemptable[1, i].Value = stringOftable.tempTable[i].Tcrm_vozd;
                 //dgvTemptable[2, i].Value = stringOftable.tempTable[i].Tcrm_grunt;
                 //dgvTemptable[3, i].Value = stringOftable.tempTable[i].Tcrm_H20;

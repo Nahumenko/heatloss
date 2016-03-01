@@ -10,7 +10,7 @@ namespace heatLoss
     class InputTableData
     {
         // сама таблица
-       public  List<InputTableData> tempTable = new List<InputTableData>();
+    //   public  List<InputTableData> tempTable = new List<InputTableData>();
         
         // шапкаталицы
         public string month;
@@ -43,7 +43,7 @@ namespace heatLoss
             
 
             
-            tempTable.Add(this);
+         //   tempTable.Add(this);
 
         }
         //дудолю всё в таблицу
