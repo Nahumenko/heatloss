@@ -75,8 +75,9 @@ namespace heatLoss
 
 
         // всё что было выше полная хуйня не обращай внимание я это делал в бреду
+        // таблица
         public List<InputTableData> tempTable = new List<InputTableData>();
-        
+        // добавление данных в таблицу
         public void vvod(InputTableData x)
         {
             tempTable.Add(x);          

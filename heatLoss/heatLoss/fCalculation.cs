@@ -13,7 +13,7 @@ namespace heatLoss
     public partial class fCalculation : Form
     {
         fFiveCalc fFiveCalc = new fFiveCalc();
-        fInitalData fInitaldata = new fInitalData();
+      public  fInitalData fInitaldata = new fInitalData();
         public fCalculation()
         {
             InitializeComponent();

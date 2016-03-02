@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.cbType = new System.Windows.Forms.ComboBox();
             this.lblDiametr = new System.Windows.Forms.Label();
             this.lblDlina = new System.Windows.Forms.Label();
@@ -35,6 +38,8 @@
             this.tbDiametr = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnCalc = new System.Windows.Forms.Button();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // cbType
@@ -92,18 +97,36 @@
             // 
             // btnCalc
             // 
-            this.btnCalc.Location = new System.Drawing.Point(506, 227);
+            this.btnCalc.Location = new System.Drawing.Point(812, 364);
             this.btnCalc.Name = "btnCalc";
             this.btnCalc.Size = new System.Drawing.Size(75, 23);
             this.btnCalc.TabIndex = 6;
             this.btnCalc.Text = "расчёт";
             this.btnCalc.UseVisualStyleBackColor = true;
+            this.btnCalc.Click += new System.EventHandler(this.btnCalc_Click);
+            // 
+            // chart1
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(71, 121);
+            this.chart1.Name = "chart1";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(503, 266);
+            this.chart1.TabIndex = 7;
+            this.chart1.Text = "chart1";
             // 
             // fFiveCalc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(633, 262);
+            this.ClientSize = new System.Drawing.Size(899, 399);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.btnCalc);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.tbDiametr);
@@ -113,6 +136,7 @@
             this.Controls.Add(this.cbType);
             this.Name = "fFiveCalc";
             this.Text = "fFiveCalc";
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,5 +151,6 @@
         private System.Windows.Forms.TextBox tbDiametr;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button btnCalc;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }
