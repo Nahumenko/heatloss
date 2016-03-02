@@ -205,7 +205,7 @@ namespace heatLoss
         {
 
 
-            //заношу данные в класс, а потом в список
+            //заношу данные в класс калькулейшен фёрст, а потом в список
 
             for (int i = 0; i < dgvTemptable.RowCount; i++)
             {
@@ -218,47 +218,30 @@ namespace heatLoss
                                                      (Convert.ToDouble(dgvTemptable[6, i].Value)),
                                                      (Convert.ToDouble(dgvTemptable[7, i].Value))
                                                      );
-                
+
                 calc.vvod(stringOftable);
+                
 
-
-                //  TableList.Add(stringOFtable);
 
             }
-
-            /* InputData stringOFtable = new InputData(Convert.ToString(dgvTemptable[0, 0].FormattedValue),
-                                                            Convert.ToDouble(dgvTemptable[1, 0].FormattedValue),
-                                                            Convert.ToDouble(dgvTemptable[2, 0].FormattedValue),
-                                                            Convert.ToDouble(dgvTemptable[3, 0].FormattedValue),
-                                                            Convert.ToDouble(dgvTemptable[4, 0].FormattedValue),   //заебеню одну строку 
-                                                            Convert.ToDouble(dgvTemptable[5, 0].FormattedValue),
-                                                            Convert.ToDouble(dgvTemptable[6, 0].FormattedValue),
-                                                            Convert.ToDouble(dgvTemptable[7, 0].FormattedValue));
-                                 TableList.Add(stringOFtable);*/
-
-
-
-
-
-
 
 
         }
 
         private void btnMassReturn_Click(object sender, EventArgs e)
         {
-            for (int i = 1; i < dgvTemptable.RowCount; i++)
+            for (int i = 0; i < dgvTemptable.RowCount; i++)
             {
-               
+
                 /* dgvTemptable[0, i].Value*/
                 MessageBox.Show(calc.tempTable[i].month.ToString());
-                //dgvTemptable[1, i].Value = stringOftable.tempTable[i].Tcrm_vozd;
-                //dgvTemptable[2, i].Value = stringOftable.tempTable[i].Tcrm_grunt;
-                //dgvTemptable[3, i].Value = stringOftable.tempTable[i].Tcrm_H20;
-                //dgvTemptable[4, i].Value = stringOftable.tempTable[i].T1_P;
-                //dgvTemptable[5, i].Value = stringOftable.tempTable[i].T1_F;
-                //dgvTemptable[6, i].Value = stringOftable.tempTable[i].T2_P;
-                //dgvTemptable[7, i].Value = stringOftable.tempTable[i].T2_F;
+                dgvTemptable[1, i].Value = calc.tempTable[i].Tcrm_vozd;
+                dgvTemptable[2, i].Value = calc.tempTable[i].Tcrm_grunt;
+                dgvTemptable[3, i].Value = calc.tempTable[i].Tcrm_H20;
+                dgvTemptable[4, i].Value = calc.tempTable[i].T1_P;
+                dgvTemptable[5, i].Value = calc.tempTable[i].T1_F;
+                dgvTemptable[6, i].Value = calc.tempTable[i].T2_P;
+                dgvTemptable[7, i].Value = calc.tempTable[i].T2_F;
             }
 
         }

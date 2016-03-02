@@ -77,10 +77,9 @@ namespace heatLoss
         // всё что было выше полная хуйня не обращай внимание я это делал в бреду
         public List<InputTableData> tempTable = new List<InputTableData>();
         
-        public List<InputTableData> vvod(InputTableData x)
+        public void vvod(InputTableData x)
         {
-            tempTable.Add(x);
-            return tempTable;
+            tempTable.Add(x);          
         }
 
 

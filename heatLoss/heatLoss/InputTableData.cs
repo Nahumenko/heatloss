@@ -12,7 +12,7 @@ namespace heatLoss
         // сама таблица
     //   public  List<InputTableData> tempTable = new List<InputTableData>();
         
-        // шапкаталицы
+        // шапкатаблицы
         public string month;
         public double Tcrm_vozd;
         public double Tcrm_grunt;
@@ -43,10 +43,10 @@ namespace heatLoss
             
 
             
-         //   tempTable.Add(this);
+    
 
         }
-        //дудолю всё в таблицу
+    
      
 
         //что бы не быстренько

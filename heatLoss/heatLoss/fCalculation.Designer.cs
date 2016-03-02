@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.btnInitalData = new System.Windows.Forms.Button();
+            this.btnFiveCalc = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnInitalData
@@ -41,14 +42,26 @@
             this.btnInitalData.UseVisualStyleBackColor = true;
             this.btnInitalData.Click += new System.EventHandler(this.btnInitalData_Click);
             // 
+            // btnFiveCalc
+            // 
+            this.btnFiveCalc.Location = new System.Drawing.Point(182, 26);
+            this.btnFiveCalc.Name = "btnFiveCalc";
+            this.btnFiveCalc.Size = new System.Drawing.Size(75, 48);
+            this.btnFiveCalc.TabIndex = 1;
+            this.btnFiveCalc.Text = "5ый ";
+            this.btnFiveCalc.UseVisualStyleBackColor = true;
+            this.btnFiveCalc.Click += new System.EventHandler(this.btnFiveCalc_Click);
+            // 
             // fCalculation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(466, 317);
+            this.Controls.Add(this.btnFiveCalc);
             this.Controls.Add(this.btnInitalData);
             this.Name = "fCalculation";
             this.Text = "fCalculation";
+            this.Load += new System.EventHandler(this.fCalculation_Load);
             this.ResumeLayout(false);
 
         }
@@ -56,5 +69,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnInitalData;
+        private System.Windows.Forms.Button btnFiveCalc;
     }
 }

@@ -12,6 +12,7 @@ namespace heatLoss
 {
     public partial class fCalculation : Form
     {
+        fFiveCalc fFiveCalc = new fFiveCalc();
         fInitalData fInitaldata = new fInitalData();
         public fCalculation()
         {
@@ -21,6 +22,16 @@ namespace heatLoss
         private void btnInitalData_Click(object sender, EventArgs e)
         {
             fInitaldata.ShowDialog();
+        }
+
+        private void fCalculation_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFiveCalc_Click(object sender, EventArgs e)
+        {
+            fFiveCalc.ShowDialog();
         }
     }
 }

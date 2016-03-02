@@ -98,6 +98,12 @@
     <Compile Include="fCalculation.Designer.cs">
       <DependentUpon>fCalculation.cs</DependentUpon>
     </Compile>
+    <Compile Include="fFiveCalc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fFiveCalc.Designer.cs">
+      <DependentUpon>fFiveCalc.cs</DependentUpon>
+    </Compile>
     <Compile Include="fInitalData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fCalculation.resx">
       <DependentUpon>fCalculation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fFiveCalc.resx">
+      <DependentUpon>fFiveCalc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fInitalData.resx">
       <DependentUpon>fInitalData.cs</DependentUpon>
