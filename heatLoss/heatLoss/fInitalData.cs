@@ -12,6 +12,7 @@ namespace heatLoss
 {
     public partial class fInitalData : Form
     {
+        
         //общий класс
         InputTableData stringOftable;
         claculationFirst calc = new claculationFirst();

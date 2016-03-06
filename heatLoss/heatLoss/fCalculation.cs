@@ -12,8 +12,11 @@ namespace heatLoss
 {
     public partial class fCalculation : Form
     {
+
+        
         fFiveCalc fFiveCalc = new fFiveCalc();
-      public  fInitalData fInitaldata = new fInitalData();
+       public fInitalData fInitaldata = new fInitalData();
+
         public fCalculation()
         {
             InitializeComponent();
@@ -31,7 +34,9 @@ namespace heatLoss
 
         private void btnFiveCalc_Click(object sender, EventArgs e)
         {
+            fFiveCalc.Owner = fInitaldata;
             fFiveCalc.ShowDialog();
+            
         }
     }
 }
