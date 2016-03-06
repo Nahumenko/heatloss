@@ -74,6 +74,28 @@ namespace heatLoss
 
 
 
+        // всё что было выше полная хуйня не обращай внимание я это делал в бреду
+        // таблица
+        public List<InputTableData> tempTable = new List<InputTableData>();
+
+        // надземная прокладка
+        public double onePipeAir(Direction direction)
+        {
+            t1_crG = tempTable[12].T1_P;
+            t2_crG = tempTable[12].T2_P;
+            taoV_crG = tempTable[12].Tcrm_vozd;
+
+            double z;
+            if (direction == Direction.FLOW)
+                z = t1_crG - taoV_crG;          //для подачи
+            else
+                z = t2_crG - taoV_crG;           //для обратки
+            return z;
+        }
+
+
+
+        //всё что было ниже тоже что-то не понятное не обращай внимание я это делал в бреду 
 
 
 
@@ -103,20 +125,14 @@ namespace heatLoss
         //для отдельно зарытых труб подающего и обратного трубопровода
         public double onePipeUndergtound(Direction direction, double t1_crG, double t2_crG, double taoGr_crG)
         {
-            if (direction== Direction.FLOW)            
+            if (direction == Direction.FLOW)
                 return deltaTcv = t1_crG - taoGr_crG;            //для подачи
             else return deltaTcv = t2_crG - taoGr_crG;           //для обратки
         }
 
         //5,44 пропустил там голая выборка
 
-        // надземная прокладка
-        public double onePipeAir(Direction direction, double t1_crG, double t2_crG, double taoGr_crG)
-        {
-            if (direction == Direction.FLOW)
-                return deltaT1_vozd = t1_crG - taoV_crG;            //для подачи
-            else return deltaT2_vozd = t2_crG - taoV_crG;           //для обратки
-        }
+
         //Спросить у ВНА о константах 15,40 нужно ли их изменение
         //для трубопроводов расположенных в помещении (техническом подполье) или тоннеле (проходном канале)
 
@@ -140,10 +156,10 @@ namespace heatLoss
 
         //подземная прокладка
         //два трубопровода в режиме подающего трубопровода
-        public double twoTubesUndergroundChanged(double qn_crG, double t1_crG, double t2_crG, double taoGr_crG,Direction direction)
+        public double twoTubesUndergroundChanged(double qn_crG, double t1_crG, double t2_crG, double taoGr_crG, Direction direction)
         {
-            if(direction == Direction.FLOW)
-            return qnf_crG = qn_crG * (t1_crG - taoGr_crG) / (0.5 * (t1_crG + t2_crG) - taoGr_crG);//подача 
+            if (direction == Direction.FLOW)
+                return qnf_crG = qn_crG * (t1_crG - taoGr_crG) / (0.5 * (t1_crG + t2_crG) - taoGr_crG);//подача 
             else
             {
                 return qnf_crG = qn_crG * (t2_crG - taoGr_crG) / (0.5 * (t1_crG + t2_crG) - taoGr_crG);
@@ -167,7 +183,7 @@ namespace heatLoss
         //Расчет нормативных среднегодовых потерь 
         //Для водяной тепловой сети значения часовых среднегодовых нормативных тепло-вых потерь
         //для участков подземной двухтрубной прокладки
-       public double LossTwoTubesUnderground(double qni, double Beta, double L)
+        public double LossTwoTubesUnderground(double qni, double Beta, double L)
         {
             return Qn_crG = qni * L * Beta;
         }
@@ -176,7 +192,7 @@ namespace heatLoss
         //для участков надземной прокладки, прокладки в помещениях (технических подпо-льях), 
         //в тоннелях (проходных каналах), а также отдельно уложенных трубопрово-дов подземной прокладки
         //Написал два одинаковых метода, потом выщемими
-        public double LossOnePipe(double qni, double Beta, double L,Direction direction)
+        public double LossOnePipe(double qni, double Beta, double L, Direction direction)
         {
             if (direction == Direction.FLOW)
             {
@@ -200,19 +216,19 @@ namespace heatLoss
         //определяются раздельно по каждому виду прокладки с предполагаемым числом часов отключения
         public double lossPipeOff(double qotkl, double Zotkl, double Qnb_crG, double Z_per)
         {
-           return QnOtkl_crG = qotkl * Beta * L * Zotkl / Z_per;
+            return QnOtkl_crG = qotkl * Beta * L * Zotkl / Z_per;
         }
 
         //Нормирование тепловых потерь через теплоизоляционные конструк-ции трубопроводов водяных тепловых сетей
         //для подземной двухтрубной прокладки  
         public double NormAvarageAnnualHeatLossUnderground(double Qn_crG, double K)
         {
-           return Qnorm_crG = Qn_crG * K;
+            return Qnorm_crG = Qn_crG * K;
         }
 
         //для участков надземной прокладки, прокладки в помещениях (технических подпо-льях), 
         //тоннелях (проходных каналах), а также отдельно уложенных трубопроводов подземной прокладки:
-        public double NormAvarageAnnualHeatLoss(double K1, double K2, double Q1n_crG, double Q2n_crG,Direction direction)
+        public double NormAvarageAnnualHeatLoss(double K1, double K2, double Q1n_crG, double Q2n_crG, Direction direction)
         {
             if (direction == Direction.FLOW)
             {
@@ -227,13 +243,13 @@ namespace heatLoss
         //средние за расчетный период часовые нормируемые значения тепловых потерь пу-тем пересчета нормируемых
         //среднегодовых потерь с расчетного (проектного) сред-негодового режима на режим работы теплосети в расчетном периоде
         //двухтрубная подземная прокладка
-        public double twoTibesUndergroundNormAvarege(double SummQnorm_crG, double t1_crPer, double t2_crPer, double taoGr_crPer, double t1_crG, double t2_crG,double taoGr_crG)
+        public double twoTibesUndergroundNormAvarege(double SummQnorm_crG, double t1_crPer, double t2_crPer, double taoGr_crPer, double t1_crG, double t2_crG, double taoGr_crG)
         {
             return Qnorm = SummQnorm_crG * (t1_crPer + t2_crPer - 2 * taoGr_crPer) / (t1_crG + t2_crG - 2 * taoGr_crG);
         }
 
         //подземная прокладка при отдельно уложенном трубопроводе
-       public double onePipeUndergroundNormalAvarage(double SummQ1norm_crGPodz, double SummQ2norm_crGPodz, double t1_crPer, double t2_crPer, double taoGr_crPer, double t1_crG, double t2_crG, double taoGr_crG, Direction direction)
+        public double onePipeUndergroundNormalAvarage(double SummQ1norm_crGPodz, double SummQ2norm_crGPodz, double t1_crPer, double t2_crPer, double taoGr_crPer, double t1_crG, double t2_crG, double taoGr_crG, Direction direction)
         {
             if (direction == Direction.FLOW)
             {
@@ -283,7 +299,7 @@ namespace heatLoss
                 return Q2norm_tunnel = SummQ2norm_crGTunnel * (t2_crPer - 40) / (t2_crG - 40);
             }
         }
-        
+
 
     }
 }

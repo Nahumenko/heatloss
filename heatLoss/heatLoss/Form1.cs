@@ -12,6 +12,9 @@ namespace heatLoss
 {
     public partial class Form1 : Form
     {
+        fCalculation fcalc = new fCalculation();
+        
+        
         public Form1()
         {
             InitializeComponent();
@@ -59,8 +62,7 @@ namespace heatLoss
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-           
+                       
         }
 
         private void редактированиеСправочныхТаблицToolStripMenuItem_Click(object sender, EventArgs e)
@@ -68,6 +70,16 @@ namespace heatLoss
             EditorReferenceTables editor_reference_tables = new EditorReferenceTables();
             editor_reference_tables.Owner = this;
             editor_reference_tables.ShowDialog();
+        }
+
+        private void закрытьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void расчётToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fcalc.ShowDialog();
         }
     }
 }

@@ -50,6 +50,7 @@
             this.примерыРаботыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.обАвторахToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,7 +78,6 @@
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.файлToolStripMenuItem.Text = "Файл";
-            this.файлToolStripMenuItem.Visible = false;
             // 
             // создатьToolStripMenuItem
             // 
@@ -92,6 +92,7 @@
             this.расчётToolStripMenuItem.Name = "расчётToolStripMenuItem";
             this.расчётToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.расчётToolStripMenuItem.Text = "Расчёт";
+            this.расчётToolStripMenuItem.Click += new System.EventHandler(this.расчётToolStripMenuItem_Click);
             // 
             // открытьToolStripMenuItem
             // 
@@ -110,6 +111,7 @@
             this.закрытьToolStripMenuItem.Name = "закрытьToolStripMenuItem";
             this.закрытьToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.закрытьToolStripMenuItem.Text = "Выйти";
+            this.закрытьToolStripMenuItem.Click += new System.EventHandler(this.закрытьToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -143,6 +145,7 @@
             this.редактированиеСправочныхТаблицToolStripMenuItem.Name = "редактированиеСправочныхТаблицToolStripMenuItem";
             this.редактированиеСправочныхТаблицToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
             this.редактированиеСправочныхТаблицToolStripMenuItem.Text = "Редактирование справочных таблиц";
+            this.редактированиеСправочныхТаблицToolStripMenuItem.Visible = false;
             this.редактированиеСправочныхТаблицToolStripMenuItem.Click += new System.EventHandler(this.редактированиеСправочныхТаблицToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem
@@ -220,12 +223,19 @@
             this.обАвторахToolStripMenuItem.Text = "Об авторах";
             this.обАвторахToolStripMenuItem.Click += new System.EventHandler(this.обАвторахToolStripMenuItem_Click);
             // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(489, 33);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(671, 340);
+            this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -261,7 +271,8 @@
         private System.Windows.Forms.ToolStripMenuItem примерыРаботыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem обАвторахToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem редактированиеСправочныхТаблицToolStripMenuItem; //изменил с привата на паблик для доступа к элементу из любой формы
+        public System.Windows.Forms.ToolStripMenuItem редактированиеСправочныхТаблицToolStripMenuItem;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
     }
 }
 
