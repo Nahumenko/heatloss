@@ -131,6 +131,7 @@
     <Compile Include="EditorReferenceTables.Designer.cs">
       <DependentUpon>EditorReferenceTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="pereprava.cs" />
     <Compile Include="TempRegion.cs">
       <SubType>Form</SubType>
     </Compile>

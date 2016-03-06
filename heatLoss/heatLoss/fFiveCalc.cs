@@ -12,7 +12,10 @@ namespace heatLoss
 {
     public partial class fFiveCalc : Form
     {
-       
+        // создаю рассчётный касс
+        claculationFirst calc = new claculationFirst();
+        //передаю в него таблицу исходных данных
+        
         public fFiveCalc()
         {
             InitializeComponent();
@@ -26,7 +29,13 @@ namespace heatLoss
             if (MessageBox.Show( "Госстрой издат -- да\nСНИП 2,04,14-88 -- нет", "Условие", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 // надо хапнуть пару значений из таблицы Ж и И
-              
+                for (int i = 0; i < 14; i++)
+                {
+                    
+                    /* dgvTemptable[0, i].Value*/
+                    MessageBox.Show(calc.tempTable[i].Tcrm_H20.ToString());
+                  
+                }
 
             }
             else
@@ -34,6 +43,11 @@ namespace heatLoss
                 // Надо хапнуть пару значений из таблицы К и Л
 
             }
+        }
+
+        private void fFiveCalc_Load(object sender, EventArgs e)
+        {
+            calc.tempTable = pereprava.tempTable;
         }
     }
 }
