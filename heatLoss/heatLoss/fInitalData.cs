@@ -203,9 +203,10 @@ namespace heatLoss
 
         private void btnMass_Click(object sender, EventArgs e)
         {
+            // чищу массив статического класса
+            pereprava.tempTable.Clear();
 
-
-            //заношу данные в класс калькулейшен фёрст, а потом в список
+            //заношу данные в статический класс
 
             for (int i = 0; i < dgvTemptable.RowCount; i++)
             {
@@ -219,8 +220,7 @@ namespace heatLoss
                                                      (Convert.ToDouble(dgvTemptable[7, i].Value))
                                                      );
 
-                // чищу массив статического класса
-                pereprava.tempTable.Clear();
+               
                 //добавляю данные в статический класс
                 pereprava.tempTable.Add(stringOftable);
 
