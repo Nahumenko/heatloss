@@ -16544,11 +16544,25 @@ namespace heatLoss._BD01_02_2016DataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[2];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT keyStandardHeatLoss, CodePipelineSort, CodeOutsideDiameter, codeDeltaT, ValueOfHeatlossMVT, ValueOfHeatlossKAL, startup, nhwINyear, superPosition, codeHeatDissipationSort, codeMethodOfLaying, assessedValue, extrapolation, influenccePipelineINcanal, Kt1, Kt2, Kt3, CodeInsulationType FROM standardHeatLoss";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT        standardHeatLoss.codeDeltaT, standardHeatLoss.ValueOfHeatlossMVT, standardHeatLoss.ValueOfHeatlossKAL
+FROM            (((standardHeatLoss INNER JOIN
+                         deltaT ON standardHeatLoss.codeDeltaT = deltaT.keyDeltaT) INNER JOIN
+                         methodOfLaying ON standardHeatLoss.codeMethodOfLaying = methodOfLaying.keyMethodOfLaying) INNER JOIN
+                         outsideDiameter ON standardHeatLoss.CodeOutsideDiameter = outsideDiameter.keyOutsideDiameter)
+WHERE        (standardHeatLoss.codeMethodOfLaying = ?) AND (standardHeatLoss.nhwINyear = ?) AND (standardHeatLoss.startup = ?) AND 
+                         (standardHeatLoss.CodeOutsideDiameter = ?)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("codeMethodOfLaying", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "codeMethodOfLaying", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("nhwINyear", global::System.Data.OleDb.OleDbType.Boolean, 2, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nhwINyear", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("startup", global::System.Data.OleDb.OleDbType.Boolean, 2, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "startup", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CodeOutsideDiameter", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CodeOutsideDiameter", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16570,6 +16584,31 @@ namespace heatLoss._BD01_02_2016DataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual _BD01_02_2016DataSet.standardHeatLossDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            _BD01_02_2016DataSet.standardHeatLossDataTable dataTable = new _BD01_02_2016DataSet.standardHeatLossDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual _BD01_02_2016DataSet.standardHeatLossDataTable sql_hl(global::System.Nullable<int> codeMethodOfLaying, bool nhwINyear, bool startup, global::System.Nullable<int> CodeOutsideDiameter) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((codeMethodOfLaying.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(codeMethodOfLaying.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((bool)(nhwINyear));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((bool)(startup));
+            if ((CodeOutsideDiameter.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((int)(CodeOutsideDiameter.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
             _BD01_02_2016DataSet.standardHeatLossDataTable dataTable = new _BD01_02_2016DataSet.standardHeatLossDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

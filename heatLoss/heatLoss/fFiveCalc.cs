@@ -27,21 +27,22 @@ namespace heatLoss
 
         {
             // месеж бокс условие воздушка 
-            if (cbType.SelectedIndex == 0 && cbYear.SelectedIndex == 0)
+            if (cbType.SelectedIndex == 0 && cbNhwInYear.SelectedIndex == 0 && cbYear.SelectedIndex==0)
             {
+               
                 // вот по этим значениям нужно брать данные из таблицы
                 double x1 = calc.onePipeAir(Direction.FLOW);
                 double x2 = calc.onePipeAir(Direction.RETURN);
                 MessageBox.Show(x1.ToString());
                 MessageBox.Show(x2.ToString());
-
+                
                 // надо хапнуть пару значений из таблицы Ж и И смотри методику страницу 20 пункт 5,4,5 (вроде это до 1994)
 
                 // интерпалируем значения взятые из таблицы и присваимваем ку1 и ку 2
                 MessageBox.Show("yes");
              
             }
-            if (cbType.SelectedIndex == 0 && cbYear.SelectedIndex == 1)
+            if (cbType.SelectedIndex == 0 && cbYear.SelectedIndex == 1 && cbNhwInYear.SelectedIndex==1)
             {
                 // Надо хапнуть пару значений из таблицы К и Л смотри методику страницу 20 пункт 5,4,5( с 1994)
                 // потом используем метод из калькулейшен ферст
@@ -54,9 +55,39 @@ namespace heatLoss
 
         private void fFiveCalc_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "_BD01_02_2016DataSet.methodOfLaying". При необходимости она может быть перемещена или удалена.
+            this.methodOfLayingTableAdapter.Fill(this._BD01_02_2016DataSet.methodOfLaying);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "_BD01_02_2016DataSet.outsideDiameter". При необходимости она может быть перемещена или удалена.
+            this.outsideDiameterTableAdapter.Fill(this._BD01_02_2016DataSet.outsideDiameter);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "_BD01_02_2016DataSet.deltaT". При необходимости она может быть перемещена или удалена.
+            this.deltaTTableAdapter.Fill(this._BD01_02_2016DataSet.deltaT);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "_BD01_02_2016DataSet.standardHeatLoss". При необходимости она может быть перемещена или удалена.
+            this.standardHeatLossTableAdapter.Fill(this._BD01_02_2016DataSet.standardHeatLoss);
             // буру данные из переправы
             calc.tempTable = pereprava.tempTable;
+            //сделать потом
+            // this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.sql_hl(Convert.ToInt32(cbType.SelectedValue), checkBox2.Checked, checkBox1.Checked, Convert.ToInt32(cboutD.SelectedValue));
+            // проверка на властелина энергии
+            if (pereprava.check)
+            {
+                checkBox3.Visible = true;
+            }
 
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(cbType.SelectedIndex.ToString());
+            //  this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.sql_hl(cbType.SelectedIndex, checkBox2.Checked, checkBox1.Checked, Convert.ToInt32(tbDiametr.Text));
+            this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.sql_hl(Convert.ToInt32( cbType.SelectedValue), checkBox2.Checked, checkBox1.Checked, Convert.ToInt32(cboutD.SelectedValue));
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox3.Checked) { dgv_heatloss.Visible = true; }
+            else { dgv_heatloss.Visible = false; }
         }
     }
 }
