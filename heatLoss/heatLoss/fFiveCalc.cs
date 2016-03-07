@@ -39,6 +39,7 @@ namespace heatLoss
 
                 // интерпалируем значения взятые из таблицы и присваимваем ку1 и ку 2
                 MessageBox.Show("yes");
+             
             }
             if (cbType.SelectedIndex == 0 && cbYear.SelectedIndex == 1)
             {
@@ -55,6 +56,7 @@ namespace heatLoss
         {
             // буру данные из переправы
             calc.tempTable = pereprava.tempTable;
+
         }
     }
 }
