@@ -15,6 +15,7 @@ namespace heatLoss
         fCalculation fcalc = new fCalculation();
         
         
+        
         public Form1()
         {
             InitializeComponent();

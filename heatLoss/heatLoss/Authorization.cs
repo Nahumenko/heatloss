@@ -57,13 +57,14 @@ namespace heatLoss
                 switch (count)
                 {
                     case 1:
-                        
-                            MessageBox.Show("Логин и пароль верны!");
-                            main.редактированиеСправочныхТаблицToolStripMenuItem.Visible = true;                    
-                            main.файлToolStripMenuItem.Visible = true;
-                            main.войтиToolStripMenuItem.Visible = false;
-                            this.Close();
-                        
+
+                        MessageBox.Show("Логин и пароль верны!");
+                        main.редактированиеСправочныхТаблицToolStripMenuItem.Visible = true;
+                        main.файлToolStripMenuItem.Visible = true;
+                        main.войтиToolStripMenuItem.Visible = false;
+                        pereprava.check = true;
+                        this.Close();
+
 
 
                         break;
@@ -72,6 +73,7 @@ namespace heatLoss
                         break;
                     default:
                         MessageBox.Show("не верный логин и пароль!");
+
                         break;
                 }
             }

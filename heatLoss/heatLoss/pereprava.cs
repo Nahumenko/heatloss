@@ -9,5 +9,6 @@ namespace heatLoss
    static class pereprava
     {
         static public List<InputTableData> tempTable = new List<InputTableData>();
+        static public bool check = false;
     }
 }
