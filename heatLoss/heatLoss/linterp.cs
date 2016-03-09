@@ -16,7 +16,7 @@ namespace heatLoss
         public double y1;
         public double y2;
         public double[,] arr; // массив
-    
+
 
         //конструктор класса
         // все переменные
@@ -54,51 +54,44 @@ namespace heatLoss
 
 
         //работа иду с массивом 
-        // даёшь массив, отдаёт интерпалированную кушку
+        // даёшь массив и икс, отдаёт интерпалированную кушку
         public double massiv(double[,] mass, double x)
         {
-            double q=666;
+            double q = 666;
             if (mass[0, 0] == x)
             {
                 q = mass[0, 1];                         //провекрака на первый элемент
             }
-            else if (mass[mass.GetLength(0), 0] == x)
+            else if (mass[mass.GetLength(0) - 1, 0] == x)
             {
-                q = mass[mass.GetLength(0), mass.GetLength(1)]; // проверка на последний эллемент
+                q = mass[mass.GetLength(0) - 1, mass.GetLength(1) - 1]; // проверка на последний эллемент
             }
             else if (mass[0, 0] > x)
             {
-                q = (mass[1, 1] * (x - mass[1, 0]) + mass[1, 1] * (mass[0, 0] - x)) / (mass[0, 0] - mass[1, 0]); //меньше диапазона
+                q = (mass[0, 1] * (x - mass[1, 0]) + mass[1, 1] * (mass[0, 0] - x)) / (mass[0, 0] - mass[1, 0]); //меньше диапазона
             }
-            else if (mass[mass.GetLength(0), 0] < x)
+            else if (mass[mass.GetLength(0) - 1, 0] < x)
             {
-                q = mass[mass.GetLength(0)-1,mass.GetLength(1)] + (mass[mass.GetLength(0),mass.GetLength(1)] - mass[mass.GetLength(0) - 1, mass.GetLength(1)]) * (x - mass[mass.GetLength(0)-1,0]) / (mass[mass.GetLength(0) , 0] - mass[mass.GetLength(0)-1,0]); // больше диапазона
+                q = mass[mass.GetLength(0) - 2, 1] + (mass[mass.GetLength(0) - 1, 1] - mass[mass.GetLength(0) - 2, 1]) * (x - mass[mass.GetLength(0) - 2, 0]) / (mass[mass.GetLength(0) - 1, 0] - mass[mass.GetLength(0) - 2, 0]); // больше диапазона
             }
             else
             {
-                for (i = 0; i < mass.GetLength(0); i++)
+                for (int i = 0; i < mass.GetLength(0) - 1; i++)
                 {
-                    if (mass[i, 0] > x && x < mass[i++, 0])
+                    if (mass[i, 0] < x && x < mass[i + 1, 0])
                     {
-                        q= mass[i, 1] + (x - mass[i, 0]) / (mass[i++, 0] - mass[i, 0]) * (mass[i++, 1] - mass[i, 1]);       // если попадётся между                        
+                        q = mass[i, 1] + (x - mass[i, 0]) / (mass[i + 1, 0] - mass[i, 0]) * (mass[i + 1, 1] - mass[i, 1]);       // если попадётся между 
                     }
                 }
             }
             return q;
         }
-            
 
 
-            double nx;
-            for (int j = 0; j < array.Length; j++)
-            {
-                for (int i = 0; i < array.Length / 2; i++)
-                {
-                    if(array[,])
-                }
-            }
-        }
+
+
     }
-
 }
+
+
 

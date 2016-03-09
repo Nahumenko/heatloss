@@ -27,22 +27,22 @@ namespace heatLoss
 
         {
             // месеж бокс условие воздушка 
-            if (cbType.SelectedIndex == 0 && cbNhwInYear.SelectedIndex == 0 && cbYear.SelectedIndex==0)
+            if (cbType.SelectedIndex == 0 && cbNhwInYear.SelectedIndex == 0 && cbYear.SelectedIndex == 0)
             {
-               
+
                 // вот по этим значениям нужно брать данные из таблицы
                 double x1 = calc.onePipeAir(Direction.FLOW);
                 double x2 = calc.onePipeAir(Direction.RETURN);
                 MessageBox.Show(x1.ToString());
                 MessageBox.Show(x2.ToString());
-                
+
                 // надо хапнуть пару значений из таблицы Ж и И смотри методику страницу 20 пункт 5,4,5 (вроде это до 1994)
 
                 // интерпалируем значения взятые из таблицы и присваимваем ку1 и ку 2
                 MessageBox.Show("yes");
-             
+
             }
-            if (cbType.SelectedIndex == 0 && cbYear.SelectedIndex == 1 && cbNhwInYear.SelectedIndex==1)
+            if (cbType.SelectedIndex == 0 && cbYear.SelectedIndex == 1 && cbNhwInYear.SelectedIndex == 1)
             {
                 // Надо хапнуть пару значений из таблицы К и Л смотри методику страницу 20 пункт 5,4,5( с 1994)
                 // потом используем метод из калькулейшен ферст
@@ -81,7 +81,7 @@ namespace heatLoss
         {
             MessageBox.Show(cbType.SelectedIndex.ToString());
             //  this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.sql_hl(cbType.SelectedIndex, checkBox2.Checked, checkBox1.Checked, Convert.ToInt32(tbDiametr.Text));
-            this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.sql_hl(Convert.ToInt32( cbType.SelectedValue), checkBox2.Checked, checkBox1.Checked, Convert.ToInt32(cboutD.SelectedValue));
+            this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.sql_hl(Convert.ToInt32(cbType.SelectedValue), checkBox2.Checked, checkBox1.Checked, Convert.ToInt32(cboutD.SelectedValue));
         }
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
