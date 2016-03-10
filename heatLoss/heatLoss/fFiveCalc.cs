@@ -28,30 +28,30 @@ namespace heatLoss
         // проверка ввода
 
         {
-            //linterp lin = new linterp();
-            double[,] ma = new double[5, 2];
-            ma[0, 0] = 3;
-            ma[1, 0] = 4;
-            ma[2, 0] = 5;
-            ma[3, 0] = 6;
-            ma[4, 0] = 7;
-            ma[0, 1] = 60;
-            ma[1, 1] = 80;
-            ma[2, 1] = 100;
-            ma[3, 1] = 120;
-            ma[4, 1] = 140;
+    
 
-            MessageBox.Show(lin.massiv(ma, 7).ToString());
-            
             // месеж бокс условие воздушка 
-            if (cbType.SelectedIndex == 0 && cbNhwInYear.SelectedIndex == 0 && cbYear.SelectedIndex == 0)
+            if (cbType.SelectedIndex == 3 && checkBox1.Checked==false && checkBox2.Checked==false)
             {
-                
+
                 // вот по этим значениям нужно брать данные из таблицы
-                double x1 = calc.onePipeAir(Direction.FLOW);
-                double x2 = calc.onePipeAir(Direction.RETURN);
-                MessageBox.Show(x1.ToString());
-                MessageBox.Show(x2.ToString());
+                calc.deltaT1_vozd = calc.onePipeAir(Direction.FLOW);
+                calc.deltaT2_vozd = calc.onePipeAir(Direction.RETURN);
+                //заносим массив
+                double[,] heatLossMass = new double[dgv_heatloss.RowCount, dgv_heatloss.ColumnCount];
+                for (int i = 0; i < dgv_heatloss.RowCount; i++)
+                {
+                    for (int j = 0; j < dgv_heatloss.ColumnCount; j++)
+                    {
+                        heatLossMass[i, j] = Convert.ToDouble(dgv_heatloss[j, i].EditedFormattedValue);
+                        // MessageBox.Show(heatLossMass[i, j].ToString());  
+                    }
+                }
+                MessageBox.Show(lin.massiv(heatLossMass, calc.deltaT1_vozd).ToString());
+                MessageBox.Show(lin.massiv(heatLossMass, calc.deltaT2_vozd).ToString());
+
+
+
 
                 // надо хапнуть пару значений из таблицы Ж и И смотри методику страницу 20 пункт 5,4,5 (вроде это до 1994)
 
@@ -102,16 +102,16 @@ namespace heatLoss
 
             // попробую всё заносить в массив 
             double[,] heatLossMass = new double[dgv_heatloss.RowCount, dgv_heatloss.ColumnCount];
-            for(int i = 0; i < dgv_heatloss.RowCount; i++)
+            for (int i = 0; i < dgv_heatloss.RowCount; i++)
             {
-                for(int j=0; j < dgv_heatloss.ColumnCount; j++)
+                for (int j = 0; j < dgv_heatloss.ColumnCount; j++)
                 {
                     heatLossMass[i, j] = Convert.ToDouble(dgv_heatloss[j, i].EditedFormattedValue);
-                   // MessageBox.Show(heatLossMass[i, j].ToString());  
+                    // MessageBox.Show(heatLossMass[i, j].ToString());  
                 }
             }
-            MessageBox.Show(lin.massiv(heatLossMass, Convert.ToDouble(tbDiametr.Text)).ToString());
-            
+           // MessageBox.Show(lin.massiv(heatLossMass, Convert.ToDouble(tbDiametr.Text)).ToString());
+
 
             // попробую всё заносить в массив 
         }

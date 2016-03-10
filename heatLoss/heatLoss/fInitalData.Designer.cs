@@ -46,6 +46,14 @@
             this.lblTo = new System.Windows.Forms.Label();
             this.cbChangesTable = new System.Windows.Forms.CheckBox();
             this.dgvTemptable = new System.Windows.Forms.DataGridView();
+            this.mouth = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.TempVozd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tempGrunt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tempWather = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.t1p = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.t1f = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.t2p = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.t2f = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.temperatureTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.temperatureTableAdapter();
@@ -57,15 +65,13 @@
             this.btnRandom = new System.Windows.Forms.Button();
             this.btnMass = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.mouth = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.TempVozd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tempGrunt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tempWather = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.t1p = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.t1f = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.t2p = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.t2f = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnMassReturn = new System.Windows.Forms.Button();
+            this.keyTemperatureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codeRegionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codeSeasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.avarageTemperatureAirDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.avarageTemperatureGroundDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Data_temps = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.regionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seasonBindingSource1)).BeginInit();
@@ -223,13 +229,69 @@
             this.t1p,
             this.t1f,
             this.t2p,
-            this.t2f});
+            this.t2f,
+            this.keyTemperatureDataGridViewTextBoxColumn,
+            this.codeRegionDataGridViewTextBoxColumn,
+            this.codeSeasonDataGridViewTextBoxColumn,
+            this.avarageTemperatureAirDataGridViewTextBoxColumn,
+            this.avarageTemperatureGroundDataGridViewTextBoxColumn});
             this.dgvTemptable.DataSource = this.regiontemperatureBindingSource;
             this.dgvTemptable.Location = new System.Drawing.Point(12, 138);
             this.dgvTemptable.Name = "dgvTemptable";
             this.dgvTemptable.RowHeadersVisible = false;
             this.dgvTemptable.Size = new System.Drawing.Size(800, 367);
             this.dgvTemptable.TabIndex = 9;
+            // 
+            // mouth
+            // 
+            this.mouth.DataPropertyName = "codeSeason";
+            this.mouth.DataSource = this.seasonBindingSource;
+            this.mouth.DisplayMember = "seasonName";
+            this.mouth.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.mouth.HeaderText = "Месяц";
+            this.mouth.Name = "mouth";
+            this.mouth.ReadOnly = true;
+            this.mouth.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.mouth.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.mouth.ToolTipText = "месяц";
+            this.mouth.ValueMember = "keySeason";
+            // 
+            // TempVozd
+            // 
+            this.TempVozd.DataPropertyName = "avarageTemperatureAir";
+            this.TempVozd.HeaderText = "Тв ср.м";
+            this.TempVozd.Name = "TempVozd";
+            // 
+            // tempGrunt
+            // 
+            this.tempGrunt.DataPropertyName = "avarageTemperatureGround";
+            this.tempGrunt.HeaderText = "Тг ср. м";
+            this.tempGrunt.Name = "tempGrunt";
+            // 
+            // tempWather
+            // 
+            this.tempWather.HeaderText = "Ти ср.м";
+            this.tempWather.Name = "tempWather";
+            // 
+            // t1p
+            // 
+            this.t1p.HeaderText = "П подача";
+            this.t1p.Name = "t1p";
+            // 
+            // t1f
+            // 
+            this.t1f.HeaderText = "Ф подача";
+            this.t1f.Name = "t1f";
+            // 
+            // t2p
+            // 
+            this.t2p.HeaderText = "П обратка";
+            this.t2p.Name = "t2p";
+            // 
+            // t2f
+            // 
+            this.t2f.HeaderText = "Ф обратка";
+            this.t2f.Name = "t2f";
             // 
             // btnSave
             // 
@@ -322,57 +384,6 @@
             this.label1.TabIndex = 16;
             this.label1.Text = "label1";
             // 
-            // mouth
-            // 
-            this.mouth.DataPropertyName = "codeSeason";
-            this.mouth.DataSource = this.seasonBindingSource;
-            this.mouth.DisplayMember = "seasonName";
-            this.mouth.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.mouth.HeaderText = "Месяц";
-            this.mouth.Name = "mouth";
-            this.mouth.ReadOnly = true;
-            this.mouth.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.mouth.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.mouth.ToolTipText = "месяц";
-            this.mouth.ValueMember = "keySeason";
-            // 
-            // TempVozd
-            // 
-            this.TempVozd.DataPropertyName = "avarageTemperatureAir";
-            this.TempVozd.HeaderText = "Тв ср.м";
-            this.TempVozd.Name = "TempVozd";
-            // 
-            // tempGrunt
-            // 
-            this.tempGrunt.DataPropertyName = "avarageTemperatureGround";
-            this.tempGrunt.HeaderText = "Тг ср. м";
-            this.tempGrunt.Name = "tempGrunt";
-            // 
-            // tempWather
-            // 
-            this.tempWather.HeaderText = "Ти ср.м";
-            this.tempWather.Name = "tempWather";
-            // 
-            // t1p
-            // 
-            this.t1p.HeaderText = "П подача";
-            this.t1p.Name = "t1p";
-            // 
-            // t1f
-            // 
-            this.t1f.HeaderText = "Ф подача";
-            this.t1f.Name = "t1f";
-            // 
-            // t2p
-            // 
-            this.t2p.HeaderText = "П обратка";
-            this.t2p.Name = "t2p";
-            // 
-            // t2f
-            // 
-            this.t2f.HeaderText = "Ф обратка";
-            this.t2f.Name = "t2f";
-            // 
             // btnMassReturn
             // 
             this.btnMassReturn.Location = new System.Drawing.Point(546, 13);
@@ -383,11 +394,52 @@
             this.btnMassReturn.UseVisualStyleBackColor = true;
             this.btnMassReturn.Click += new System.EventHandler(this.btnMassReturn_Click);
             // 
+            // keyTemperatureDataGridViewTextBoxColumn
+            // 
+            this.keyTemperatureDataGridViewTextBoxColumn.DataPropertyName = "keyTemperature";
+            this.keyTemperatureDataGridViewTextBoxColumn.HeaderText = "keyTemperature";
+            this.keyTemperatureDataGridViewTextBoxColumn.Name = "keyTemperatureDataGridViewTextBoxColumn";
+            // 
+            // codeRegionDataGridViewTextBoxColumn
+            // 
+            this.codeRegionDataGridViewTextBoxColumn.DataPropertyName = "codeRegion";
+            this.codeRegionDataGridViewTextBoxColumn.HeaderText = "codeRegion";
+            this.codeRegionDataGridViewTextBoxColumn.Name = "codeRegionDataGridViewTextBoxColumn";
+            // 
+            // codeSeasonDataGridViewTextBoxColumn
+            // 
+            this.codeSeasonDataGridViewTextBoxColumn.DataPropertyName = "codeSeason";
+            this.codeSeasonDataGridViewTextBoxColumn.HeaderText = "codeSeason";
+            this.codeSeasonDataGridViewTextBoxColumn.Name = "codeSeasonDataGridViewTextBoxColumn";
+            // 
+            // avarageTemperatureAirDataGridViewTextBoxColumn
+            // 
+            this.avarageTemperatureAirDataGridViewTextBoxColumn.DataPropertyName = "avarageTemperatureAir";
+            this.avarageTemperatureAirDataGridViewTextBoxColumn.HeaderText = "avarageTemperatureAir";
+            this.avarageTemperatureAirDataGridViewTextBoxColumn.Name = "avarageTemperatureAirDataGridViewTextBoxColumn";
+            // 
+            // avarageTemperatureGroundDataGridViewTextBoxColumn
+            // 
+            this.avarageTemperatureGroundDataGridViewTextBoxColumn.DataPropertyName = "avarageTemperatureGround";
+            this.avarageTemperatureGroundDataGridViewTextBoxColumn.HeaderText = "avarageTemperatureGround";
+            this.avarageTemperatureGroundDataGridViewTextBoxColumn.Name = "avarageTemperatureGroundDataGridViewTextBoxColumn";
+            // 
+            // Data_temps
+            // 
+            this.Data_temps.Location = new System.Drawing.Point(737, 105);
+            this.Data_temps.Name = "Data_temps";
+            this.Data_temps.Size = new System.Drawing.Size(75, 23);
+            this.Data_temps.TabIndex = 18;
+            this.Data_temps.Text = "Data";
+            this.Data_temps.UseVisualStyleBackColor = true;
+            this.Data_temps.Click += new System.EventHandler(this.Data_temps_Click);
+            // 
             // fInitalData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(863, 612);
+            this.Controls.Add(this.Data_temps);
             this.Controls.Add(this.btnMassReturn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnMass);
@@ -462,5 +514,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn t2p;
         private System.Windows.Forms.DataGridViewTextBoxColumn t2f;
         private System.Windows.Forms.Button btnMassReturn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn keyTemperatureDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codeRegionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codeSeasonDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn avarageTemperatureAirDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn avarageTemperatureGroundDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button Data_temps;
     }
 }

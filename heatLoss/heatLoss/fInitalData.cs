@@ -248,7 +248,34 @@ namespace heatLoss
                  }
 */
              }
-         }
+
+        private void Data_temps_Click(object sender, EventArgs e)
+        {
+            double[,] data_temp = new double[14, 5]; // Данные по температурам из отчета
+            data_temp[0, 0] = 4.8; data_temp[0, 1] = 61.6; data_temp[0, 2] = 61.6; data_temp[0, 3] = 49; data_temp[0, 4] = 49;
+            data_temp[1, 0] = 4.9; data_temp[1, 1] = 60; data_temp[1, 2] = 60; data_temp[1, 3] = 48; data_temp[1, 4] = 48;
+            data_temp[2, 0] = 6; data_temp[2, 1] = 60; data_temp[2, 2] = 60; data_temp[2, 3] = 48; data_temp[2, 4] = 48;
+            data_temp[3, 0] = 9.1; data_temp[3, 1] = 60; data_temp[3, 2] = 60; data_temp[3, 3] = 48; data_temp[3, 4] = 48;
+            data_temp[4, 0] = 14.5; data_temp[4, 1] = 60; data_temp[4, 2] = 60; data_temp[4, 3] = 50; data_temp[4, 4] = 50;
+            data_temp[5, 0] = 21.5; data_temp[5, 1] = 60; data_temp[5, 2] = 60; data_temp[5, 3] = 50; data_temp[5, 4] = 50;
+            data_temp[6, 0] = 22.7; data_temp[6, 1] = 60; data_temp[6, 2] = 60; data_temp[6, 3] = 50; data_temp[6, 4] = 50;
+            data_temp[7, 0] = 21.3; data_temp[7, 1] = 60; data_temp[7, 2] = 60; data_temp[7, 3] = 50; data_temp[7, 4] = 50;
+            data_temp[8, 0] = 16.3; data_temp[8, 1] = 60; data_temp[8, 2] = 60; data_temp[8, 3] = 50; data_temp[8, 4] = 50;
+            data_temp[9, 0] = 11.6; data_temp[9, 1] = 60; data_temp[9, 2] = 60; data_temp[9, 3] = 48; data_temp[9, 4] = 48;
+            data_temp[10, 0] = 9.1; data_temp[10, 1] = 60; data_temp[10, 2] = 60; data_temp[10, 3] = 48; data_temp[10, 4] = 48;
+            data_temp[11, 0] = 5.4; data_temp[11, 1] = 63; data_temp[11, 2] = 63; data_temp[11, 3] = 49.9; data_temp[11, 4] = 49.9;
+            data_temp[12, 0] = 0; data_temp[12, 1] = 60; data_temp[12, 2] = 60; data_temp[12, 3] = 50; data_temp[12, 4] = 50;
+            data_temp[13, 0] = 0; data_temp[13, 1] = 60.8; data_temp[13, 2] = 60.8; data_temp[13, 3] = 48.5; data_temp[13, 4] = 48.5;
+
+
+            for (int j = 3; j <= 7; j++)
+                for (int i = 0; i < dgvTemptable.RowCount; i++)
+                {
+                    dgvTemptable.Rows[i].Cells[j].Value = data_temp[i, j - 3];
+                }
+
+        }
+    }
         }
 
 
