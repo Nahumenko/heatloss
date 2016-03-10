@@ -97,6 +97,18 @@ namespace heatLoss
             MessageBox.Show(cbType.SelectedIndex.ToString());
             //  this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.sql_hl(cbType.SelectedIndex, checkBox2.Checked, checkBox1.Checked, Convert.ToInt32(tbDiametr.Text));
             this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.sql_hl(Convert.ToInt32(cbType.SelectedValue), checkBox2.Checked, checkBox1.Checked, Convert.ToInt32(cboutD.SelectedValue));
+
+            // попробую всё заносить в массив 
+
+            for(int i = 0; i < dgv_heatloss.RowCount; i++)
+            {
+                for(int j; j < dgv_heatloss.ColumnCount; j++)
+                {
+
+                }
+            }
+
+            // попробую всё заносить в массив 
         }
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
