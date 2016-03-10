@@ -107,9 +107,7 @@ namespace heatLoss
                 for(int j=0; j < dgv_heatloss.ColumnCount; j++)
                 {
                     heatLossMass[i, j] = Convert.ToDouble(dgv_heatloss[j, i].EditedFormattedValue);
-                   // MessageBox.Show(heatLossMass[i, j].ToString());
-                  
-
+                   // MessageBox.Show(heatLossMass[i, j].ToString());  
                 }
             }
             MessageBox.Show(lin.massiv(heatLossMass, Convert.ToDouble(tbDiametr.Text)).ToString());
