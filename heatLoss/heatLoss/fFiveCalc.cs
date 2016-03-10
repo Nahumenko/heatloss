@@ -26,10 +26,25 @@ namespace heatLoss
         // проверка ввода
 
         {
+            linterp lin = new linterp();
+            double[,] ma = new double[5, 2];
+            ma[0, 0] = 3;
+            ma[1, 0] = 4;
+            ma[2, 0] = 5;
+            ma[3, 0] = 6;
+            ma[4, 0] = 7;
+            ma[0, 1] = 60;
+            ma[1, 1] = 80;
+            ma[2, 1] = 100;
+            ma[3, 1] = 120;
+            ma[4, 1] = 140;
+
+            MessageBox.Show(lin.massiv(ma, 7).ToString());
+            
             // месеж бокс условие воздушка 
             if (cbType.SelectedIndex == 0 && cbNhwInYear.SelectedIndex == 0 && cbYear.SelectedIndex == 0)
             {
-
+                
                 // вот по этим значениям нужно брать данные из таблицы
                 double x1 = calc.onePipeAir(Direction.FLOW);
                 double x2 = calc.onePipeAir(Direction.RETURN);

@@ -58,15 +58,7 @@ namespace heatLoss
         public double massiv(double[,] mass, double x)
         {
             double q = 666;
-            if (mass[0, 0] == x)
-            {
-                q = mass[0, 1];                         //провекрака на первый элемент
-            }
-            else if (mass[mass.GetLength(0) - 1, 0] == x)
-            {
-                q = mass[mass.GetLength(0) - 1, mass.GetLength(1) - 1]; // проверка на последний эллемент
-            }
-            else if (mass[0, 0] > x)
+            if (mass[0, 0] > x)
             {
                 q = (mass[0, 1] * (x - mass[1, 0]) + mass[1, 1] * (mass[0, 0] - x)) / (mass[0, 0] - mass[1, 0]); //меньше диапазона
             }
@@ -76,11 +68,11 @@ namespace heatLoss
             }
             else
             {
-                for (int i = 0; i < mass.GetLength(0) - 1; i++)
+                for (int i = 0; i < mass.GetLength(0)-1; i++)
                 {
-                    if (mass[i, 0] < x && x < mass[i + 1, 0])
+                    if (mass[i, 0] <=x && x <=mass[i + 1, 0])
                     {
-                        q = mass[i, 1] + (x - mass[i, 0]) / (mass[i + 1, 0] - mass[i, 0]) * (mass[i + 1, 1] - mass[i, 1]);       // если попадётся между 
+                        q = mass[i, 1] + (x - mass[i, 0]) / (mass[i + 1, 0] - mass[i, 0]) * (mass[i + 1, 1] - mass[i, 1]);       // если попадётся между и поатор массива
                     }
                 }
             }
