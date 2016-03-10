@@ -14,6 +14,8 @@ namespace heatLoss
     {
         // создаю рассчётный касс
         claculationFirst calc = new claculationFirst();
+        //класс интерполяции
+        linterp lin = new linterp();
         //передаю в него таблицу исходных данных
 
         public fFiveCalc()
@@ -26,7 +28,7 @@ namespace heatLoss
         // проверка ввода
 
         {
-            linterp lin = new linterp();
+            //linterp lin = new linterp();
             double[,] ma = new double[5, 2];
             ma[0, 0] = 3;
             ma[1, 0] = 4;
@@ -99,14 +101,19 @@ namespace heatLoss
             this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.sql_hl(Convert.ToInt32(cbType.SelectedValue), checkBox2.Checked, checkBox1.Checked, Convert.ToInt32(cboutD.SelectedValue));
 
             // попробую всё заносить в массив 
-
+            double[,] heatLossMass = new double[dgv_heatloss.RowCount, dgv_heatloss.ColumnCount];
             for(int i = 0; i < dgv_heatloss.RowCount; i++)
             {
-                for(int j; j < dgv_heatloss.ColumnCount; j++)
+                for(int j=0; j < dgv_heatloss.ColumnCount; j++)
                 {
+                    heatLossMass[i, j] = Convert.ToDouble(dgv_heatloss[j, i].EditedFormattedValue);
+                   // MessageBox.Show(heatLossMass[i, j].ToString());
+                  
 
                 }
             }
+            MessageBox.Show(lin.massiv(heatLossMass, Convert.ToDouble(tbDiametr.Text)).ToString());
+            
 
             // попробую всё заносить в массив 
         }

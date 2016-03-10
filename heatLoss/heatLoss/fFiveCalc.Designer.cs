@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.cbType = new System.Windows.Forms.ComboBox();
             this.methodOfLayingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._BD01_02_2016DataSet = new heatLoss._BD01_02_2016DataSet();
@@ -59,22 +59,6 @@
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.codeDeltaTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.valueOfHeatlossMVTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codePipelineSortDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codeOutsideDiameterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.keyStandardHeatLossDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valueOfHeatlossKALDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.startupDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.nhwINyearDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.superPositionDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.codeHeatDissipationSortDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codeMethodOfLayingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.assessedValueDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.extrapolationDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.influenccePipelineINcanalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.kt1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kt2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kt3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codeInsulationTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.methodOfLayingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -161,16 +145,16 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(22, 109);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(503, 266);
             this.chart1.TabIndex = 7;
             this.chart1.Text = "chart1";
@@ -195,23 +179,7 @@
             this.dgv_heatloss.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_heatloss.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codeDeltaTDataGridViewTextBoxColumn,
-            this.valueOfHeatlossMVTDataGridViewTextBoxColumn,
-            this.codePipelineSortDataGridViewTextBoxColumn,
-            this.codeOutsideDiameterDataGridViewTextBoxColumn,
-            this.keyStandardHeatLossDataGridViewTextBoxColumn,
-            this.valueOfHeatlossKALDataGridViewTextBoxColumn,
-            this.startupDataGridViewCheckBoxColumn,
-            this.nhwINyearDataGridViewCheckBoxColumn,
-            this.superPositionDataGridViewCheckBoxColumn,
-            this.codeHeatDissipationSortDataGridViewTextBoxColumn,
-            this.codeMethodOfLayingDataGridViewTextBoxColumn,
-            this.assessedValueDataGridViewCheckBoxColumn,
-            this.extrapolationDataGridViewCheckBoxColumn,
-            this.influenccePipelineINcanalDataGridViewCheckBoxColumn,
-            this.kt1DataGridViewTextBoxColumn,
-            this.kt2DataGridViewTextBoxColumn,
-            this.kt3DataGridViewTextBoxColumn,
-            this.codeInsulationTypeDataGridViewTextBoxColumn});
+            this.valueOfHeatlossMVTDataGridViewTextBoxColumn});
             this.dgv_heatloss.DataSource = this.standardHeatLossBindingSource;
             this.dgv_heatloss.Location = new System.Drawing.Point(598, 109);
             this.dgv_heatloss.Name = "dgv_heatloss";
@@ -326,124 +294,6 @@
             this.valueOfHeatlossMVTDataGridViewTextBoxColumn.HeaderText = "ValueOfHeatlossMVT";
             this.valueOfHeatlossMVTDataGridViewTextBoxColumn.Name = "valueOfHeatlossMVTDataGridViewTextBoxColumn";
             // 
-            // codePipelineSortDataGridViewTextBoxColumn
-            // 
-            this.codePipelineSortDataGridViewTextBoxColumn.DataPropertyName = "CodePipelineSort";
-            this.codePipelineSortDataGridViewTextBoxColumn.HeaderText = "CodePipelineSort";
-            this.codePipelineSortDataGridViewTextBoxColumn.Name = "codePipelineSortDataGridViewTextBoxColumn";
-            this.codePipelineSortDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // codeOutsideDiameterDataGridViewTextBoxColumn
-            // 
-            this.codeOutsideDiameterDataGridViewTextBoxColumn.DataPropertyName = "CodeOutsideDiameter";
-            this.codeOutsideDiameterDataGridViewTextBoxColumn.DataSource = this.outsideDiameterBindingSource;
-            this.codeOutsideDiameterDataGridViewTextBoxColumn.DisplayMember = "nameOutsideDiameter";
-            this.codeOutsideDiameterDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.codeOutsideDiameterDataGridViewTextBoxColumn.HeaderText = "CodeOutsideDiameter";
-            this.codeOutsideDiameterDataGridViewTextBoxColumn.Name = "codeOutsideDiameterDataGridViewTextBoxColumn";
-            this.codeOutsideDiameterDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.codeOutsideDiameterDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.codeOutsideDiameterDataGridViewTextBoxColumn.ValueMember = "keyOutsideDiameter";
-            this.codeOutsideDiameterDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // keyStandardHeatLossDataGridViewTextBoxColumn
-            // 
-            this.keyStandardHeatLossDataGridViewTextBoxColumn.DataPropertyName = "keyStandardHeatLoss";
-            this.keyStandardHeatLossDataGridViewTextBoxColumn.HeaderText = "keyStandardHeatLoss";
-            this.keyStandardHeatLossDataGridViewTextBoxColumn.Name = "keyStandardHeatLossDataGridViewTextBoxColumn";
-            this.keyStandardHeatLossDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // valueOfHeatlossKALDataGridViewTextBoxColumn
-            // 
-            this.valueOfHeatlossKALDataGridViewTextBoxColumn.DataPropertyName = "ValueOfHeatlossKAL";
-            this.valueOfHeatlossKALDataGridViewTextBoxColumn.HeaderText = "ValueOfHeatlossKAL";
-            this.valueOfHeatlossKALDataGridViewTextBoxColumn.Name = "valueOfHeatlossKALDataGridViewTextBoxColumn";
-            this.valueOfHeatlossKALDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // startupDataGridViewCheckBoxColumn
-            // 
-            this.startupDataGridViewCheckBoxColumn.DataPropertyName = "startup";
-            this.startupDataGridViewCheckBoxColumn.HeaderText = "startup";
-            this.startupDataGridViewCheckBoxColumn.Name = "startupDataGridViewCheckBoxColumn";
-            this.startupDataGridViewCheckBoxColumn.Visible = false;
-            // 
-            // nhwINyearDataGridViewCheckBoxColumn
-            // 
-            this.nhwINyearDataGridViewCheckBoxColumn.DataPropertyName = "nhwINyear";
-            this.nhwINyearDataGridViewCheckBoxColumn.HeaderText = "nhwINyear";
-            this.nhwINyearDataGridViewCheckBoxColumn.Name = "nhwINyearDataGridViewCheckBoxColumn";
-            this.nhwINyearDataGridViewCheckBoxColumn.Visible = false;
-            // 
-            // superPositionDataGridViewCheckBoxColumn
-            // 
-            this.superPositionDataGridViewCheckBoxColumn.DataPropertyName = "superPosition";
-            this.superPositionDataGridViewCheckBoxColumn.HeaderText = "superPosition";
-            this.superPositionDataGridViewCheckBoxColumn.Name = "superPositionDataGridViewCheckBoxColumn";
-            this.superPositionDataGridViewCheckBoxColumn.Visible = false;
-            // 
-            // codeHeatDissipationSortDataGridViewTextBoxColumn
-            // 
-            this.codeHeatDissipationSortDataGridViewTextBoxColumn.DataPropertyName = "codeHeatDissipationSort";
-            this.codeHeatDissipationSortDataGridViewTextBoxColumn.HeaderText = "codeHeatDissipationSort";
-            this.codeHeatDissipationSortDataGridViewTextBoxColumn.Name = "codeHeatDissipationSortDataGridViewTextBoxColumn";
-            this.codeHeatDissipationSortDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // codeMethodOfLayingDataGridViewTextBoxColumn
-            // 
-            this.codeMethodOfLayingDataGridViewTextBoxColumn.DataPropertyName = "codeMethodOfLaying";
-            this.codeMethodOfLayingDataGridViewTextBoxColumn.HeaderText = "codeMethodOfLaying";
-            this.codeMethodOfLayingDataGridViewTextBoxColumn.Name = "codeMethodOfLayingDataGridViewTextBoxColumn";
-            this.codeMethodOfLayingDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // assessedValueDataGridViewCheckBoxColumn
-            // 
-            this.assessedValueDataGridViewCheckBoxColumn.DataPropertyName = "assessedValue";
-            this.assessedValueDataGridViewCheckBoxColumn.HeaderText = "assessedValue";
-            this.assessedValueDataGridViewCheckBoxColumn.Name = "assessedValueDataGridViewCheckBoxColumn";
-            this.assessedValueDataGridViewCheckBoxColumn.Visible = false;
-            // 
-            // extrapolationDataGridViewCheckBoxColumn
-            // 
-            this.extrapolationDataGridViewCheckBoxColumn.DataPropertyName = "extrapolation";
-            this.extrapolationDataGridViewCheckBoxColumn.HeaderText = "extrapolation";
-            this.extrapolationDataGridViewCheckBoxColumn.Name = "extrapolationDataGridViewCheckBoxColumn";
-            this.extrapolationDataGridViewCheckBoxColumn.Visible = false;
-            // 
-            // influenccePipelineINcanalDataGridViewCheckBoxColumn
-            // 
-            this.influenccePipelineINcanalDataGridViewCheckBoxColumn.DataPropertyName = "influenccePipelineINcanal";
-            this.influenccePipelineINcanalDataGridViewCheckBoxColumn.HeaderText = "influenccePipelineINcanal";
-            this.influenccePipelineINcanalDataGridViewCheckBoxColumn.Name = "influenccePipelineINcanalDataGridViewCheckBoxColumn";
-            this.influenccePipelineINcanalDataGridViewCheckBoxColumn.Visible = false;
-            // 
-            // kt1DataGridViewTextBoxColumn
-            // 
-            this.kt1DataGridViewTextBoxColumn.DataPropertyName = "Kt1";
-            this.kt1DataGridViewTextBoxColumn.HeaderText = "Kt1";
-            this.kt1DataGridViewTextBoxColumn.Name = "kt1DataGridViewTextBoxColumn";
-            this.kt1DataGridViewTextBoxColumn.Visible = false;
-            // 
-            // kt2DataGridViewTextBoxColumn
-            // 
-            this.kt2DataGridViewTextBoxColumn.DataPropertyName = "Kt2";
-            this.kt2DataGridViewTextBoxColumn.HeaderText = "Kt2";
-            this.kt2DataGridViewTextBoxColumn.Name = "kt2DataGridViewTextBoxColumn";
-            this.kt2DataGridViewTextBoxColumn.Visible = false;
-            // 
-            // kt3DataGridViewTextBoxColumn
-            // 
-            this.kt3DataGridViewTextBoxColumn.DataPropertyName = "Kt3";
-            this.kt3DataGridViewTextBoxColumn.HeaderText = "Kt3";
-            this.kt3DataGridViewTextBoxColumn.Name = "kt3DataGridViewTextBoxColumn";
-            this.kt3DataGridViewTextBoxColumn.Visible = false;
-            // 
-            // codeInsulationTypeDataGridViewTextBoxColumn
-            // 
-            this.codeInsulationTypeDataGridViewTextBoxColumn.DataPropertyName = "CodeInsulationType";
-            this.codeInsulationTypeDataGridViewTextBoxColumn.HeaderText = "CodeInsulationType";
-            this.codeInsulationTypeDataGridViewTextBoxColumn.Name = "codeInsulationTypeDataGridViewTextBoxColumn";
-            this.codeInsulationTypeDataGridViewTextBoxColumn.Visible = false;
-            // 
             // fFiveCalc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -509,21 +359,5 @@
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.DataGridViewComboBoxColumn codeDeltaTDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueOfHeatlossMVTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codePipelineSortDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn codeOutsideDiameterDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn keyStandardHeatLossDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valueOfHeatlossKALDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn startupDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn nhwINyearDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn superPositionDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codeHeatDissipationSortDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codeMethodOfLayingDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn assessedValueDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn extrapolationDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn influenccePipelineINcanalDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kt1DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kt2DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kt3DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codeInsulationTypeDataGridViewTextBoxColumn;
     }
 }
