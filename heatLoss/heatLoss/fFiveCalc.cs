@@ -28,31 +28,17 @@ namespace heatLoss
         // проверка ввода
 
         {
-    
-
             // месеж бокс условие воздушка 
-            if (cbType.SelectedIndex == 3 && checkBox1.Checked==false && checkBox2.Checked==false)
+            if (cbType.SelectedIndex == 3 && checkBox1.Checked == false && checkBox2.Checked == false)
             {
 
                 // вот по этим значениям нужно брать данные из таблицы
                 calc.deltaT1_vozd = calc.onePipeAir(Direction.FLOW);
                 calc.deltaT2_vozd = calc.onePipeAir(Direction.RETURN);
                 //заносим массив
-                double[,] heatLossMass = new double[dgv_heatloss.RowCount, dgv_heatloss.ColumnCount];
-                for (int i = 0; i < dgv_heatloss.RowCount; i++)
-                {
-                    for (int j = 0; j < dgv_heatloss.ColumnCount; j++)
-                    {
-                        heatLossMass[i, j] = Convert.ToDouble(dgv_heatloss[j, i].EditedFormattedValue);
-                        // MessageBox.Show(heatLossMass[i, j].ToString());  
-                    }
-                }
+                double[,] heatLossMass = inMass(dgv_heatloss.RowCount, dgv_heatloss.ColumnCount);               
                 MessageBox.Show(lin.massiv(heatLossMass, calc.deltaT1_vozd).ToString());
                 MessageBox.Show(lin.massiv(heatLossMass, calc.deltaT2_vozd).ToString());
-
-
-
-
                 // надо хапнуть пару значений из таблицы Ж и И смотри методику страницу 20 пункт 5,4,5 (вроде это до 1994)
 
                 // интерпалируем значения взятые из таблицы и присваимваем ку1 и ку 2
@@ -110,9 +96,6 @@ namespace heatLoss
                     // MessageBox.Show(heatLossMass[i, j].ToString());  
                 }
             }
-           // MessageBox.Show(lin.massiv(heatLossMass, Convert.ToDouble(tbDiametr.Text)).ToString());
-
-
             // попробую всё заносить в массив 
         }
 
@@ -120,6 +103,20 @@ namespace heatLoss
         {
             if (checkBox3.Checked) { dgv_heatloss.Visible = true; }
             else { dgv_heatloss.Visible = false; }
+        }
+
+        //ввод данных из строки в масиив
+        public double[,] inMass(int row,int col)
+        {
+            double[,] newMass = new double[row, col];
+            for (int i = 0; i < row; i++)
+            {
+                for (int j = 0; j < col; j++)
+                {
+                    newMass[i, j] = Convert.ToDouble(this.dgv_heatloss[j, i].EditedFormattedValue);                   
+                }
+            }
+            return newMass;
         }
     }
 }

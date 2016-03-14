@@ -39,10 +39,6 @@ namespace heatLoss
             T1_F = _T1_F;
             T2_P = _T2_P;
             T2_F = _T2_F;
-
-            
-
-            
     
 
         }
