@@ -113,6 +113,9 @@ namespace heatLoss
                 checkBox3.Visible = true;
             }
 
+            //провекра кол-ва труб в котловане
+            cbPipeNumberCheck();
+
 
 
         }
@@ -142,6 +145,15 @@ namespace heatLoss
             else { dgv_heatloss.Visible = false; }
         }
 
+        //провекра кол-ва труб в котловане
+        private void cbPipeNumberCheck()
+        {
+            if (cbType.SelectedIndex == 0)
+            {
+                cbPipeNumber.Visible = true;
+            }
+            else cbPipeNumber.Visible = false;
+        }
         //ввод данных из строки в масиив
         public double[,] inMass(int row, int col)
         {
@@ -158,7 +170,8 @@ namespace heatLoss
 
         private void cbType_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            //провекра кол-ва труб в котловане
+            cbPipeNumberCheck();
         }
     }
 }
