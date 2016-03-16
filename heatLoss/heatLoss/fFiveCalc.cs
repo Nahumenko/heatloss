@@ -31,8 +31,43 @@ namespace heatLoss
             // проверка ввода
             // проверка ввода
 
-            // обновление таблицы
-            this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.sql_hl(Convert.ToInt32(cbType.SelectedValue), cbNhwInYear.Checked, cbYear.Checked, Convert.ToInt32(cbOutDiam.SelectedValue));
+           // основной алгоритм в кейсе
+            switch (cbType.SelectedIndex)
+            {
+                case 0:
+                    switch (cbPipeNumber.SelectedIndex)
+                    {
+                        case -1:
+                            MessageBox.Show("Выберите тип подземной прокладки", "Ошибка");
+                            break;
+                        case 0:
+                            this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.sql_hl_addDtSP(Convert.ToInt32(cbOutDiam.SelectedValue), cbYear.Checked, cbNhwInYear.Checked, true, Convert.ToInt32(cbType.SelectedValue));
+                            calc.twoTubesUnderground();
+                            //заносим массив
+                            double[,] heatLossMass = inMass(dgv_heatloss.RowCount, dgv_heatloss.ColumnCount);
+                            //дополниттельная проверка на кол-во строк в массиве
+                            if (heatLossMass.GetLength(0) != 0)
+                            {
+                                lblQ.Visible = true;
+                                lblTemP.Visible = true;
+                                lblTemP.Text = ("Значение Делта Т св = " + calc.deltaTcv);
+                                //интерполяция
+                                double q = lin.massiv(heatLossMass, calc.deltaTcv); // кушки куда-то нужно девать
+                                lblQ.Text = ("Значение Ку Подз =" + q);
+                                //График
+                                chart1.Visible = true;
+                                paintingChart(heatLossMass, calc.deltaTcv, q);
+                                //вывод данных и дальнейший расчёт
+                            }
+                            else MessageBox.Show("В базе данных нет значений для заданых условий");
+                            break;
+                    }
+
+                    break;
+                default:
+                    break;
+            }
+
             if (cbType.SelectedIndex == 0)
             {
 
@@ -41,26 +76,29 @@ namespace heatLoss
             if (cbType.SelectedIndex == 3)
             {
                 // вот по этим значениям нужно брать данные из таблицы
-              double x=  calc.deltaT1_vozd = calc.onePipeAir(Direction.FLOW);
-             double xx=   calc.deltaT2_vozd = calc.onePipeAir(Direction.RETURN);
+                double x = calc.deltaT1_vozd = calc.onePipeAir(Direction.FLOW);
+                double xx = calc.deltaT2_vozd = calc.onePipeAir(Direction.RETURN);
                 //заносим массив
                 double[,] heatLossMass = inMass(dgv_heatloss.RowCount, dgv_heatloss.ColumnCount);
                 //дополниттельная проверка на кол-во строк в массиве
                 if (heatLossMass.GetLength(0) != 0)
                 {
-                    MessageBox.Show(lin.massiv(heatLossMass, calc.deltaT1_vozd).ToString());
-                    MessageBox.Show(lin.massiv(heatLossMass, calc.deltaT2_vozd).ToString());
+
                     chart1.Series.Clear();
-                    chart1.Series.Add("табличные значения");
-                    chart1.Series[0].ChartType = SeriesChartType.Line;
+                    chart1.Series.Add("справочные значения");
+                    chart1.Series[0].ChartType = SeriesChartType.Spline;
                     chart1.Series[0].MarkerStyle = MarkerStyle.Circle;
+                    chart1.Series[0].BorderWidth = 50;
+                    chart1.Series[0].LabelBorderWidth = 50;
+                    chart1.Series[0].MarkerBorderWidth = 50;
                     for (int i = 0; i < heatLossMass.GetLength(0); i++)
                     {
                         chart1.Series[0].Points.AddXY(heatLossMass[i, 0], heatLossMass[i, 1]);
                     }
-                    chart1.Series.Add("линейная интерполяция");
+                    chart1.Series.Add("расчётные значения");
                     chart1.Series[1].ChartType = SeriesChartType.Point;
                     chart1.Series[1].MarkerStyle = MarkerStyle.Cross;
+                    chart1.Series[1].Color = Color.Red;
                     chart1.Series[1].Points.AddXY(x, lin.massiv(heatLossMass, calc.deltaT1_vozd));
                     chart1.Series[1].Points.AddXY(xx, lin.massiv(heatLossMass, calc.deltaT2_vozd));
                     // интерпалируем значения взятые из таблицы и присваимваем ку1 и ку 2
@@ -144,8 +182,54 @@ namespace heatLoss
             if (checkBox3.Checked) { dgv_heatloss.Visible = true; }
             else { dgv_heatloss.Visible = false; }
         }
+        //рисование графика
+        private void paintingChart(double[,] mass, double t, double q)
+        {
+            chart1.Series.Clear(); // чищу на всякий пожарный
+            chart1.Series.Add("справочные значения");
+            chart1.Series[0].ChartType = SeriesChartType.Spline;
+            chart1.Series[0].MarkerStyle = MarkerStyle.Circle;
+            chart1.Series[0].BorderWidth = 3;
+            chart1.Series[0].LabelBorderWidth = 3;
+            chart1.Series[0].MarkerBorderWidth = 3;
+            
 
-        //провекра кол-ва труб в котловане
+            for (int i = 0; i < mass.GetLength(0); i++)
+            {
+                chart1.Series[0].Points.AddXY(mass[i, 0], mass[i, 1]);
+            }
+            chart1.Series.Add("расчётные значения");
+            chart1.Series[1].Color = Color.GreenYellow;
+            chart1.Series[1].MarkerSize = 15;
+            chart1.Series[1].ChartType = SeriesChartType.Point;
+            chart1.Series[1].MarkerStyle = MarkerStyle.Cross;
+            chart1.Series[1].Points.AddXY(t, q);
+        }
+        //рисование графика перегрузка на две точки
+        private void paintingChart(double[,] mass, double t0, double q0, double t1, double q1)
+        {
+            chart1.Series.Clear(); // чищу на всякий пожарный
+            chart1.Series.Add("справочные значения");
+            chart1.Series[0].ChartType = SeriesChartType.Spline;
+            chart1.Series[0].MarkerStyle = MarkerStyle.Circle;
+            chart1.Series[0].BorderWidth = 3;
+            chart1.Series[0].LabelBorderWidth = 3;
+            chart1.Series[0].MarkerBorderWidth = 3;
+            for (int i = 0; i < mass.GetLength(0); i++)
+            {
+                chart1.Series[0].Points.AddXY(mass[i, 0], mass[i, 1]);
+            }
+            chart1.Series.Add("расчётные значения");
+            chart1.Series[1].Color = Color.GreenYellow;
+            chart1.Series[1].MarkerSize = 15;
+            chart1.Series[1].ChartType = SeriesChartType.Point;
+            chart1.Series[1].MarkerStyle = MarkerStyle.Cross;
+            chart1.Series[1].Points.AddXY(t0, q0);
+            chart1.Series[1].Points.AddXY(t1, q1);
+        }
+
+
+        //провекра кол-ва труб в котловане на видимость
         private void cbPipeNumberCheck()
         {
             if (cbType.SelectedIndex == 0)
@@ -172,6 +256,13 @@ namespace heatLoss
         {
             //провекра кол-ва труб в котловане
             cbPipeNumberCheck();
+        }
+
+        private void fFiveCalc_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            lblQ.Visible = false;
+            lblTemP.Visible = false;
+            chart1.Visible = false;
         }
     }
 }

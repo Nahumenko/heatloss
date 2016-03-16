@@ -8,7 +8,7 @@ namespace heatLoss
 {
     class claculationFirst
     {
-        double deltaTcv;    //Температурный напор подземная прокладка, Цельсий
+        public double deltaTcv;    //Температурный напор подземная прокладка, Цельсий
         double t1_crG;      //среднегодовая температура сетевой воды в подающем и обратном тру-бопроводах определенные 
         double t2_crG;      //из проектного температурного графика, градус Цельсия
         double taoGr_crG;   //среднегодовая температура грунта согласно ТАБЛИЦЫ КОТОРУЮ НУЖНО ДАБОАВИТЬ, Цельсий
@@ -87,9 +87,19 @@ namespace heatLoss
 
             double z;
             if (direction == Direction.FLOW)
-                z = t1_crG - taoV_crG;          //для подачи
+                deltaT1_vozd = z = t1_crG - taoV_crG;          //для подачи
             else
-                z = t2_crG - taoV_crG;           //для обратки
+                deltaT1_vozd = z = t2_crG - taoV_crG;           //для обратки
+            return z;
+        }
+
+        //подземная прокладка таблицы Б
+        public double twoTubesUnderground()
+        {
+            t1_crG = tempTable[12].T1_P;
+            t2_crG = tempTable[12].T2_P;
+            double z;
+            deltaTcv = z = ((t1_crG + t2_crG) / 2) - taoGr_crG;
             return z;
         }
 
@@ -116,10 +126,7 @@ namespace heatLoss
 
 
         //Интерполяция для двухтрубной подземной прокладки
-        public double twoTubesUnderground(double t1_crG, double t2_crG, double taoGr_crG)
-        {
-            return deltaTcv = ((t1_crG + t2_crG) / 2) - taoGr_crG;
-        }
+
 
 
         //для отдельно зарытых труб подающего и обратного трубопровода

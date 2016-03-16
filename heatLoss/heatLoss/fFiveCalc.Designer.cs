@@ -48,7 +48,6 @@
             this.outsideDiameterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cbYear = new System.Windows.Forms.CheckBox();
             this.cbNhwInYear = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.standardHeatLossTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.standardHeatLossTableAdapter();
             this.deltaTTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.deltaTTableAdapter();
             this.outsideDiameterTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.outsideDiameterTableAdapter();
@@ -57,6 +56,8 @@
             this.outsideDiameterBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.cbPipeNumber = new System.Windows.Forms.ComboBox();
+            this.lblTemP = new System.Windows.Forms.Label();
+            this.lblQ = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.methodOfLayingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -116,7 +117,7 @@
             // 
             // btnCalc
             // 
-            this.btnCalc.Location = new System.Drawing.Point(812, 364);
+            this.btnCalc.Location = new System.Drawing.Point(812, 400);
             this.btnCalc.Name = "btnCalc";
             this.btnCalc.Size = new System.Drawing.Size(75, 23);
             this.btnCalc.TabIndex = 6;
@@ -139,6 +140,7 @@
             this.chart1.Size = new System.Drawing.Size(503, 266);
             this.chart1.TabIndex = 7;
             this.chart1.Text = "chart1";
+            this.chart1.Visible = false;
             // 
             // dgv_heatloss
             // 
@@ -151,10 +153,10 @@
             this.codeDeltaTDataGridViewTextBoxColumn,
             this.valueOfHeatlossMVTDataGridViewTextBoxColumn});
             this.dgv_heatloss.DataSource = this.standardHeatLossBindingSource;
-            this.dgv_heatloss.Location = new System.Drawing.Point(598, 109);
+            this.dgv_heatloss.Location = new System.Drawing.Point(642, 109);
             this.dgv_heatloss.Name = "dgv_heatloss";
             this.dgv_heatloss.RowHeadersVisible = false;
-            this.dgv_heatloss.Size = new System.Drawing.Size(245, 249);
+            this.dgv_heatloss.Size = new System.Drawing.Size(245, 266);
             this.dgv_heatloss.TabIndex = 9;
             this.dgv_heatloss.Visible = false;
             // 
@@ -211,16 +213,6 @@
             this.cbNhwInYear.Text = "Часы (yes если <5000)";
             this.cbNhwInYear.UseVisualStyleBackColor = true;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(731, 46);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // standardHeatLossTableAdapter
             // 
             this.standardHeatLossTableAdapter.ClearBeforeFill = true;
@@ -276,15 +268,36 @@
             this.cbPipeNumber.Size = new System.Drawing.Size(121, 21);
             this.cbPipeNumber.TabIndex = 15;
             // 
+            // lblTemP
+            // 
+            this.lblTemP.AutoSize = true;
+            this.lblTemP.Location = new System.Drawing.Point(85, 378);
+            this.lblTemP.Name = "lblTemP";
+            this.lblTemP.Size = new System.Drawing.Size(35, 13);
+            this.lblTemP.TabIndex = 16;
+            this.lblTemP.Text = "label1";
+            this.lblTemP.Visible = false;
+            // 
+            // lblQ
+            // 
+            this.lblQ.AutoSize = true;
+            this.lblQ.Location = new System.Drawing.Point(85, 400);
+            this.lblQ.Name = "lblQ";
+            this.lblQ.Size = new System.Drawing.Size(35, 13);
+            this.lblQ.TabIndex = 17;
+            this.lblQ.Text = "label2";
+            this.lblQ.Visible = false;
+            // 
             // fFiveCalc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(899, 399);
+            this.ClientSize = new System.Drawing.Size(899, 434);
+            this.Controls.Add(this.lblQ);
+            this.Controls.Add(this.lblTemP);
             this.Controls.Add(this.cbPipeNumber);
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.cbOutDiam);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.cbNhwInYear);
             this.Controls.Add(this.cbYear);
             this.Controls.Add(this.dgv_heatloss);
@@ -296,6 +309,7 @@
             this.Controls.Add(this.cbType);
             this.Name = "fFiveCalc";
             this.Text = "fFiveCalc";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fFiveCalc_FormClosing);
             this.Load += new System.EventHandler(this.fFiveCalc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.methodOfLayingBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).EndInit();
@@ -324,7 +338,6 @@
         private _BD01_02_2016DataSetTableAdapters.standardHeatLossTableAdapter standardHeatLossTableAdapter;
         private System.Windows.Forms.CheckBox cbYear;
         private System.Windows.Forms.CheckBox cbNhwInYear;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.BindingSource deltaTBindingSource;
         private _BD01_02_2016DataSetTableAdapters.deltaTTableAdapter deltaTTableAdapter;
         private System.Windows.Forms.BindingSource outsideDiameterBindingSource;
@@ -337,5 +350,7 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn codeDeltaTDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueOfHeatlossMVTDataGridViewTextBoxColumn;
         private System.Windows.Forms.ComboBox cbPipeNumber;
+        private System.Windows.Forms.Label lblTemP;
+        private System.Windows.Forms.Label lblQ;
     }
 }
