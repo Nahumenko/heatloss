@@ -13109,12 +13109,24 @@ namespace heatLoss._BD01_02_2016DataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[2];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT keyInsulationkt2, codeInsulation, codeHeatDissipation, codeMethodOfLaying," +
                 " codeOutsideDiametr, Kt2 FROM insulationKt2";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT        insulationKt2.Kt2
+FROM            (((insulationKt2 INNER JOIN
+                         outsideDiameter ON insulationKt2.codeOutsideDiametr = outsideDiameter.keyOutsideDiameter) INNER JOIN
+                         methodOfLaying ON insulationKt2.codeMethodOfLaying = methodOfLaying.keyMethodOfLaying) INNER JOIN
+                         insulationType ON insulationKt2.codeInsulation = insulationType.keyInsulationType)
+WHERE        (insulationKt2.codeInsulation = ?) AND (insulationKt2.codeMethodOfLaying = ?) AND (insulationKt2.codeOutsideDiametr = ?)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("codeInsulation", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "codeInsulation", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("codeMethodOfLaying", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "codeMethodOfLaying", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("codeOutsideDiametr", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "codeOutsideDiametr", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13136,6 +13148,35 @@ namespace heatLoss._BD01_02_2016DataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual _BD01_02_2016DataSet.insulationKt2DataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            _BD01_02_2016DataSet.insulationKt2DataTable dataTable = new _BD01_02_2016DataSet.insulationKt2DataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual _BD01_02_2016DataSet.insulationKt2DataTable sql_Kt2(global::System.Nullable<int> codeInsulation, global::System.Nullable<int> codeMethodOfLaying, global::System.Nullable<int> codeOutsideDiametr) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((codeInsulation.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(codeInsulation.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((codeMethodOfLaying.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(codeMethodOfLaying.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((codeOutsideDiametr.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(codeOutsideDiametr.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
             _BD01_02_2016DataSet.insulationKt2DataTable dataTable = new _BD01_02_2016DataSet.insulationKt2DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

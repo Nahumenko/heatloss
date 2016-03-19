@@ -12,17 +12,19 @@ namespace heatLoss
         double t1_crG;      //среднегодовая температура сетевой воды в подающем и обратном тру-бопроводах определенные 
         double t2_crG;      //из проектного температурного графика, градус Цельсия
         double taoGr_crG;   //среднегодовая температура грунта согласно ТАБЛИЦЫ КОТОРУЮ НУЖНО ДАБОАВИТЬ, Цельсий
-        // depth;       //Примечание. Если глубина 0,7 и менее тогда вместо тао грунта берёться тао воздуха но только для
-                                 //СНиП 2.04.14-88 «Тепловая изоляция оборудования и трубопроводов», метры
+                            // depth;       //Примечание. Если глубина 0,7 и менее тогда вместо тао грунта берёться тао воздуха но только для
+                            //СНиП 2.04.14-88 «Тепловая изоляция оборудования и трубопроводов», метры
         public double deltaT1_podz;// подача одиночная подземная прокладка температкрный напор, цельсий
         public double deltaT2_podz;// обратка одиночная подземная прокладка температкрный напор, цельсий
         public double deltaT1_vozd;// подача воздушка температкрный напор, цельсий
         public double deltaT2_vozd;// обратка воздушка температкрный напор, цельсий
         double taoV_crG;    // среднегодова температура воздуха всё их ТОЙ ЖЕ ТАБЛИЦЫ, цельсий
-        double deltaT1_pom;  // температурный напор для подачи при прокладки в помещении или тех подвале ,цельсий
-        double deltaT2_pom;  // температурный напор для обратки при прокладки в помещении или тех подвале ,цельсий
-        double deltaT1_tunel;// температурный напор для обратки при прокладки в проходном канале или тоннеле ,цельсий 
-        double deltaT2_tunel;// температурный напор для обратки при прокладки в проходном канале или тоннеле ,цельсий
+        double normTempInHouse = 15;// средня температурав домеме и проходном канале
+        double normTempInTunel = 40;//средняя температура в тунеле
+        public double deltaT1_pom;  // температурный напор для подачи при прокладки в помещении или тех подвале ,цельсий
+        public double deltaT2_pom;  // температурный напор для обратки при прокладки в помещении или тех подвале ,цельсий
+        public double deltaT1_tunel;// температурный напор для обратки при прокладки в проходном канале или тоннеле ,цельсий 
+        public double deltaT2_tunel;// температурный напор для обратки при прокладки в проходном канале или тоннеле ,цельсий
         double qnf_crG;      // значение для подземной прокоадки на непроектный режим режим работы 
         double qn_crG;       // значения интерполированые из таблицы
         double q2nf_nadz;    //персчёт надземные обратка
@@ -89,7 +91,7 @@ namespace heatLoss
             if (direction == Direction.FLOW)
                 deltaT1_vozd = z = t1_crG - taoV_crG;          //для подачи
             else
-                deltaT1_vozd = z = t2_crG - taoV_crG;           //для обратки
+                deltaT2_vozd = z = t2_crG - taoV_crG;           //для обратки
             return z;
         }
 
@@ -131,7 +133,29 @@ namespace heatLoss
             }
             return z;
         }
+        //для трубопровода расположено в здании, проходном канале
+        public double onePipeHouse(Direction direction)
+        {
+            t1_crG = tempTable[12].T1_P;
+            t2_crG = tempTable[12].T2_P;
+            double z;
+            if (direction == Direction.FLOW)
+                z = deltaT1_pom = t1_crG - normTempInHouse;            //для подачи
+            else z = deltaT2_pom = t2_crG - normTempInHouse;           //для обратки
+            return z;
+        }
 
+        //для трубопроводов расположенных в канале туннеле
+        public double onePipeTunnel(Direction direction)
+        {
+            t1_crG = tempTable[12].T1_P;
+            t2_crG = tempTable[12].T2_P;
+            double z;
+            if (direction == Direction.FLOW)
+                z = deltaT1_tunel = t1_crG - normTempInTunel;            //для подачи
+            else z = deltaT2_tunel = t2_crG - normTempInTunel;           //для обратки
+            return z;
+        }
 
 
         //всё что было ниже тоже что-то не понятное не обращай внимание я это делал в бреду 
@@ -154,20 +178,8 @@ namespace heatLoss
 
 
 
-            //Интерполяция для двухтрубной подземной прокладки
-
-            //5,44 пропустил там голая выборка
 
 
-            //Спросить у ВНА о константах 15,40 нужно ли их изменение
-            //для трубопроводов расположенных в помещении (техническом подполье) или тоннеле (проходном канале)
-
-        public double onePipeHouse(Direction direction, double t1_crG, double t2_crG)
-        {
-            if (direction == Direction.FLOW)
-                return deltaT1_pom = t1_crG - 15;            //для подачи
-            else return deltaT2_pom = t2_crG - 15;           //для обратки
-        }
 
         //для трубопроводов расположенных в канале туннеле
         public double onePipeTunnel(Direction direction, double t1_crG, double t2_crG)

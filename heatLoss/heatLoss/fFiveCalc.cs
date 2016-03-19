@@ -32,7 +32,7 @@ namespace heatLoss
             // проверка ввода
 
             // основной алгоритм в кейсе
-            if (cbType.SelectedIndex == 0 || cbType.SelectedIndex == 1)
+            if (cbType.SelectedIndex == 0 || cbType.SelectedIndex == 1 || cbType.SelectedIndex == 2)
             {
                 // выборка суперпозиции
                 bool superPoz;
@@ -58,12 +58,25 @@ namespace heatLoss
                             lblTemP.Visible = true;
                             lblTemP.Text = ("Значение Делта Т св = " + calc.deltaTcv);
                             //интерполяция
-                            double q = lin.massiv(heatLossMass, calc.deltaTcv); // кушки куда-то нужно девать
-                            lblQ.Text = ("Значение Ку Подз =" + q);
-                            //График
-                            chart1.Visible = true;
-                            paintingChart(heatLossMass, calc.deltaTcv, q);
-                            //вывод данных и дальнейший расчёт
+                            if (cbType.SelectedIndex == 0 || cbType.SelectedIndex == 1)
+                            {
+                                double q = lin.massiv(heatLossMass, calc.deltaTcv); // кушки куда-то нужно девать
+                                lblQ.Text = ("Значение Ку Подз =" + q);
+                                //График
+                                chart1.Visible = true;
+                                paintingChart(heatLossMass, calc.deltaTcv, q);
+                                //вывод данных и дальнейший расчёт
+                            }
+                            else
+                            {
+                                double q = lin.massiv(heatLossMass, calc.deltaTcv) * 0.8; // кушки куда-то нужно девать
+                                MessageBox.Show(this.insulationKt2TableAdapter1.sql_Kt2(Convert.ToInt32(comBInsulationType.SelectedValue), Convert.ToInt32(cbType.SelectedValue), Convert.ToInt32(cbOutDiam.SelectedValue)).ToString());
+                                lblQ.Text = ("Значение Ку Подз =" + q);
+                                //График
+                                chart1.Visible = true;
+                                paintingChart(heatLossMass, calc.deltaTcv, q);
+                            }
+
                         }
                         else MessageBox.Show("В базе данных нет значений для заданых условий");
                         break;
@@ -115,45 +128,90 @@ namespace heatLoss
                 }
             }
 
+
+
             // месеж бокс условие воздушка 
             if (cbType.SelectedIndex == 3)
             {
-                // вот по этим значениям нужно брать данные из таблицы
-                double x = calc.deltaT1_vozd = calc.onePipeAir(Direction.FLOW);
-                double xx = calc.deltaT2_vozd = calc.onePipeAir(Direction.RETURN);
+                this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.sql_hl(Convert.ToInt32(cbType.SelectedValue), cbNhwInYear.Checked, cbYear.Checked, Convert.ToInt32(cbOutDiam.SelectedValue));
+                // расчёт
+                calc.onePipeAir(Direction.FLOW);
+                calc.onePipeAir(Direction.RETURN);
                 //заносим массив
                 double[,] heatLossMass = inMass(dgv_heatloss.RowCount, dgv_heatloss.ColumnCount);
                 //дополниттельная проверка на кол-во строк в массиве
                 if (heatLossMass.GetLength(0) != 0)
                 {
-
-                    chart1.Series.Clear();
-                    chart1.Series.Add("справочные значения");
-                    chart1.Series[0].ChartType = SeriesChartType.Spline;
-                    chart1.Series[0].MarkerStyle = MarkerStyle.Circle;
-                    chart1.Series[0].BorderWidth = 50;
-                    chart1.Series[0].LabelBorderWidth = 50;
-                    chart1.Series[0].MarkerBorderWidth = 50;
-                    for (int i = 0; i < heatLossMass.GetLength(0); i++)
-                    {
-                        chart1.Series[0].Points.AddXY(heatLossMass[i, 0], heatLossMass[i, 1]);
-                    }
-                    chart1.Series.Add("расчётные значения");
-                    chart1.Series[1].ChartType = SeriesChartType.Point;
-                    chart1.Series[1].MarkerStyle = MarkerStyle.Cross;
-                    chart1.Series[1].Color = Color.Red;
-                    chart1.Series[1].Points.AddXY(x, lin.massiv(heatLossMass, calc.deltaT1_vozd));
-                    chart1.Series[1].Points.AddXY(xx, lin.massiv(heatLossMass, calc.deltaT2_vozd));
-                    // интерпалируем значения взятые из таблицы и присваимваем ку1 и ку 2
+                    lblQ.Visible = true;
+                    lblTemP.Visible = true;
+                    lblTemP.Text = ("Значение Делта Т1 возд = " + calc.deltaT1_vozd + "      Значение Делта Т2 возд = " + calc.deltaT2_vozd);
+                    //интерполяция
+                    double q1 = lin.massiv(heatLossMass, calc.deltaT1_vozd); // кушки куда-то нужно девать
+                    double q2 = lin.massiv(heatLossMass, calc.deltaT2_vozd); // кушки куда-то нужно девать
+                    lblQ.Text = ("Значение Ку1 возд = " + q1 + "      Значение Ку1 возд = " + q2);
+                    //График
+                    chart1.Visible = true;
+                    paintingChart(heatLossMass, calc.deltaT1_vozd, q1, calc.deltaT2_vozd, q2);
+                    //вывод данных и дальнейший расчёт
                 }
-                else MessageBox.Show("В базе данных нет значений для заданого диаметра");
-
+                else MessageBox.Show("В базе данных нет значений для заданых условий");
             }
+            if (cbType.SelectedIndex == 5)
+            {
+                this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.sql_hl(Convert.ToInt32(cbType.SelectedValue), cbNhwInYear.Checked, cbYear.Checked, Convert.ToInt32(cbOutDiam.SelectedValue));
+                // расчёт
+                calc.onePipeHouse(Direction.FLOW);
+                calc.onePipeHouse(Direction.RETURN);
+                double[,] heatLossMass = inMass(dgv_heatloss.RowCount, dgv_heatloss.ColumnCount);
+                //дополниттельная проверка на кол-во строк в массиве
+                if (heatLossMass.GetLength(0) != 0)
+                {
+                    lblQ.Visible = true;
+                    lblTemP.Visible = true;
+                    lblTemP.Text = ("Значение Делта Т1 пом = " + calc.deltaT1_pom + "      Значение Делта Т2 возд = " + calc.deltaT2_pom);
+                    //интерполяция
+                    double q1 = lin.massiv(heatLossMass, calc.deltaT1_pom); // кушки куда-то нужно девать
+                    double q2 = lin.massiv(heatLossMass, calc.deltaT2_pom); // кушки куда-то нужно девать
+                    lblQ.Text = ("Значение Ку1 пом = " + q1 + "      Значение Ку1 пом = " + q2);
+                    //График
+                    chart1.Visible = true;
+                    paintingChart(heatLossMass, calc.deltaT1_pom, q1, calc.deltaT2_pom, q2);
+                    //вывод данных и дальнейший расчёт
+                }
+                else MessageBox.Show("В базе данных нет значений для заданых условий");
+            }
+            if (cbType.SelectedIndex == 6)
+            {
+                this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.sql_hl(Convert.ToInt32(cbType.SelectedValue), cbNhwInYear.Checked, cbYear.Checked, Convert.ToInt32(cbOutDiam.SelectedValue));
+                // расчёт
+                calc.onePipeTunnel(Direction.FLOW);
+                calc.onePipeTunnel(Direction.RETURN);
+                double[,] heatLossMass = inMass(dgv_heatloss.RowCount, dgv_heatloss.ColumnCount);
+                //дополниттельная проверка на кол-во строк в массиве
+                if (heatLossMass.GetLength(0) != 0)
+                {
+                    lblQ.Visible = true;
+                    lblTemP.Visible = true;
+                    lblTemP.Text = ("Значение Делта Т1 тун = " + calc.deltaT1_tunel + "      Значение Делта Т2 тун = " + calc.deltaT2_tunel);
+                    //интерполяция
+                    double q1 = lin.massiv(heatLossMass, calc.deltaT1_tunel); // кушки куда-то нужно девать
+                    double q2 = lin.massiv(heatLossMass, calc.deltaT2_tunel); // кушки куда-то нужно девать
+                    lblQ.Text = ("Значение Ку1 пом = " + q1 + "      Значение Ку1 пом = " + q2);
+                    //График
+                    chart1.Visible = true;
+                    paintingChart(heatLossMass, calc.deltaT1_tunel, q1, calc.deltaT2_tunel, q2);
+                    //вывод данных и дальнейший расчёт
+                }
+                else MessageBox.Show("В базе данных нет значений для заданых условий");
+            }
+
 
         }
 
         private void fFiveCalc_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "_BD01_02_2016DataSet.insulationType". При необходимости она может быть перемещена или удалена.
+            this.insulationTypeTableAdapter.Fill(this._BD01_02_2016DataSet.insulationType);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "_BD01_02_2016DataSet.methodOfLaying". При необходимости она может быть перемещена или удалена.
             this.methodOfLayingTableAdapter.Fill(this._BD01_02_2016DataSet.methodOfLaying);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "_BD01_02_2016DataSet.outsideDiameter". При необходимости она может быть перемещена или удалена.
@@ -213,8 +271,6 @@ namespace heatLoss
             chart1.Series[0].BorderWidth = 3;
             chart1.Series[0].LabelBorderWidth = 3;
             chart1.Series[0].MarkerBorderWidth = 3;
-
-
             for (int i = 0; i < mass.GetLength(0); i++)
             {
                 chart1.Series[0].Points.AddXY(mass[i, 0], mass[i, 1]);
@@ -229,23 +285,7 @@ namespace heatLoss
         //рисование графика перегрузка на две точки
         private void paintingChart(double[,] mass, double t0, double q0, double t1, double q1)
         {
-            chart1.Series.Clear(); // чищу на всякий пожарный
-            chart1.Series.Add("справочные значения");
-            chart1.Series[0].ChartType = SeriesChartType.Spline;
-            chart1.Series[0].MarkerStyle = MarkerStyle.Circle;
-            chart1.Series[0].BorderWidth = 3;
-            chart1.Series[0].LabelBorderWidth = 3;
-            chart1.Series[0].MarkerBorderWidth = 3;
-            for (int i = 0; i < mass.GetLength(0); i++)
-            {
-                chart1.Series[0].Points.AddXY(mass[i, 0], mass[i, 1]);
-            }
-            chart1.Series.Add("расчётные значения");
-            chart1.Series[1].Color = Color.GreenYellow;
-            chart1.Series[1].MarkerSize = 15;
-            chart1.Series[1].ChartType = SeriesChartType.Point;
-            chart1.Series[1].MarkerStyle = MarkerStyle.Cross;
-            chart1.Series[1].Points.AddXY(t0, q0);
+            paintingChart(mass, t0, q0);
             chart1.Series[1].Points.AddXY(t1, q1);
         }
 
@@ -253,16 +293,19 @@ namespace heatLoss
         //провекра кол-ва труб в котловане на видимость
         private void cbPipeNumberCheck()
         {
-            if (cbType.SelectedIndex == 0 || cbType.SelectedIndex == 1)
-            {
+            if (cbType.SelectedIndex == 0 || cbType.SelectedIndex == 1 || cbType.SelectedIndex == 2)
                 cbPipeNumber.Visible = true;
+            else cbPipeNumber.Visible = false;
+            if (cbType.SelectedIndex == 0 || cbType.SelectedIndex == 1)
                 cBoxDepth.Visible = true;
-            }
             else
             {
-                cbPipeNumber.Visible = false;
                 cBoxDepth.Visible = false;
+                cBoxDepth.Checked = false;
             }
+            if (cbType.SelectedIndex == 2)
+                comBInsulationType.Visible = true;
+            else comBInsulationType.Visible = false;
         }
         //ввод данных из строки в масиив
         public double[,] inMass(int row, int col)

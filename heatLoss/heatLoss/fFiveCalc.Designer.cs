@@ -59,6 +59,10 @@
             this.lblTemP = new System.Windows.Forms.Label();
             this.lblQ = new System.Windows.Forms.Label();
             this.cBoxDepth = new System.Windows.Forms.CheckBox();
+            this.comBInsulationType = new System.Windows.Forms.ComboBox();
+            this.insulationTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.insulationTypeTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.insulationTypeTableAdapter();
+            this.insulationKt2TableAdapter1 = new heatLoss._BD01_02_2016DataSetTableAdapters.insulationKt2TableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.methodOfLayingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -67,6 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.standardHeatLossBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.outsideDiameterBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.outsideDiameterBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.insulationTypeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // cbType
@@ -299,11 +304,36 @@
             this.cBoxDepth.Text = "Заглубление ТП 0,7 м и менее ";
             this.cBoxDepth.UseVisualStyleBackColor = true;
             // 
+            // comBInsulationType
+            // 
+            this.comBInsulationType.DataSource = this.insulationTypeBindingSource;
+            this.comBInsulationType.DisplayMember = "insulation";
+            this.comBInsulationType.FormattingEnabled = true;
+            this.comBInsulationType.Location = new System.Drawing.Point(498, 72);
+            this.comBInsulationType.Name = "comBInsulationType";
+            this.comBInsulationType.Size = new System.Drawing.Size(121, 21);
+            this.comBInsulationType.TabIndex = 19;
+            this.comBInsulationType.ValueMember = "keyInsulationType";
+            // 
+            // insulationTypeBindingSource
+            // 
+            this.insulationTypeBindingSource.DataMember = "insulationType";
+            this.insulationTypeBindingSource.DataSource = this._BD01_02_2016DataSet;
+            // 
+            // insulationTypeTableAdapter
+            // 
+            this.insulationTypeTableAdapter.ClearBeforeFill = true;
+            // 
+            // insulationKt2TableAdapter1
+            // 
+            this.insulationKt2TableAdapter1.ClearBeforeFill = true;
+            // 
             // fFiveCalc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(899, 434);
+            this.Controls.Add(this.comBInsulationType);
             this.Controls.Add(this.cBoxDepth);
             this.Controls.Add(this.lblQ);
             this.Controls.Add(this.lblTemP);
@@ -331,6 +361,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.standardHeatLossBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.outsideDiameterBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.outsideDiameterBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.insulationTypeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -365,5 +396,9 @@
         private System.Windows.Forms.Label lblTemP;
         private System.Windows.Forms.Label lblQ;
         private System.Windows.Forms.CheckBox cBoxDepth;
+        private System.Windows.Forms.ComboBox comBInsulationType;
+        private System.Windows.Forms.BindingSource insulationTypeBindingSource;
+        private _BD01_02_2016DataSetTableAdapters.insulationTypeTableAdapter insulationTypeTableAdapter;
+        private _BD01_02_2016DataSetTableAdapters.insulationKt2TableAdapter insulationKt2TableAdapter1;
     }
 }
