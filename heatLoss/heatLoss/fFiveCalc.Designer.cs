@@ -58,6 +58,7 @@
             this.cbPipeNumber = new System.Windows.Forms.ComboBox();
             this.lblTemP = new System.Windows.Forms.Label();
             this.lblQ = new System.Windows.Forms.Label();
+            this.cBoxDepth = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.methodOfLayingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -288,11 +289,22 @@
             this.lblQ.Text = "label2";
             this.lblQ.Visible = false;
             // 
+            // cBoxDepth
+            // 
+            this.cBoxDepth.AutoSize = true;
+            this.cBoxDepth.Location = new System.Drawing.Point(642, 45);
+            this.cBoxDepth.Name = "cBoxDepth";
+            this.cBoxDepth.Size = new System.Drawing.Size(185, 17);
+            this.cBoxDepth.TabIndex = 18;
+            this.cBoxDepth.Text = "Заглубление ТП 0,7 м и менее ";
+            this.cBoxDepth.UseVisualStyleBackColor = true;
+            // 
             // fFiveCalc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(899, 434);
+            this.Controls.Add(this.cBoxDepth);
             this.Controls.Add(this.lblQ);
             this.Controls.Add(this.lblTemP);
             this.Controls.Add(this.cbPipeNumber);
@@ -352,5 +364,6 @@
         private System.Windows.Forms.ComboBox cbPipeNumber;
         private System.Windows.Forms.Label lblTemP;
         private System.Windows.Forms.Label lblQ;
+        private System.Windows.Forms.CheckBox cBoxDepth;
     }
 }

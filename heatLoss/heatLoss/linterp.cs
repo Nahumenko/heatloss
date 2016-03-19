@@ -58,24 +58,28 @@ namespace heatLoss
         public double massiv(double[,] mass, double x)
         {
             double q = 666;
-            if (mass[0, 0] > x)
+            if (mass.GetLength(0) > 1)
             {
-                q = (mass[0, 1] * (x - mass[1, 0]) + mass[1, 1] * (mass[0, 0] - x)) / (mass[0, 0] - mass[1, 0]); //меньше диапазона
-            }
-            else if (mass[mass.GetLength(0) - 1, 0] < x)
-            {
-                q = mass[mass.GetLength(0) - 2, 1] + (mass[mass.GetLength(0) - 1, 1] - mass[mass.GetLength(0) - 2, 1]) * (x - mass[mass.GetLength(0) - 2, 0]) / (mass[mass.GetLength(0) - 1, 0] - mass[mass.GetLength(0) - 2, 0]); // больше диапазона
-            }
-            else
-            {
-                for (int i = 0; i < mass.GetLength(0)-1; i++)
+                if (mass[0, 0] > x)
                 {
-                    if (mass[i, 0] <=x && x <=mass[i + 1, 0])
+                    q = (mass[0, 1] * (x - mass[1, 0]) + mass[1, 1] * (mass[0, 0] - x)) / (mass[0, 0] - mass[1, 0]); //меньше диапазона
+                }
+                else if (mass[mass.GetLength(0) - 1, 0] < x)
+                {
+                    q = mass[mass.GetLength(0) - 2, 1] + (mass[mass.GetLength(0) - 1, 1] - mass[mass.GetLength(0) - 2, 1]) * (x - mass[mass.GetLength(0) - 2, 0]) / (mass[mass.GetLength(0) - 1, 0] - mass[mass.GetLength(0) - 2, 0]); // больше диапазона
+                }
+                else
+                {
+                    for (int i = 0; i < mass.GetLength(0) - 1; i++)
                     {
-                        q = mass[i, 1] + (x - mass[i, 0]) / (mass[i + 1, 0] - mass[i, 0]) * (mass[i + 1, 1] - mass[i, 1]);       // если попадётся между и поатор массива
+                        if (mass[i, 0] <= x && x <= mass[i + 1, 0])
+                        {
+                            q = mass[i, 1] + (x - mass[i, 0]) / (mass[i + 1, 0] - mass[i, 0]) * (mass[i + 1, 1] - mass[i, 1]);       // если попадётся между и поатор массива
+                        }
                     }
                 }
             }
+            else q =  mass[0, 1]*x/ mass[0, 0];
             return q;
         }
 

@@ -16544,7 +16544,7 @@ namespace heatLoss._BD01_02_2016DataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[3];
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[5];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT keyStandardHeatLoss, CodePipelineSort, CodeOutsideDiameter, codeDeltaT, ValueOfHeatlossMVT, ValueOfHeatlossKAL, startup, nhwINyear, superPosition, codeHeatDissipationSort, codeMethodOfLaying, assessedValue, extrapolation, influenccePipelineINcanal, Kt1, Kt2, Kt3, CodeInsulationType FROM standardHeatLoss";
@@ -16580,6 +16580,38 @@ WHERE        (standardHeatLoss.CodeOutsideDiameter = ?) AND (standardHeatLoss.co
             this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("nhwINyear", global::System.Data.OleDb.OleDbType.Boolean, 2, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nhwINyear", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("superPosition", global::System.Data.OleDb.OleDbType.Boolean, 2, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "superPosition", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("codeMethodOfLaying", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "codeMethodOfLaying", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[3] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"SELECT        standardHeatLoss.codeDeltaT, standardHeatLoss.ValueOfHeatlossMVT, standardHeatLoss.ValueOfHeatlossKAL
+FROM            (((standardHeatLoss INNER JOIN
+                         deltaT ON standardHeatLoss.codeDeltaT = deltaT.keyDeltaT) INNER JOIN
+                         outsideDiameter ON standardHeatLoss.CodeOutsideDiameter = outsideDiameter.keyOutsideDiameter) INNER JOIN
+                         methodOfLaying ON standardHeatLoss.codeMethodOfLaying = methodOfLaying.keyMethodOfLaying)
+WHERE        (standardHeatLoss.CodeOutsideDiameter = ?) AND (standardHeatLoss.codeDeltaT = 3 OR
+                         standardHeatLoss.codeDeltaT = 6 OR
+                         standardHeatLoss.codeDeltaT = 7) AND (standardHeatLoss.startup = ?) AND (standardHeatLoss.nhwINyear = ?) AND (standardHeatLoss.superPosition = ?) AND 
+                         (standardHeatLoss.codeMethodOfLaying = ?)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CodeOutsideDiameter", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CodeOutsideDiameter", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("startup", global::System.Data.OleDb.OleDbType.Boolean, 2, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "startup", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("nhwINyear", global::System.Data.OleDb.OleDbType.Boolean, 2, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nhwINyear", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("superPosition", global::System.Data.OleDb.OleDbType.Boolean, 2, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "superPosition", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("codeMethodOfLaying", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "codeMethodOfLaying", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[4] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = @"SELECT        standardHeatLoss.codeDeltaT, standardHeatLoss.ValueOfHeatlossMVT, standardHeatLoss.ValueOfHeatlossKAL
+FROM            (((standardHeatLoss INNER JOIN
+                         deltaT ON standardHeatLoss.codeDeltaT = deltaT.keyDeltaT) INNER JOIN
+                         outsideDiameter ON standardHeatLoss.CodeOutsideDiameter = outsideDiameter.keyOutsideDiameter) INNER JOIN
+                         methodOfLaying ON standardHeatLoss.codeMethodOfLaying = methodOfLaying.keyMethodOfLaying)
+WHERE        (standardHeatLoss.CodeOutsideDiameter = ?) AND (standardHeatLoss.codeDeltaT = 1) AND (standardHeatLoss.startup = ?) AND (standardHeatLoss.nhwINyear = ?) 
+                         AND (standardHeatLoss.superPosition = ?) AND (standardHeatLoss.codeMethodOfLaying = ?)";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CodeOutsideDiameter", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CodeOutsideDiameter", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("startup", global::System.Data.OleDb.OleDbType.Boolean, 2, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "startup", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("nhwINyear", global::System.Data.OleDb.OleDbType.Boolean, 2, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nhwINyear", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("superPosition", global::System.Data.OleDb.OleDbType.Boolean, 2, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "superPosition", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("codeMethodOfLaying", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "codeMethodOfLaying", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16637,6 +16669,58 @@ WHERE        (standardHeatLoss.CodeOutsideDiameter = ?) AND (standardHeatLoss.co
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual _BD01_02_2016DataSet.standardHeatLossDataTable sql_hl_addDtSP(global::System.Nullable<int> CodeOutsideDiameter, bool startup, bool nhwINyear, bool superPosition, global::System.Nullable<int> codeMethodOfLaying) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((CodeOutsideDiameter.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CodeOutsideDiameter.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((bool)(startup));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((bool)(nhwINyear));
+            this.Adapter.SelectCommand.Parameters[3].Value = ((bool)(superPosition));
+            if ((codeMethodOfLaying.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((int)(codeMethodOfLaying.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            _BD01_02_2016DataSet.standardHeatLossDataTable dataTable = new _BD01_02_2016DataSet.standardHeatLossDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual _BD01_02_2016DataSet.standardHeatLossDataTable sql_hl_addDtSP2(global::System.Nullable<int> CodeOutsideDiameter, bool startup, bool nhwINyear, bool superPosition, global::System.Nullable<int> codeMethodOfLaying) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((CodeOutsideDiameter.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CodeOutsideDiameter.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((bool)(startup));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((bool)(nhwINyear));
+            this.Adapter.SelectCommand.Parameters[3].Value = ((bool)(superPosition));
+            if ((codeMethodOfLaying.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((int)(codeMethodOfLaying.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            _BD01_02_2016DataSet.standardHeatLossDataTable dataTable = new _BD01_02_2016DataSet.standardHeatLossDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual _BD01_02_2016DataSet.standardHeatLossDataTable sql_hl_addDtSP3(global::System.Nullable<int> CodeOutsideDiameter, bool startup, bool nhwINyear, bool superPosition, global::System.Nullable<int> codeMethodOfLaying) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((CodeOutsideDiameter.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CodeOutsideDiameter.Value));
             }

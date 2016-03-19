@@ -164,6 +164,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_BD01_02_2016DataSet.cs">
+      <DependentUpon>_BD01_02_2016DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="_BD01_02_2016DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

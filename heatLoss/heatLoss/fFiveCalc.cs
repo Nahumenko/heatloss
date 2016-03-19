@@ -31,47 +31,90 @@ namespace heatLoss
             // проверка ввода
             // проверка ввода
 
-           // основной алгоритм в кейсе
-            switch (cbType.SelectedIndex)
+            // основной алгоритм в кейсе
+            if (cbType.SelectedIndex == 0 || cbType.SelectedIndex == 1)
             {
-                case 0:
-                    switch (cbPipeNumber.SelectedIndex)
-                    {
-                        case -1:
-                            MessageBox.Show("Выберите тип подземной прокладки", "Ошибка");
-                            break;
-                        case 0:
-                            this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.sql_hl_addDtSP(Convert.ToInt32(cbOutDiam.SelectedValue), cbYear.Checked, cbNhwInYear.Checked, true, Convert.ToInt32(cbType.SelectedValue));
-                            calc.twoTubesUnderground();
-                            //заносим массив
-                            double[,] heatLossMass = inMass(dgv_heatloss.RowCount, dgv_heatloss.ColumnCount);
-                            //дополниттельная проверка на кол-во строк в массиве
-                            if (heatLossMass.GetLength(0) != 0)
-                            {
-                                lblQ.Visible = true;
-                                lblTemP.Visible = true;
-                                lblTemP.Text = ("Значение Делта Т св = " + calc.deltaTcv);
-                                //интерполяция
-                                double q = lin.massiv(heatLossMass, calc.deltaTcv); // кушки куда-то нужно девать
-                                lblQ.Text = ("Значение Ку Подз =" + q);
-                                //График
-                                chart1.Visible = true;
-                                paintingChart(heatLossMass, calc.deltaTcv, q);
-                                //вывод данных и дальнейший расчёт
-                            }
-                            else MessageBox.Show("В базе данных нет значений для заданых условий");
-                            break;
-                    }
-
-                    break;
-                default:
-                    break;
+                // выборка суперпозиции
+                bool superPoz;
+                if (cbType.SelectedIndex == 0)
+                    superPoz = true;
+                else superPoz = false;
+                //кол-во труб
+                switch (cbPipeNumber.SelectedIndex)
+                {
+                    case -1:
+                        MessageBox.Show("Выберите тип подземной прокладки", "Ошибка");
+                        break;
+                    //двухтрубная
+                    case 0:
+                        this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.sql_hl_addDtSP(Convert.ToInt32(cbOutDiam.SelectedValue), cbYear.Checked, cbNhwInYear.Checked, superPoz, Convert.ToInt32(cbType.SelectedValue));
+                        calc.twoTubesUnderground(cBoxDepth.Checked);
+                        //заносим массив
+                        double[,] heatLossMass = inMass(dgv_heatloss.RowCount, dgv_heatloss.ColumnCount);
+                        //дополниттельная проверка на кол-во строк в массиве
+                        if (heatLossMass.GetLength(0) != 0)
+                        {
+                            lblQ.Visible = true;
+                            lblTemP.Visible = true;
+                            lblTemP.Text = ("Значение Делта Т св = " + calc.deltaTcv);
+                            //интерполяция
+                            double q = lin.massiv(heatLossMass, calc.deltaTcv); // кушки куда-то нужно девать
+                            lblQ.Text = ("Значение Ку Подз =" + q);
+                            //График
+                            chart1.Visible = true;
+                            paintingChart(heatLossMass, calc.deltaTcv, q);
+                            //вывод данных и дальнейший расчёт
+                        }
+                        else MessageBox.Show("В базе данных нет значений для заданых условий");
+                        break;
+                    //подача отдельно
+                    case 1:
+                        //таблица
+                        this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.sql_hl_addDtSP2(Convert.ToInt32(cbOutDiam.SelectedValue), cbYear.Checked, cbNhwInYear.Checked, superPoz, Convert.ToInt32(cbType.SelectedValue));
+                        calc.onePipeUndergtound(Direction.FLOW, cBoxDepth.Checked);
+                        //заносим массив
+                        heatLossMass = inMass(dgv_heatloss.RowCount, dgv_heatloss.ColumnCount);
+                        //дополниттельная проверка на кол-во строк в массиве
+                        if (heatLossMass.GetLength(0) != 0)
+                        {
+                            lblQ.Visible = true;
+                            lblTemP.Visible = true;
+                            lblTemP.Text = ("Значение Делта Т1 подз = " + calc.deltaT1_podz);
+                            //интерполяция
+                            double q = lin.massiv(heatLossMass, calc.deltaT1_podz); // кушки куда-то нужно девать
+                            lblQ.Text = ("Значение Ку1 Подз =" + q);
+                            //График
+                            chart1.Visible = true;
+                            paintingChart(heatLossMass, calc.deltaT1_podz, q);
+                            //вывод данных и дальнейший расчёт
+                        }
+                        else MessageBox.Show("В базе данных нет значений для заданых условий");
+                        break;
+                    case 2:
+                        //таблица
+                        this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.sql_hl_addDtSP3(Convert.ToInt32(cbOutDiam.SelectedValue), cbYear.Checked, cbNhwInYear.Checked, superPoz, Convert.ToInt32(cbType.SelectedValue));
+                        calc.onePipeUndergtound(Direction.RETURN, cBoxDepth.Checked);
+                        //заносим массив
+                        heatLossMass = inMass(dgv_heatloss.RowCount, dgv_heatloss.ColumnCount);
+                        //дополниттельная проверка на кол-во строк в массиве
+                        if (heatLossMass.GetLength(0) != 0)
+                        {
+                            lblQ.Visible = true;
+                            lblTemP.Visible = true;
+                            lblTemP.Text = ("Значение Делта Т2 подз = " + calc.deltaT2_podz);
+                            //интерполяция
+                            double q = lin.massiv(heatLossMass, calc.deltaT2_podz); // кушки куда-то нужно девать
+                            lblQ.Text = ("Значение Ку2 Подз =" + q);
+                            //График
+                            chart1.Visible = true;
+                            paintingChart(heatLossMass, calc.deltaT2_podz, q);
+                            //вывод данных и дальнейший расчёт
+                        }
+                        else MessageBox.Show("В базе данных нет значений для заданых условий");
+                        break;
+                }
             }
 
-            if (cbType.SelectedIndex == 0)
-            {
-
-            }
             // месеж бокс условие воздушка 
             if (cbType.SelectedIndex == 3)
             {
@@ -106,29 +149,7 @@ namespace heatLoss
                 else MessageBox.Show("В базе данных нет значений для заданого диаметра");
 
             }
-            //график
-            /* double[] x = new double[5];
-             x[0] = 1; x[1] = 2; x[2] = 3; x[3] = 4; x[4] = 5;
-             double[] y = new double[5];
-             y[0] = 1; y[1] = 5; y[2] = 3; y[3] = 4; y[4] = 8;
 
-             chart1.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint; // тут сам поизменяет/повыбирайте тип вывода графика
-             for (int i = 0; i < 5; i++)
-             {
-                 chart1.Series[0].Points.AddXY(x[i], y[i]);
-             }
-
-             chart1.Series.Add("zalupaZaica");
-             chart1.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-             for (int i = 0; i < 5; i++)
-             {
-                 chart1.Series[1].Points.AddXY(x[i], y[i]);
-             }
-
-             chart1.Series.Add("zalupaMurzatogoZaica");
-             chart1.Series[2].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-             chart1.Series[2].Points.AddXY(5, 5);*/
-            //график
         }
 
         private void fFiveCalc_Load(object sender, EventArgs e)
@@ -192,7 +213,7 @@ namespace heatLoss
             chart1.Series[0].BorderWidth = 3;
             chart1.Series[0].LabelBorderWidth = 3;
             chart1.Series[0].MarkerBorderWidth = 3;
-            
+
 
             for (int i = 0; i < mass.GetLength(0); i++)
             {
@@ -232,11 +253,16 @@ namespace heatLoss
         //провекра кол-ва труб в котловане на видимость
         private void cbPipeNumberCheck()
         {
-            if (cbType.SelectedIndex == 0)
+            if (cbType.SelectedIndex == 0 || cbType.SelectedIndex == 1)
             {
                 cbPipeNumber.Visible = true;
+                cBoxDepth.Visible = true;
             }
-            else cbPipeNumber.Visible = false;
+            else
+            {
+                cbPipeNumber.Visible = false;
+                cBoxDepth.Visible = false;
+            }
         }
         //ввод данных из строки в масиив
         public double[,] inMass(int row, int col)
@@ -264,5 +290,7 @@ namespace heatLoss
             lblTemP.Visible = false;
             chart1.Visible = false;
         }
+
+
     }
 }

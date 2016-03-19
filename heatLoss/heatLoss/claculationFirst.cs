@@ -12,8 +12,8 @@ namespace heatLoss
         double t1_crG;      //среднегодовая температура сетевой воды в подающем и обратном тру-бопроводах определенные 
         double t2_crG;      //из проектного температурного графика, градус Цельсия
         double taoGr_crG;   //среднегодовая температура грунта согласно ТАБЛИЦЫ КОТОРУЮ НУЖНО ДАБОАВИТЬ, Цельсий
-        double depth;       //Примечание. Если глубина 0,7 и менее тогда вместо тао грунта берёться тао воздуха но только для
-                            //СНиП 2.04.14-88 «Тепловая изоляция оборудования и трубопроводов», метры
+        // depth;       //Примечание. Если глубина 0,7 и менее тогда вместо тао грунта берёться тао воздуха но только для
+                                 //СНиП 2.04.14-88 «Тепловая изоляция оборудования и трубопроводов», метры
         public double deltaT1_podz;// подача одиночная подземная прокладка температкрный напор, цельсий
         public double deltaT2_podz;// обратка одиночная подземная прокладка температкрный напор, цельсий
         public double deltaT1_vozd;// подача воздушка температкрный напор, цельсий
@@ -93,13 +93,42 @@ namespace heatLoss
             return z;
         }
 
-        //подземная прокладка таблицы Б
-        public double twoTubesUnderground()
+        //подземная прокладка таблицы Б две трубы
+        public double twoTubesUnderground(bool depth)
         {
+
             t1_crG = tempTable[12].T1_P;
             t2_crG = tempTable[12].T2_P;
+            taoGr_crG = tempTable[12].Tcrm_grunt;
+            taoV_crG = tempTable[12].Tcrm_vozd;
             double z;
-            deltaTcv = z = ((t1_crG + t2_crG) / 2) - taoGr_crG;
+            if (depth == false) { deltaTcv = z = ((t1_crG + t2_crG) / 2) - taoGr_crG; }
+            else { deltaTcv = z = ((t1_crG + t2_crG) / 2) - taoV_crG; }
+
+            return z;
+        }
+        // подземная прокладка подача отдельно обратка отдельно В,Г 
+        public double onePipeUndergtound(Direction direction, bool depth)
+        {
+
+            t1_crG = tempTable[12].T1_P;
+            t2_crG = tempTable[12].T2_P;
+            taoGr_crG = tempTable[12].Tcrm_grunt;
+            taoV_crG = tempTable[12].Tcrm_vozd;
+
+            double z;
+            if (depth == false)
+            {
+                if (direction == Direction.FLOW)
+                    z = deltaT1_podz = t1_crG - taoGr_crG;            //для подачи
+                else z = deltaT2_podz = t2_crG - taoGr_crG;           //для обратки}
+            }
+            else
+            {
+                if (direction == Direction.FLOW)
+                    z = deltaT1_podz = t1_crG - taoV_crG;            //для подачи
+                else z = deltaT2_podz = t2_crG - taoV_crG;           //для обратки
+            }
             return z;
         }
 
@@ -125,23 +154,13 @@ namespace heatLoss
 
 
 
-        //Интерполяция для двухтрубной подземной прокладки
+            //Интерполяция для двухтрубной подземной прокладки
+
+            //5,44 пропустил там голая выборка
 
 
-
-        //для отдельно зарытых труб подающего и обратного трубопровода
-        public double onePipeUndergtound(Direction direction, double t1_crG, double t2_crG, double taoGr_crG)
-        {
-            if (direction == Direction.FLOW)
-                return deltaTcv = t1_crG - taoGr_crG;            //для подачи
-            else return deltaTcv = t2_crG - taoGr_crG;           //для обратки
-        }
-
-        //5,44 пропустил там голая выборка
-
-
-        //Спросить у ВНА о константах 15,40 нужно ли их изменение
-        //для трубопроводов расположенных в помещении (техническом подполье) или тоннеле (проходном канале)
+            //Спросить у ВНА о константах 15,40 нужно ли их изменение
+            //для трубопроводов расположенных в помещении (техническом подполье) или тоннеле (проходном канале)
 
         public double onePipeHouse(Direction direction, double t1_crG, double t2_crG)
         {
