@@ -64,6 +64,7 @@
             this.insulationTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.insulationTypeTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.insulationTypeTableAdapter();
             this.insulationKt2TableAdapter1 = new heatLoss._BD01_02_2016DataSetTableAdapters.insulationKt2TableAdapter();
+            this.cBoxNoProeject = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.methodOfLayingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -328,11 +329,26 @@
             // 
             this.insulationKt2TableAdapter1.ClearBeforeFill = true;
             // 
+            // cBoxNoProeject
+            // 
+            this.cBoxNoProeject.FormattingEnabled = true;
+            this.cBoxNoProeject.Items.AddRange(new object[] {
+            "перевода на непроектный режим работы не было",
+            "Два в режиме подающего",
+            "Два в режиме обратного",
+            "Подающий в режиме обратного",
+            "Обратный в режиме подающего"});
+            this.cBoxNoProeject.Location = new System.Drawing.Point(688, 84);
+            this.cBoxNoProeject.Name = "cBoxNoProeject";
+            this.cBoxNoProeject.Size = new System.Drawing.Size(185, 21);
+            this.cBoxNoProeject.TabIndex = 20;
+            // 
             // fFiveCalc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(899, 434);
+            this.Controls.Add(this.cBoxNoProeject);
             this.Controls.Add(this.comBInsulationType);
             this.Controls.Add(this.cBoxDepth);
             this.Controls.Add(this.lblQ);
@@ -401,5 +417,6 @@
         private System.Windows.Forms.BindingSource insulationTypeBindingSource;
         private _BD01_02_2016DataSetTableAdapters.insulationTypeTableAdapter insulationTypeTableAdapter;
         private _BD01_02_2016DataSetTableAdapters.insulationKt2TableAdapter insulationKt2TableAdapter1;
+        private System.Windows.Forms.ComboBox cBoxNoProeject;
     }
 }

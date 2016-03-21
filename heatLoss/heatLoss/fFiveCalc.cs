@@ -29,6 +29,7 @@ namespace heatLoss
         {
 
             // проверка ввода
+
             // проверка ввода
 
             // основной алгоритм в кейсе
@@ -58,9 +59,12 @@ namespace heatLoss
                             lblTemP.Visible = true;
                             lblTemP.Text = ("Значение Делта Т св = " + calc.deltaTcv);
                             //интерполяция
+                            double q;
                             if (cbType.SelectedIndex == 0 || cbType.SelectedIndex == 1)
                             {
-                                double q = lin.massiv(heatLossMass, calc.deltaTcv); // кушки куда-то нужно девать
+                                q = lin.massiv(heatLossMass, calc.deltaTcv); // кушки куда-то нужно девать
+                                // условие на непроектный режим подземка
+                                q = noProjectPipe(q);
                                 lblQ.Text = ("Значение Ку Подз =" + q);
                                 //График
                                 chart1.Visible = true;
@@ -69,13 +73,16 @@ namespace heatLoss
                             }
                             else
                             {
-                                double q = lin.massiv(heatLossMass, calc.deltaTcv) * 0.8; // кушки куда-то нужно девать
+                                q = lin.massiv(heatLossMass, calc.deltaTcv) * 0.8; // кушки куда-то нужно девать
+                                // условие на непроектный режим подземка
+                                q = noProjectPipe(q);
                                 MessageBox.Show(this.insulationKt2TableAdapter1.sql_Kt2(Convert.ToInt32(comBInsulationType.SelectedValue), Convert.ToInt32(cbType.SelectedValue), Convert.ToInt32(cbOutDiam.SelectedValue)).ToString());
                                 lblQ.Text = ("Значение Ку Подз =" + q);
                                 //График
                                 chart1.Visible = true;
                                 paintingChart(heatLossMass, calc.deltaTcv, q);
                             }
+
 
                         }
                         else MessageBox.Show("В базе данных нет значений для заданых условий");
@@ -206,6 +213,20 @@ namespace heatLoss
             }
 
 
+        }
+        // для не проектной подземной прокладки
+        private double noProjectPipe(double q)
+        {
+            switch (cBoxNoProeject.SelectedIndex)
+            {
+                case 1:
+                    q = calc.twoTubesUndergroundChanged(q, Direction.FLOW);
+                    break;
+                case 2:
+                    q = calc.twoTubesUndergroundChanged(q, Direction.RETURN);
+                    break;
+            }
+            return q;
         }
 
         private void fFiveCalc_Load(object sender, EventArgs e)

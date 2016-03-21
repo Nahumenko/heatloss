@@ -25,7 +25,7 @@ namespace heatLoss
         public double deltaT2_pom;  // температурный напор для обратки при прокладки в помещении или тех подвале ,цельсий
         public double deltaT1_tunel;// температурный напор для обратки при прокладки в проходном канале или тоннеле ,цельсий 
         public double deltaT2_tunel;// температурный напор для обратки при прокладки в проходном канале или тоннеле ,цельсий
-        double qnf_crG;      // значение для подземной прокоадки на непроектный режим режим работы 
+        public double qnf_crG;      // значение для подземной прокоадки на непроектный режим режим работы 
         double qn_crG;       // значения интерполированые из таблицы
         double q2nf_nadz;    //персчёт надземные обратка
         double q1nf_nadz;   //персчёт надземные подача
@@ -157,6 +157,23 @@ namespace heatLoss
             return z;
         }
 
+        //подземная прокладка
+        //два трубопровода в режиме подающего трубопровода
+        public double twoTubesUndergroundChanged(double z, Direction direction)
+        {
+            t1_crG = tempTable[12].T1_P;
+            t2_crG = tempTable[12].T2_P;
+            taoGr_crG = tempTable[12].Tcrm_grunt;
+
+            if (direction == Direction.FLOW)
+                z = qnf_crG = z * (t1_crG - taoGr_crG) / (0.5 * (t1_crG + t2_crG) - taoGr_crG);//подача 
+            else
+            {
+                z = qnf_crG = z * (t2_crG - taoGr_crG) / (0.5 * (t1_crG + t2_crG) - taoGr_crG);
+            }
+            return z;
+
+        }
 
         //всё что было ниже тоже что-то не понятное не обращай внимание я это делал в бреду 
 
@@ -170,40 +187,6 @@ namespace heatLoss
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-        //для трубопроводов расположенных в канале туннеле
-        public double onePipeTunnel(Direction direction, double t1_crG, double t2_crG)
-        {
-            if (direction == Direction.FLOW)
-                return deltaT1_tunel = t1_crG - 40;            //для подачи
-            else return deltaT2_tunel = t2_crG - 40;           //для обратки
-        }
-
-        //Производится пересчет нормативных значений, определенных в соответствии с 5.4.7.1, 
-        //на фактический среднегодовой режим работы участков теплосети по фор-мулам:
-
-        //подземная прокладка
-        //два трубопровода в режиме подающего трубопровода
-        public double twoTubesUndergroundChanged(double qn_crG, double t1_crG, double t2_crG, double taoGr_crG, Direction direction)
-        {
-            if (direction == Direction.FLOW)
-                return qnf_crG = qn_crG * (t1_crG - taoGr_crG) / (0.5 * (t1_crG + t2_crG) - taoGr_crG);//подача 
-            else
-            {
-                return qnf_crG = qn_crG * (t2_crG - taoGr_crG) / (0.5 * (t1_crG + t2_crG) - taoGr_crG);
-            }
-
-        }
         //Спросить у ВНА, ЧТо за таоН
         //надземная прокладка
         public double onePipeAirChanged(double q1n_nadz, double t1_crG, double t2_crG, double taoV_crG, Direction direction)
