@@ -72,6 +72,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnFiveCalc);
             this.Controls.Add(this.btnInitalData);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fCalculation";
             this.Text = "Расчет";
             this.Load += new System.EventHandler(this.fCalculation_Load);

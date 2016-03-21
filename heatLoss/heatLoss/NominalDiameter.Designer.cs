@@ -29,17 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NominalDiameter));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this._BD01_02_2016DataSet = new heatLoss._BD01_02_2016DataSet();
-            this.nominalDiameterBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nominalDiameterTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.nominalDiameterTableAdapter();
             this.keyNominalDiameterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nominaldiameterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nominalDiameterBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._BD01_02_2016DataSet = new heatLoss._BD01_02_2016DataSet();
+            this.nominalDiameterTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.nominalDiameterTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nominalDiameterBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -77,20 +78,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(284, 232);
             this.dataGridView1.TabIndex = 2;
             // 
-            // _BD01_02_2016DataSet
-            // 
-            this._BD01_02_2016DataSet.DataSetName = "_BD01_02_2016DataSet";
-            this._BD01_02_2016DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // nominalDiameterBindingSource
-            // 
-            this.nominalDiameterBindingSource.DataMember = "nominalDiameter";
-            this.nominalDiameterBindingSource.DataSource = this._BD01_02_2016DataSet;
-            // 
-            // nominalDiameterTableAdapter
-            // 
-            this.nominalDiameterTableAdapter.ClearBeforeFill = true;
-            // 
             // keyNominalDiameterDataGridViewTextBoxColumn
             // 
             this.keyNominalDiameterDataGridViewTextBoxColumn.DataPropertyName = "keyNominalDiameter";
@@ -103,6 +90,20 @@
             this.nominaldiameterDataGridViewTextBoxColumn.HeaderText = "Условный диаметр";
             this.nominaldiameterDataGridViewTextBoxColumn.Name = "nominaldiameterDataGridViewTextBoxColumn";
             // 
+            // nominalDiameterBindingSource
+            // 
+            this.nominalDiameterBindingSource.DataMember = "nominalDiameter";
+            this.nominalDiameterBindingSource.DataSource = this._BD01_02_2016DataSet;
+            // 
+            // _BD01_02_2016DataSet
+            // 
+            this._BD01_02_2016DataSet.DataSetName = "_BD01_02_2016DataSet";
+            this._BD01_02_2016DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // nominalDiameterTableAdapter
+            // 
+            this.nominalDiameterTableAdapter.ClearBeforeFill = true;
+            // 
             // NominalDiameter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -111,13 +112,14 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "NominalDiameter";
             this.Text = "Условный диаметр";
             this.Load += new System.EventHandler(this.NominalDiameter_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nominalDiameterBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fInitalData));
             this.lblCitySelect = new System.Windows.Forms.Label();
             this.regionName = new System.Windows.Forms.ComboBox();
             this.regionBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -458,6 +459,7 @@
             this.Controls.Add(this.cbBetweenHeating);
             this.Controls.Add(this.regionName);
             this.Controls.Add(this.lblCitySelect);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fInitalData";
             this.Text = "Ввод исходных данных";
             this.Load += new System.EventHandler(this.fInitalData_Load);

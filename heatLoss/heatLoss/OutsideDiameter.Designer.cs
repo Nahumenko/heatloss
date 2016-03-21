@@ -29,17 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OutsideDiameter));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this._BD01_02_2016DataSet = new heatLoss._BD01_02_2016DataSet();
-            this.outsideDiameterBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.outsideDiameterTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.outsideDiameterTableAdapter();
             this.keyOutsideDiameterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameOutsideDiameterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.outsideDiameterBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._BD01_02_2016DataSet = new heatLoss._BD01_02_2016DataSet();
+            this.outsideDiameterTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.outsideDiameterTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.outsideDiameterBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -77,20 +78,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(284, 222);
             this.dataGridView1.TabIndex = 2;
             // 
-            // _BD01_02_2016DataSet
-            // 
-            this._BD01_02_2016DataSet.DataSetName = "_BD01_02_2016DataSet";
-            this._BD01_02_2016DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // outsideDiameterBindingSource
-            // 
-            this.outsideDiameterBindingSource.DataMember = "outsideDiameter";
-            this.outsideDiameterBindingSource.DataSource = this._BD01_02_2016DataSet;
-            // 
-            // outsideDiameterTableAdapter
-            // 
-            this.outsideDiameterTableAdapter.ClearBeforeFill = true;
-            // 
             // keyOutsideDiameterDataGridViewTextBoxColumn
             // 
             this.keyOutsideDiameterDataGridViewTextBoxColumn.DataPropertyName = "keyOutsideDiameter";
@@ -103,6 +90,20 @@
             this.nameOutsideDiameterDataGridViewTextBoxColumn.HeaderText = "Наружный диаметр";
             this.nameOutsideDiameterDataGridViewTextBoxColumn.Name = "nameOutsideDiameterDataGridViewTextBoxColumn";
             // 
+            // outsideDiameterBindingSource
+            // 
+            this.outsideDiameterBindingSource.DataMember = "outsideDiameter";
+            this.outsideDiameterBindingSource.DataSource = this._BD01_02_2016DataSet;
+            // 
+            // _BD01_02_2016DataSet
+            // 
+            this._BD01_02_2016DataSet.DataSetName = "_BD01_02_2016DataSet";
+            this._BD01_02_2016DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // outsideDiameterTableAdapter
+            // 
+            this.outsideDiameterTableAdapter.ClearBeforeFill = true;
+            // 
             // OutsideDiameter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -111,13 +112,14 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "OutsideDiameter";
             this.Text = "Наружный диаметр";
             this.Load += new System.EventHandler(this.OutsideDiameter_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.outsideDiameterBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

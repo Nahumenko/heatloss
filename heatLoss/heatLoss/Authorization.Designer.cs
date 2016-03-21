@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Authorization));
             this.buttonLogin = new System.Windows.Forms.Button();
             this.textBUserName = new System.Windows.Forms.TextBox();
             this.textBPass = new System.Windows.Forms.TextBox();
@@ -112,6 +113,7 @@
             this.Controls.Add(this.textBPass);
             this.Controls.Add(this.textBUserName);
             this.Controls.Add(this.buttonLogin);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Authorization";
             this.Text = "Авторизация";
             this.Load += new System.EventHandler(this.Authorization_Load);

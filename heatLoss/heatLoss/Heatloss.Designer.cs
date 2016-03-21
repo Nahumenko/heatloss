@@ -29,11 +29,30 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Heatloss));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.keyStandardHeatLossDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codePipelineSortDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codeOutsideDiameterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.outsideDiameterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._BD01_02_2016DataSet = new heatLoss._BD01_02_2016DataSet();
+            this.codeDeltaTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.deltaTBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.valueOfHeatlossMVTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valueOfHeatlossKALDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.startupDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.nhwINyearDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.superPositionDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.codeHeatDissipationSortDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.heatDissipationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.codeMethodOfLayingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.assessedValueDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.extrapolationDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.influenccePipelineINcanalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.kt1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kt2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kt3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codeInsulationTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.methodOfLayingstandardHeatLossBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.methodOfLayingBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.standardHeatLossBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -49,24 +68,6 @@
             this.insulationTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.insulationTypeTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.insulationTypeTableAdapter();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.keyStandardHeatLossDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codePipelineSortDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codeOutsideDiameterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.codeDeltaTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.valueOfHeatlossMVTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valueOfHeatlossKALDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.startupDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.nhwINyearDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.superPositionDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.codeHeatDissipationSortDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.codeMethodOfLayingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.assessedValueDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.extrapolationDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.influenccePipelineINcanalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.kt1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kt2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kt3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codeInsulationTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.outsideDiameterBindingSource)).BeginInit();
@@ -114,6 +115,36 @@
             this.dataGridView1.Size = new System.Drawing.Size(921, 474);
             this.dataGridView1.TabIndex = 0;
             // 
+            // keyStandardHeatLossDataGridViewTextBoxColumn
+            // 
+            this.keyStandardHeatLossDataGridViewTextBoxColumn.DataPropertyName = "keyStandardHeatLoss";
+            this.keyStandardHeatLossDataGridViewTextBoxColumn.HeaderText = "keyStandardHeatLoss";
+            this.keyStandardHeatLossDataGridViewTextBoxColumn.Name = "keyStandardHeatLossDataGridViewTextBoxColumn";
+            this.keyStandardHeatLossDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // codePipelineSortDataGridViewTextBoxColumn
+            // 
+            this.codePipelineSortDataGridViewTextBoxColumn.DataPropertyName = "CodePipelineSort";
+            this.codePipelineSortDataGridViewTextBoxColumn.HeaderText = "CodePipelineSort";
+            this.codePipelineSortDataGridViewTextBoxColumn.Name = "codePipelineSortDataGridViewTextBoxColumn";
+            this.codePipelineSortDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // codeOutsideDiameterDataGridViewTextBoxColumn
+            // 
+            this.codeOutsideDiameterDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.codeOutsideDiameterDataGridViewTextBoxColumn.DataPropertyName = "CodeOutsideDiameter";
+            this.codeOutsideDiameterDataGridViewTextBoxColumn.DataSource = this.outsideDiameterBindingSource;
+            this.codeOutsideDiameterDataGridViewTextBoxColumn.DisplayMember = "nameOutsideDiameter";
+            this.codeOutsideDiameterDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.codeOutsideDiameterDataGridViewTextBoxColumn.FillWeight = 50F;
+            this.codeOutsideDiameterDataGridViewTextBoxColumn.HeaderText = "Dнаруж";
+            this.codeOutsideDiameterDataGridViewTextBoxColumn.MinimumWidth = 20;
+            this.codeOutsideDiameterDataGridViewTextBoxColumn.Name = "codeOutsideDiameterDataGridViewTextBoxColumn";
+            this.codeOutsideDiameterDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.codeOutsideDiameterDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.codeOutsideDiameterDataGridViewTextBoxColumn.ValueMember = "keyOutsideDiameter";
+            this.codeOutsideDiameterDataGridViewTextBoxColumn.Width = 71;
+            // 
             // outsideDiameterBindingSource
             // 
             this.outsideDiameterBindingSource.DataMember = "outsideDiameter";
@@ -124,15 +155,136 @@
             this._BD01_02_2016DataSet.DataSetName = "_BD01_02_2016DataSet";
             this._BD01_02_2016DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // codeDeltaTDataGridViewTextBoxColumn
+            // 
+            this.codeDeltaTDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.codeDeltaTDataGridViewTextBoxColumn.DataPropertyName = "codeDeltaT";
+            this.codeDeltaTDataGridViewTextBoxColumn.DataSource = this.deltaTBindingSource;
+            this.codeDeltaTDataGridViewTextBoxColumn.DisplayMember = "valueDeltaT";
+            this.codeDeltaTDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.codeDeltaTDataGridViewTextBoxColumn.FillWeight = 189.4798F;
+            this.codeDeltaTDataGridViewTextBoxColumn.HeaderText = "dT";
+            this.codeDeltaTDataGridViewTextBoxColumn.Name = "codeDeltaTDataGridViewTextBoxColumn";
+            this.codeDeltaTDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.codeDeltaTDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.codeDeltaTDataGridViewTextBoxColumn.ValueMember = "keyDeltaT";
+            this.codeDeltaTDataGridViewTextBoxColumn.Width = 45;
+            // 
             // deltaTBindingSource
             // 
             this.deltaTBindingSource.DataMember = "deltaT";
             this.deltaTBindingSource.DataSource = this._BD01_02_2016DataSet;
             // 
+            // valueOfHeatlossMVTDataGridViewTextBoxColumn
+            // 
+            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.DataPropertyName = "ValueOfHeatlossMVT";
+            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.FillWeight = 33.92268F;
+            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.HeaderText = "Вт/м";
+            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.Name = "valueOfHeatlossMVTDataGridViewTextBoxColumn";
+            // 
+            // valueOfHeatlossKALDataGridViewTextBoxColumn
+            // 
+            this.valueOfHeatlossKALDataGridViewTextBoxColumn.DataPropertyName = "ValueOfHeatlossKAL";
+            this.valueOfHeatlossKALDataGridViewTextBoxColumn.FillWeight = 33.92268F;
+            this.valueOfHeatlossKALDataGridViewTextBoxColumn.HeaderText = "ккал/м*ч";
+            this.valueOfHeatlossKALDataGridViewTextBoxColumn.Name = "valueOfHeatlossKALDataGridViewTextBoxColumn";
+            // 
+            // startupDataGridViewCheckBoxColumn
+            // 
+            this.startupDataGridViewCheckBoxColumn.DataPropertyName = "startup";
+            this.startupDataGridViewCheckBoxColumn.FillWeight = 33.92268F;
+            this.startupDataGridViewCheckBoxColumn.HeaderText = "Год?";
+            this.startupDataGridViewCheckBoxColumn.Name = "startupDataGridViewCheckBoxColumn";
+            // 
+            // nhwINyearDataGridViewCheckBoxColumn
+            // 
+            this.nhwINyearDataGridViewCheckBoxColumn.DataPropertyName = "nhwINyear";
+            this.nhwINyearDataGridViewCheckBoxColumn.FillWeight = 33.92268F;
+            this.nhwINyearDataGridViewCheckBoxColumn.HeaderText = "Часов?";
+            this.nhwINyearDataGridViewCheckBoxColumn.Name = "nhwINyearDataGridViewCheckBoxColumn";
+            // 
+            // superPositionDataGridViewCheckBoxColumn
+            // 
+            this.superPositionDataGridViewCheckBoxColumn.DataPropertyName = "superPosition";
+            this.superPositionDataGridViewCheckBoxColumn.FillWeight = 33.92268F;
+            this.superPositionDataGridViewCheckBoxColumn.HeaderText = "СП?";
+            this.superPositionDataGridViewCheckBoxColumn.Name = "superPositionDataGridViewCheckBoxColumn";
+            // 
+            // codeHeatDissipationSortDataGridViewTextBoxColumn
+            // 
+            this.codeHeatDissipationSortDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.codeHeatDissipationSortDataGridViewTextBoxColumn.DataPropertyName = "codeHeatDissipationSort";
+            this.codeHeatDissipationSortDataGridViewTextBoxColumn.DataSource = this.heatDissipationBindingSource;
+            this.codeHeatDissipationSortDataGridViewTextBoxColumn.DisplayMember = "heatDissipationSort";
+            this.codeHeatDissipationSortDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.codeHeatDissipationSortDataGridViewTextBoxColumn.FillWeight = 390.9069F;
+            this.codeHeatDissipationSortDataGridViewTextBoxColumn.HeaderText = "Потери";
+            this.codeHeatDissipationSortDataGridViewTextBoxColumn.Name = "codeHeatDissipationSortDataGridViewTextBoxColumn";
+            this.codeHeatDissipationSortDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.codeHeatDissipationSortDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.codeHeatDissipationSortDataGridViewTextBoxColumn.ValueMember = "keyHeatDissipation";
+            this.codeHeatDissipationSortDataGridViewTextBoxColumn.Width = 69;
+            // 
             // heatDissipationBindingSource
             // 
             this.heatDissipationBindingSource.DataMember = "heatDissipation";
             this.heatDissipationBindingSource.DataSource = this._BD01_02_2016DataSet;
+            // 
+            // codeMethodOfLayingDataGridViewTextBoxColumn
+            // 
+            this.codeMethodOfLayingDataGridViewTextBoxColumn.DataPropertyName = "codeMethodOfLaying";
+            this.codeMethodOfLayingDataGridViewTextBoxColumn.HeaderText = "codeMethodOfLaying";
+            this.codeMethodOfLayingDataGridViewTextBoxColumn.Name = "codeMethodOfLayingDataGridViewTextBoxColumn";
+            this.codeMethodOfLayingDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // assessedValueDataGridViewCheckBoxColumn
+            // 
+            this.assessedValueDataGridViewCheckBoxColumn.DataPropertyName = "assessedValue";
+            this.assessedValueDataGridViewCheckBoxColumn.FillWeight = 33.92268F;
+            this.assessedValueDataGridViewCheckBoxColumn.HeaderText = "Оценочное?";
+            this.assessedValueDataGridViewCheckBoxColumn.Name = "assessedValueDataGridViewCheckBoxColumn";
+            // 
+            // extrapolationDataGridViewCheckBoxColumn
+            // 
+            this.extrapolationDataGridViewCheckBoxColumn.DataPropertyName = "extrapolation";
+            this.extrapolationDataGridViewCheckBoxColumn.FillWeight = 33.92268F;
+            this.extrapolationDataGridViewCheckBoxColumn.HeaderText = "Экстраполяция?";
+            this.extrapolationDataGridViewCheckBoxColumn.Name = "extrapolationDataGridViewCheckBoxColumn";
+            // 
+            // influenccePipelineINcanalDataGridViewCheckBoxColumn
+            // 
+            this.influenccePipelineINcanalDataGridViewCheckBoxColumn.DataPropertyName = "influenccePipelineINcanal";
+            this.influenccePipelineINcanalDataGridViewCheckBoxColumn.FillWeight = 33.92268F;
+            this.influenccePipelineINcanalDataGridViewCheckBoxColumn.HeaderText = "Влияние?";
+            this.influenccePipelineINcanalDataGridViewCheckBoxColumn.Name = "influenccePipelineINcanalDataGridViewCheckBoxColumn";
+            // 
+            // kt1DataGridViewTextBoxColumn
+            // 
+            this.kt1DataGridViewTextBoxColumn.DataPropertyName = "Kt1";
+            this.kt1DataGridViewTextBoxColumn.FillWeight = 33.92268F;
+            this.kt1DataGridViewTextBoxColumn.HeaderText = "Kt1";
+            this.kt1DataGridViewTextBoxColumn.Name = "kt1DataGridViewTextBoxColumn";
+            // 
+            // kt2DataGridViewTextBoxColumn
+            // 
+            this.kt2DataGridViewTextBoxColumn.DataPropertyName = "Kt2";
+            this.kt2DataGridViewTextBoxColumn.FillWeight = 33.92268F;
+            this.kt2DataGridViewTextBoxColumn.HeaderText = "Kt2";
+            this.kt2DataGridViewTextBoxColumn.Name = "kt2DataGridViewTextBoxColumn";
+            // 
+            // kt3DataGridViewTextBoxColumn
+            // 
+            this.kt3DataGridViewTextBoxColumn.DataPropertyName = "Kt3";
+            this.kt3DataGridViewTextBoxColumn.FillWeight = 33.92268F;
+            this.kt3DataGridViewTextBoxColumn.HeaderText = "Kt3";
+            this.kt3DataGridViewTextBoxColumn.Name = "kt3DataGridViewTextBoxColumn";
+            // 
+            // codeInsulationTypeDataGridViewTextBoxColumn
+            // 
+            this.codeInsulationTypeDataGridViewTextBoxColumn.DataPropertyName = "CodeInsulationType";
+            this.codeInsulationTypeDataGridViewTextBoxColumn.HeaderText = "CodeInsulationType";
+            this.codeInsulationTypeDataGridViewTextBoxColumn.Name = "codeInsulationTypeDataGridViewTextBoxColumn";
+            this.codeInsulationTypeDataGridViewTextBoxColumn.Visible = false;
             // 
             // methodOfLayingstandardHeatLossBindingSource
             // 
@@ -213,157 +365,6 @@
             this.comboBox1.TabIndex = 2;
             this.comboBox1.ValueMember = "keyMethodOfLaying";
             // 
-            // keyStandardHeatLossDataGridViewTextBoxColumn
-            // 
-            this.keyStandardHeatLossDataGridViewTextBoxColumn.DataPropertyName = "keyStandardHeatLoss";
-            this.keyStandardHeatLossDataGridViewTextBoxColumn.HeaderText = "keyStandardHeatLoss";
-            this.keyStandardHeatLossDataGridViewTextBoxColumn.Name = "keyStandardHeatLossDataGridViewTextBoxColumn";
-            this.keyStandardHeatLossDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // codePipelineSortDataGridViewTextBoxColumn
-            // 
-            this.codePipelineSortDataGridViewTextBoxColumn.DataPropertyName = "CodePipelineSort";
-            this.codePipelineSortDataGridViewTextBoxColumn.HeaderText = "CodePipelineSort";
-            this.codePipelineSortDataGridViewTextBoxColumn.Name = "codePipelineSortDataGridViewTextBoxColumn";
-            this.codePipelineSortDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // codeOutsideDiameterDataGridViewTextBoxColumn
-            // 
-            this.codeOutsideDiameterDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.codeOutsideDiameterDataGridViewTextBoxColumn.DataPropertyName = "CodeOutsideDiameter";
-            this.codeOutsideDiameterDataGridViewTextBoxColumn.DataSource = this.outsideDiameterBindingSource;
-            this.codeOutsideDiameterDataGridViewTextBoxColumn.DisplayMember = "nameOutsideDiameter";
-            this.codeOutsideDiameterDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.codeOutsideDiameterDataGridViewTextBoxColumn.FillWeight = 50F;
-            this.codeOutsideDiameterDataGridViewTextBoxColumn.HeaderText = "Dнаруж";
-            this.codeOutsideDiameterDataGridViewTextBoxColumn.MinimumWidth = 20;
-            this.codeOutsideDiameterDataGridViewTextBoxColumn.Name = "codeOutsideDiameterDataGridViewTextBoxColumn";
-            this.codeOutsideDiameterDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.codeOutsideDiameterDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.codeOutsideDiameterDataGridViewTextBoxColumn.ValueMember = "keyOutsideDiameter";
-            this.codeOutsideDiameterDataGridViewTextBoxColumn.Width = 71;
-            // 
-            // codeDeltaTDataGridViewTextBoxColumn
-            // 
-            this.codeDeltaTDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.codeDeltaTDataGridViewTextBoxColumn.DataPropertyName = "codeDeltaT";
-            this.codeDeltaTDataGridViewTextBoxColumn.DataSource = this.deltaTBindingSource;
-            this.codeDeltaTDataGridViewTextBoxColumn.DisplayMember = "valueDeltaT";
-            this.codeDeltaTDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.codeDeltaTDataGridViewTextBoxColumn.FillWeight = 189.4798F;
-            this.codeDeltaTDataGridViewTextBoxColumn.HeaderText = "dT";
-            this.codeDeltaTDataGridViewTextBoxColumn.Name = "codeDeltaTDataGridViewTextBoxColumn";
-            this.codeDeltaTDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.codeDeltaTDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.codeDeltaTDataGridViewTextBoxColumn.ValueMember = "keyDeltaT";
-            this.codeDeltaTDataGridViewTextBoxColumn.Width = 45;
-            // 
-            // valueOfHeatlossMVTDataGridViewTextBoxColumn
-            // 
-            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.DataPropertyName = "ValueOfHeatlossMVT";
-            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.FillWeight = 33.92268F;
-            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.HeaderText = "Вт/м";
-            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.Name = "valueOfHeatlossMVTDataGridViewTextBoxColumn";
-            // 
-            // valueOfHeatlossKALDataGridViewTextBoxColumn
-            // 
-            this.valueOfHeatlossKALDataGridViewTextBoxColumn.DataPropertyName = "ValueOfHeatlossKAL";
-            this.valueOfHeatlossKALDataGridViewTextBoxColumn.FillWeight = 33.92268F;
-            this.valueOfHeatlossKALDataGridViewTextBoxColumn.HeaderText = "ккал/м*ч";
-            this.valueOfHeatlossKALDataGridViewTextBoxColumn.Name = "valueOfHeatlossKALDataGridViewTextBoxColumn";
-            // 
-            // startupDataGridViewCheckBoxColumn
-            // 
-            this.startupDataGridViewCheckBoxColumn.DataPropertyName = "startup";
-            this.startupDataGridViewCheckBoxColumn.FillWeight = 33.92268F;
-            this.startupDataGridViewCheckBoxColumn.HeaderText = "Год?";
-            this.startupDataGridViewCheckBoxColumn.Name = "startupDataGridViewCheckBoxColumn";
-            // 
-            // nhwINyearDataGridViewCheckBoxColumn
-            // 
-            this.nhwINyearDataGridViewCheckBoxColumn.DataPropertyName = "nhwINyear";
-            this.nhwINyearDataGridViewCheckBoxColumn.FillWeight = 33.92268F;
-            this.nhwINyearDataGridViewCheckBoxColumn.HeaderText = "Часов?";
-            this.nhwINyearDataGridViewCheckBoxColumn.Name = "nhwINyearDataGridViewCheckBoxColumn";
-            // 
-            // superPositionDataGridViewCheckBoxColumn
-            // 
-            this.superPositionDataGridViewCheckBoxColumn.DataPropertyName = "superPosition";
-            this.superPositionDataGridViewCheckBoxColumn.FillWeight = 33.92268F;
-            this.superPositionDataGridViewCheckBoxColumn.HeaderText = "СП?";
-            this.superPositionDataGridViewCheckBoxColumn.Name = "superPositionDataGridViewCheckBoxColumn";
-            // 
-            // codeHeatDissipationSortDataGridViewTextBoxColumn
-            // 
-            this.codeHeatDissipationSortDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.codeHeatDissipationSortDataGridViewTextBoxColumn.DataPropertyName = "codeHeatDissipationSort";
-            this.codeHeatDissipationSortDataGridViewTextBoxColumn.DataSource = this.heatDissipationBindingSource;
-            this.codeHeatDissipationSortDataGridViewTextBoxColumn.DisplayMember = "heatDissipationSort";
-            this.codeHeatDissipationSortDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.codeHeatDissipationSortDataGridViewTextBoxColumn.FillWeight = 390.9069F;
-            this.codeHeatDissipationSortDataGridViewTextBoxColumn.HeaderText = "Потери";
-            this.codeHeatDissipationSortDataGridViewTextBoxColumn.Name = "codeHeatDissipationSortDataGridViewTextBoxColumn";
-            this.codeHeatDissipationSortDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.codeHeatDissipationSortDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.codeHeatDissipationSortDataGridViewTextBoxColumn.ValueMember = "keyHeatDissipation";
-            this.codeHeatDissipationSortDataGridViewTextBoxColumn.Width = 69;
-            // 
-            // codeMethodOfLayingDataGridViewTextBoxColumn
-            // 
-            this.codeMethodOfLayingDataGridViewTextBoxColumn.DataPropertyName = "codeMethodOfLaying";
-            this.codeMethodOfLayingDataGridViewTextBoxColumn.HeaderText = "codeMethodOfLaying";
-            this.codeMethodOfLayingDataGridViewTextBoxColumn.Name = "codeMethodOfLayingDataGridViewTextBoxColumn";
-            this.codeMethodOfLayingDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // assessedValueDataGridViewCheckBoxColumn
-            // 
-            this.assessedValueDataGridViewCheckBoxColumn.DataPropertyName = "assessedValue";
-            this.assessedValueDataGridViewCheckBoxColumn.FillWeight = 33.92268F;
-            this.assessedValueDataGridViewCheckBoxColumn.HeaderText = "Оценочное?";
-            this.assessedValueDataGridViewCheckBoxColumn.Name = "assessedValueDataGridViewCheckBoxColumn";
-            // 
-            // extrapolationDataGridViewCheckBoxColumn
-            // 
-            this.extrapolationDataGridViewCheckBoxColumn.DataPropertyName = "extrapolation";
-            this.extrapolationDataGridViewCheckBoxColumn.FillWeight = 33.92268F;
-            this.extrapolationDataGridViewCheckBoxColumn.HeaderText = "Экстраполяция?";
-            this.extrapolationDataGridViewCheckBoxColumn.Name = "extrapolationDataGridViewCheckBoxColumn";
-            // 
-            // influenccePipelineINcanalDataGridViewCheckBoxColumn
-            // 
-            this.influenccePipelineINcanalDataGridViewCheckBoxColumn.DataPropertyName = "influenccePipelineINcanal";
-            this.influenccePipelineINcanalDataGridViewCheckBoxColumn.FillWeight = 33.92268F;
-            this.influenccePipelineINcanalDataGridViewCheckBoxColumn.HeaderText = "Влияние?";
-            this.influenccePipelineINcanalDataGridViewCheckBoxColumn.Name = "influenccePipelineINcanalDataGridViewCheckBoxColumn";
-            // 
-            // kt1DataGridViewTextBoxColumn
-            // 
-            this.kt1DataGridViewTextBoxColumn.DataPropertyName = "Kt1";
-            this.kt1DataGridViewTextBoxColumn.FillWeight = 33.92268F;
-            this.kt1DataGridViewTextBoxColumn.HeaderText = "Kt1";
-            this.kt1DataGridViewTextBoxColumn.Name = "kt1DataGridViewTextBoxColumn";
-            // 
-            // kt2DataGridViewTextBoxColumn
-            // 
-            this.kt2DataGridViewTextBoxColumn.DataPropertyName = "Kt2";
-            this.kt2DataGridViewTextBoxColumn.FillWeight = 33.92268F;
-            this.kt2DataGridViewTextBoxColumn.HeaderText = "Kt2";
-            this.kt2DataGridViewTextBoxColumn.Name = "kt2DataGridViewTextBoxColumn";
-            // 
-            // kt3DataGridViewTextBoxColumn
-            // 
-            this.kt3DataGridViewTextBoxColumn.DataPropertyName = "Kt3";
-            this.kt3DataGridViewTextBoxColumn.FillWeight = 33.92268F;
-            this.kt3DataGridViewTextBoxColumn.HeaderText = "Kt3";
-            this.kt3DataGridViewTextBoxColumn.Name = "kt3DataGridViewTextBoxColumn";
-            // 
-            // codeInsulationTypeDataGridViewTextBoxColumn
-            // 
-            this.codeInsulationTypeDataGridViewTextBoxColumn.DataPropertyName = "CodeInsulationType";
-            this.codeInsulationTypeDataGridViewTextBoxColumn.HeaderText = "CodeInsulationType";
-            this.codeInsulationTypeDataGridViewTextBoxColumn.Name = "codeInsulationTypeDataGridViewTextBoxColumn";
-            this.codeInsulationTypeDataGridViewTextBoxColumn.Visible = false;
-            // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -384,6 +385,7 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Heatloss";
             this.Text = "Теплопотери";

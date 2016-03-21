@@ -29,26 +29,27 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SysWaterVolume));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this._BD01_02_2016DataSet = new heatLoss._BD01_02_2016DataSet();
-            this.sysWaterVolumeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sysWaterVolumeTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.sysWaterVolumeTableAdapter();
-            this.sysTemperatureDifferenceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sysTemperatureDifferenceTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.sysTemperatureDifferenceTableAdapter();
-            this.heatEquipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.heatEquipmentTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.heatEquipmentTableAdapter();
             this.keySysWaterVolumeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.demesnialWaterVolumem3MvtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.demesnialWaterVolumem3hGkalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeOverfallDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.sysTemperatureDifferenceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._BD01_02_2016DataSet = new heatLoss._BD01_02_2016DataSet();
             this.codeEquipmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.heatEquipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sysWaterVolumeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sysWaterVolumeTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.sysWaterVolumeTableAdapter();
+            this.sysTemperatureDifferenceTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.sysTemperatureDifferenceTableAdapter();
+            this.heatEquipmentTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.heatEquipmentTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sysWaterVolumeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sysTemperatureDifferenceBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.heatEquipmentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sysWaterVolumeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -89,38 +90,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(284, 234);
             this.dataGridView1.TabIndex = 2;
             // 
-            // _BD01_02_2016DataSet
-            // 
-            this._BD01_02_2016DataSet.DataSetName = "_BD01_02_2016DataSet";
-            this._BD01_02_2016DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // sysWaterVolumeBindingSource
-            // 
-            this.sysWaterVolumeBindingSource.DataMember = "sysWaterVolume";
-            this.sysWaterVolumeBindingSource.DataSource = this._BD01_02_2016DataSet;
-            // 
-            // sysWaterVolumeTableAdapter
-            // 
-            this.sysWaterVolumeTableAdapter.ClearBeforeFill = true;
-            // 
-            // sysTemperatureDifferenceBindingSource
-            // 
-            this.sysTemperatureDifferenceBindingSource.DataMember = "sysTemperatureDifference";
-            this.sysTemperatureDifferenceBindingSource.DataSource = this._BD01_02_2016DataSet;
-            // 
-            // sysTemperatureDifferenceTableAdapter
-            // 
-            this.sysTemperatureDifferenceTableAdapter.ClearBeforeFill = true;
-            // 
-            // heatEquipmentBindingSource
-            // 
-            this.heatEquipmentBindingSource.DataMember = "heatEquipment";
-            this.heatEquipmentBindingSource.DataSource = this._BD01_02_2016DataSet;
-            // 
-            // heatEquipmentTableAdapter
-            // 
-            this.heatEquipmentTableAdapter.ClearBeforeFill = true;
-            // 
             // keySysWaterVolumeDataGridViewTextBoxColumn
             // 
             this.keySysWaterVolumeDataGridViewTextBoxColumn.DataPropertyName = "keySysWaterVolume";
@@ -151,6 +120,16 @@
             this.codeOverfallDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.codeOverfallDataGridViewTextBoxColumn.ValueMember = "keySysTemperatureDifference";
             // 
+            // sysTemperatureDifferenceBindingSource
+            // 
+            this.sysTemperatureDifferenceBindingSource.DataMember = "sysTemperatureDifference";
+            this.sysTemperatureDifferenceBindingSource.DataSource = this._BD01_02_2016DataSet;
+            // 
+            // _BD01_02_2016DataSet
+            // 
+            this._BD01_02_2016DataSet.DataSetName = "_BD01_02_2016DataSet";
+            this._BD01_02_2016DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // codeEquipmentDataGridViewTextBoxColumn
             // 
             this.codeEquipmentDataGridViewTextBoxColumn.DataPropertyName = "codeEquipment";
@@ -163,6 +142,28 @@
             this.codeEquipmentDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.codeEquipmentDataGridViewTextBoxColumn.ValueMember = "keyHeatEquipment";
             // 
+            // heatEquipmentBindingSource
+            // 
+            this.heatEquipmentBindingSource.DataMember = "heatEquipment";
+            this.heatEquipmentBindingSource.DataSource = this._BD01_02_2016DataSet;
+            // 
+            // sysWaterVolumeBindingSource
+            // 
+            this.sysWaterVolumeBindingSource.DataMember = "sysWaterVolume";
+            this.sysWaterVolumeBindingSource.DataSource = this._BD01_02_2016DataSet;
+            // 
+            // sysWaterVolumeTableAdapter
+            // 
+            this.sysWaterVolumeTableAdapter.ClearBeforeFill = true;
+            // 
+            // sysTemperatureDifferenceTableAdapter
+            // 
+            this.sysTemperatureDifferenceTableAdapter.ClearBeforeFill = true;
+            // 
+            // heatEquipmentTableAdapter
+            // 
+            this.heatEquipmentTableAdapter.ClearBeforeFill = true;
+            // 
             // SysWaterVolume
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,15 +172,16 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "SysWaterVolume";
             this.Text = "Объем воды в системе";
             this.Load += new System.EventHandler(this.SysWaterVolume_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sysWaterVolumeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sysTemperatureDifferenceBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.heatEquipmentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sysWaterVolumeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
