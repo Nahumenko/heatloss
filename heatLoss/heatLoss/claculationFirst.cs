@@ -175,6 +175,36 @@ namespace heatLoss
 
         }
 
+        //надземная прокладка
+        public double onePipeAirChanged(double q, Direction direction, string s)
+        {
+            double t;
+            t1_crG = tempTable[12].T1_P;
+            t2_crG = tempTable[12].T2_P;
+            taoV_crG = tempTable[12].Tcrm_vozd;
+            switch (s)
+            {
+                default:
+                    t = taoV_crG;
+                    break;
+                case "Tunel":
+                    t = deltaT1_tunel;
+                    break;
+                case "house":
+                    t = deltaT2_pom;
+                    break;
+            }
+            if (direction == Direction.FLOW)
+            {
+                q = q * (t2_crG - t) / (t1_crG - t);
+            }
+            else
+            {
+                q = q * (t1_crG - t) / (t2_crG - t);
+            }
+            return q;
+        }
+
         //всё что было ниже тоже что-то не понятное не обращай внимание я это делал в бреду 
 
 
@@ -187,19 +217,8 @@ namespace heatLoss
 
 
 
-        //Спросить у ВНА, ЧТо за таоН
-        //надземная прокладка
-        public double onePipeAirChanged(double q1n_nadz, double t1_crG, double t2_crG, double taoV_crG, Direction direction)
-        {
-            if (direction == Direction.FLOW)
-            {
-                return q2nf_nadz = q1n_nadz * (t2_crG - taoV_crG) / (t1_crG - taoV_crG);
-            }
-            else
-            {
-                return q1nf_nadz = q2n_nadz * (t1_crG - taoV_crG) / (t2_crG - taoV_crG);
-            }
-        }
+
+
 
         //Расчет нормативных среднегодовых потерь 
         //Для водяной тепловой сети значения часовых среднегодовых нормативных тепло-вых потерь

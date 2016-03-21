@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
+
 namespace heatLoss
 {
     public partial class fFiveCalc : Form
@@ -155,6 +156,11 @@ namespace heatLoss
                     //интерполяция
                     double q1 = lin.massiv(heatLossMass, calc.deltaT1_vozd); // кушки куда-то нужно девать
                     double q2 = lin.massiv(heatLossMass, calc.deltaT2_vozd); // кушки куда-то нужно девать
+
+                    // проверка на непроект   
+                    string s = "vozd";
+                    q1 = noProjecrPipe(q1, s);
+                    q2 = noProjecrPipe(q2, s);
                     lblQ.Text = ("Значение Ку1 возд = " + q1 + "      Значение Ку1 возд = " + q2);
                     //График
                     chart1.Visible = true;
@@ -163,6 +169,7 @@ namespace heatLoss
                 }
                 else MessageBox.Show("В базе данных нет значений для заданых условий");
             }
+
             if (cbType.SelectedIndex == 5)
             {
                 this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.sql_hl(Convert.ToInt32(cbType.SelectedValue), cbNhwInYear.Checked, cbYear.Checked, Convert.ToInt32(cbOutDiam.SelectedValue));
@@ -179,6 +186,10 @@ namespace heatLoss
                     //интерполяция
                     double q1 = lin.massiv(heatLossMass, calc.deltaT1_pom); // кушки куда-то нужно девать
                     double q2 = lin.massiv(heatLossMass, calc.deltaT2_pom); // кушки куда-то нужно девать
+                    // проверка на непроект   
+                    string s = "house";
+                    q1 = noProjecrPipe(q1, s);
+                    q2 = noProjecrPipe(q2, s);
                     lblQ.Text = ("Значение Ку1 пом = " + q1 + "      Значение Ку1 пом = " + q2);
                     //График
                     chart1.Visible = true;
@@ -203,6 +214,10 @@ namespace heatLoss
                     //интерполяция
                     double q1 = lin.massiv(heatLossMass, calc.deltaT1_tunel); // кушки куда-то нужно девать
                     double q2 = lin.massiv(heatLossMass, calc.deltaT2_tunel); // кушки куда-то нужно девать
+                    // проверка на непроект   
+                    string s = "Tunel";
+                    q1 = noProjecrPipe(q1, s);
+                    q2 = noProjecrPipe(q2, s);
                     lblQ.Text = ("Значение Ку1 пом = " + q1 + "      Значение Ку1 пом = " + q2);
                     //График
                     chart1.Visible = true;
@@ -213,6 +228,20 @@ namespace heatLoss
             }
 
 
+        }
+        // для не проектной надземной прокладки
+        private double noProjecrPipe(double q, string s)
+        {
+            switch (cBoxNoProeject.SelectedIndex)
+            {
+                case 1:
+                    q = calc.onePipeAirChanged(q, Direction.FLOW, s);
+                    break;
+                case 2:
+                    q = calc.onePipeAirChanged(q, Direction.RETURN, s);
+                    break;
+            }
+            return q;
         }
         // для не проектной подземной прокладки
         private double noProjectPipe(double q)
@@ -312,11 +341,32 @@ namespace heatLoss
 
 
         //провекра кол-ва труб в котловане на видимость
+        // отоброжение не отображение елементов в зависимости установок
         private void cbPipeNumberCheck()
         {
             if (cbType.SelectedIndex == 0 || cbType.SelectedIndex == 1 || cbType.SelectedIndex == 2)
+            {
+                cBoxNoProeject.Visible = true;
                 cbPipeNumber.Visible = true;
-            else cbPipeNumber.Visible = false;
+                cBoxNoProeject.Items.Clear();
+                cBoxNoProeject.Items.Add("Проектный режим работы");
+                cBoxNoProeject.Items.Add("Два в режиме подающего");
+                cBoxNoProeject.Items.Add("Два в режиме обратного");
+            }
+            else if (cbType.SelectedIndex == 3 || cbType.SelectedIndex == 5 || cbType.SelectedIndex == 6)
+            {
+                cBoxNoProeject.Visible = true;
+                cBoxNoProeject.Items.Clear();
+                cBoxNoProeject.Items.Add("Проектный режим работы");
+                cBoxNoProeject.Items.Add("Подающий в режиме обратного");
+                cBoxNoProeject.Items.Add("Обратный в режиме подающего");
+
+            }
+            else
+            {
+                cbPipeNumber.Visible = false;
+                cBoxNoProeject.Visible = false;
+            }
             if (cbType.SelectedIndex == 0 || cbType.SelectedIndex == 1)
                 cBoxDepth.Visible = true;
             else
@@ -327,6 +377,8 @@ namespace heatLoss
             if (cbType.SelectedIndex == 2)
                 comBInsulationType.Visible = true;
             else comBInsulationType.Visible = false;
+
+          
         }
         //ввод данных из строки в масиив
         public double[,] inMass(int row, int col)
