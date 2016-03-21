@@ -54,6 +54,11 @@
             this.t1f = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.t2p = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.t2f = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.keyTemperatureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codeRegionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codeSeasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.avarageTemperatureAirDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.avarageTemperatureGroundDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.temperatureTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.temperatureTableAdapter();
@@ -66,11 +71,6 @@
             this.btnMass = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnMassReturn = new System.Windows.Forms.Button();
-            this.keyTemperatureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codeRegionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codeSeasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.avarageTemperatureAirDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.avarageTemperatureGroundDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Data_temps = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.regionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).BeginInit();
@@ -293,6 +293,36 @@
             this.t2f.HeaderText = "Ф обратка";
             this.t2f.Name = "t2f";
             // 
+            // keyTemperatureDataGridViewTextBoxColumn
+            // 
+            this.keyTemperatureDataGridViewTextBoxColumn.DataPropertyName = "keyTemperature";
+            this.keyTemperatureDataGridViewTextBoxColumn.HeaderText = "keyTemperature";
+            this.keyTemperatureDataGridViewTextBoxColumn.Name = "keyTemperatureDataGridViewTextBoxColumn";
+            // 
+            // codeRegionDataGridViewTextBoxColumn
+            // 
+            this.codeRegionDataGridViewTextBoxColumn.DataPropertyName = "codeRegion";
+            this.codeRegionDataGridViewTextBoxColumn.HeaderText = "codeRegion";
+            this.codeRegionDataGridViewTextBoxColumn.Name = "codeRegionDataGridViewTextBoxColumn";
+            // 
+            // codeSeasonDataGridViewTextBoxColumn
+            // 
+            this.codeSeasonDataGridViewTextBoxColumn.DataPropertyName = "codeSeason";
+            this.codeSeasonDataGridViewTextBoxColumn.HeaderText = "codeSeason";
+            this.codeSeasonDataGridViewTextBoxColumn.Name = "codeSeasonDataGridViewTextBoxColumn";
+            // 
+            // avarageTemperatureAirDataGridViewTextBoxColumn
+            // 
+            this.avarageTemperatureAirDataGridViewTextBoxColumn.DataPropertyName = "avarageTemperatureAir";
+            this.avarageTemperatureAirDataGridViewTextBoxColumn.HeaderText = "avarageTemperatureAir";
+            this.avarageTemperatureAirDataGridViewTextBoxColumn.Name = "avarageTemperatureAirDataGridViewTextBoxColumn";
+            // 
+            // avarageTemperatureGroundDataGridViewTextBoxColumn
+            // 
+            this.avarageTemperatureGroundDataGridViewTextBoxColumn.DataPropertyName = "avarageTemperatureGround";
+            this.avarageTemperatureGroundDataGridViewTextBoxColumn.HeaderText = "avarageTemperatureGround";
+            this.avarageTemperatureGroundDataGridViewTextBoxColumn.Name = "avarageTemperatureGroundDataGridViewTextBoxColumn";
+            // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(671, 569);
@@ -394,36 +424,6 @@
             this.btnMassReturn.UseVisualStyleBackColor = true;
             this.btnMassReturn.Click += new System.EventHandler(this.btnMassReturn_Click);
             // 
-            // keyTemperatureDataGridViewTextBoxColumn
-            // 
-            this.keyTemperatureDataGridViewTextBoxColumn.DataPropertyName = "keyTemperature";
-            this.keyTemperatureDataGridViewTextBoxColumn.HeaderText = "keyTemperature";
-            this.keyTemperatureDataGridViewTextBoxColumn.Name = "keyTemperatureDataGridViewTextBoxColumn";
-            // 
-            // codeRegionDataGridViewTextBoxColumn
-            // 
-            this.codeRegionDataGridViewTextBoxColumn.DataPropertyName = "codeRegion";
-            this.codeRegionDataGridViewTextBoxColumn.HeaderText = "codeRegion";
-            this.codeRegionDataGridViewTextBoxColumn.Name = "codeRegionDataGridViewTextBoxColumn";
-            // 
-            // codeSeasonDataGridViewTextBoxColumn
-            // 
-            this.codeSeasonDataGridViewTextBoxColumn.DataPropertyName = "codeSeason";
-            this.codeSeasonDataGridViewTextBoxColumn.HeaderText = "codeSeason";
-            this.codeSeasonDataGridViewTextBoxColumn.Name = "codeSeasonDataGridViewTextBoxColumn";
-            // 
-            // avarageTemperatureAirDataGridViewTextBoxColumn
-            // 
-            this.avarageTemperatureAirDataGridViewTextBoxColumn.DataPropertyName = "avarageTemperatureAir";
-            this.avarageTemperatureAirDataGridViewTextBoxColumn.HeaderText = "avarageTemperatureAir";
-            this.avarageTemperatureAirDataGridViewTextBoxColumn.Name = "avarageTemperatureAirDataGridViewTextBoxColumn";
-            // 
-            // avarageTemperatureGroundDataGridViewTextBoxColumn
-            // 
-            this.avarageTemperatureGroundDataGridViewTextBoxColumn.DataPropertyName = "avarageTemperatureGround";
-            this.avarageTemperatureGroundDataGridViewTextBoxColumn.HeaderText = "avarageTemperatureGround";
-            this.avarageTemperatureGroundDataGridViewTextBoxColumn.Name = "avarageTemperatureGroundDataGridViewTextBoxColumn";
-            // 
             // Data_temps
             // 
             this.Data_temps.Location = new System.Drawing.Point(737, 105);
@@ -459,7 +459,7 @@
             this.Controls.Add(this.regionName);
             this.Controls.Add(this.lblCitySelect);
             this.Name = "fInitalData";
-            this.Text = "fInitalData";
+            this.Text = "Ввод исходных данных";
             this.Load += new System.EventHandler(this.fInitalData_Load);
             ((System.ComponentModel.ISupportInitialize)(this.regionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).EndInit();

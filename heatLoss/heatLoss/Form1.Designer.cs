@@ -93,7 +93,7 @@
             // расчётToolStripMenuItem
             // 
             this.расчётToolStripMenuItem.Name = "расчётToolStripMenuItem";
-            this.расчётToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.расчётToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.расчётToolStripMenuItem.Text = "Расчёт";
             this.расчётToolStripMenuItem.Click += new System.EventHandler(this.расчётToolStripMenuItem_Click);
             // 
@@ -267,7 +267,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Main";
+            this.Text = "Главная";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
