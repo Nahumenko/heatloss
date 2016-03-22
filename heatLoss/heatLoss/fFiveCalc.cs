@@ -226,6 +226,11 @@ namespace heatLoss
                 }
                 else MessageBox.Show("В базе данных нет значений для заданых условий");
             }
+            if (cbType.SelectedIndex == 8 || cbType.SelectedIndex == 9)
+            {
+                this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.Sql_steem8(Convert.ToInt32(cbOutDiam.SelectedValue), cbYear.Checked, cbNhwInYear.Checked, Convert.ToInt32(cBoxPipes.SelectedValue));
+                // расчёт
+            }
 
 
         }
@@ -260,6 +265,8 @@ namespace heatLoss
 
         private void fFiveCalc_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "_BD01_02_2016DataSet.pipeline". При необходимости она может быть перемещена или удалена.
+            this.pipelineTableAdapter.Fill(this._BD01_02_2016DataSet.pipeline);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "_BD01_02_2016DataSet.insulationType". При необходимости она может быть перемещена или удалена.
             this.insulationTypeTableAdapter.Fill(this._BD01_02_2016DataSet.insulationType);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "_BD01_02_2016DataSet.methodOfLaying". При необходимости она может быть перемещена или удалена.
@@ -356,6 +363,7 @@ namespace heatLoss
             else if (cbType.SelectedIndex == 3 || cbType.SelectedIndex == 5 || cbType.SelectedIndex == 6)
             {
                 cBoxNoProeject.Visible = true;
+                cbPipeNumber.Visible = false;
                 cBoxNoProeject.Items.Clear();
                 cBoxNoProeject.Items.Add("Проектный режим работы");
                 cBoxNoProeject.Items.Add("Подающий в режиме обратного");

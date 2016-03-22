@@ -65,6 +65,10 @@
             this.insulationTypeTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.insulationTypeTableAdapter();
             this.insulationKt2TableAdapter1 = new heatLoss._BD01_02_2016DataSetTableAdapters.insulationKt2TableAdapter();
             this.cBoxNoProeject = new System.Windows.Forms.ComboBox();
+            this.cBoxPipes = new System.Windows.Forms.ComboBox();
+            this.pipelineBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lblSteamPipe = new System.Windows.Forms.Label();
+            this.pipelineTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.pipelineTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.methodOfLayingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -74,6 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.outsideDiameterBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.outsideDiameterBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.insulationTypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipelineBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // cbType
@@ -343,13 +348,45 @@
             this.cBoxNoProeject.Size = new System.Drawing.Size(185, 21);
             this.cBoxNoProeject.TabIndex = 20;
             // 
+            // cBoxPipes
+            // 
+            this.cBoxPipes.DataSource = this.pipelineBindingSource;
+            this.cBoxPipes.DisplayMember = "pipelineSort";
+            this.cBoxPipes.FormattingEnabled = true;
+            this.cBoxPipes.Location = new System.Drawing.Point(531, 89);
+            this.cBoxPipes.Name = "cBoxPipes";
+            this.cBoxPipes.Size = new System.Drawing.Size(121, 21);
+            this.cBoxPipes.TabIndex = 21;
+            this.cBoxPipes.ValueMember = "keyPipeline";
+            // 
+            // pipelineBindingSource
+            // 
+            this.pipelineBindingSource.DataMember = "pipeline";
+            this.pipelineBindingSource.DataSource = this._BD01_02_2016DataSet;
+            // 
+            // lblSteamPipe
+            // 
+            this.lblSteamPipe.AutoSize = true;
+            this.lblSteamPipe.Location = new System.Drawing.Point(649, 156);
+            this.lblSteamPipe.Name = "lblSteamPipe";
+            this.lblSteamPipe.Size = new System.Drawing.Size(238, 65);
+            this.lblSteamPipe.TabIndex = 22;
+            this.lblSteamPipe.Text = "При совместной прокладке паропровода \r\nи конденсатопровода в непроходном канале,\r" +
+    "\nудельные среднегодовые потери \r\nопределяются раздельно для паропровода \r\nи конд" +
+    "енсатопровода.";
+            // 
+            // pipelineTableAdapter
+            // 
+            this.pipelineTableAdapter.ClearBeforeFill = true;
+            // 
             // fFiveCalc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(899, 434);
+            this.ClientSize = new System.Drawing.Size(916, 453);
+            this.Controls.Add(this.cBoxPipes);
             this.Controls.Add(this.cBoxNoProeject);
             this.Controls.Add(this.comBInsulationType);
             this.Controls.Add(this.cBoxDepth);
@@ -367,6 +404,7 @@
             this.Controls.Add(this.lblDlina);
             this.Controls.Add(this.lblDiametr);
             this.Controls.Add(this.cbType);
+            this.Controls.Add(this.lblSteamPipe);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fFiveCalc";
             this.Text = "Расчет потерь";
@@ -381,6 +419,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.outsideDiameterBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.outsideDiameterBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.insulationTypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipelineBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -420,5 +459,9 @@
         private _BD01_02_2016DataSetTableAdapters.insulationTypeTableAdapter insulationTypeTableAdapter;
         private _BD01_02_2016DataSetTableAdapters.insulationKt2TableAdapter insulationKt2TableAdapter1;
         private System.Windows.Forms.ComboBox cBoxNoProeject;
+        private System.Windows.Forms.ComboBox cBoxPipes;
+        private System.Windows.Forms.Label lblSteamPipe;
+        private System.Windows.Forms.BindingSource pipelineBindingSource;
+        private _BD01_02_2016DataSetTableAdapters.pipelineTableAdapter pipelineTableAdapter;
     }
 }
