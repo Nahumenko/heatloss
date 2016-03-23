@@ -26,6 +26,7 @@ namespace heatLoss
         public double deltaT1_tunel;// температурный напор для обратки при прокладки в проходном канале или тоннеле ,цельсий 
         public double deltaT2_tunel;// температурный напор для обратки при прокладки в проходном канале или тоннеле ,цельсий
         public double qnf_crG;      // значение для подземной прокоадки на непроектный режим режим работы 
+        public double deltaTnp; // проектная температура пара
         double qn_crG;       // значения интерполированые из таблицы
         double q2nf_nadz;    //персчёт надземные обратка
         double q1nf_nadz;   //персчёт надземные подача
@@ -203,6 +204,11 @@ namespace heatLoss
                 q = q * (t1_crG - t) / (t2_crG - t);
             }
             return q;
+        }
+        // для паропровода подземной прокладки
+        public double steamOnePipeUnderGround()
+        {
+            return deltaTnp = tempTable[12].T1_P - tempTable[12].Tcrm_grunt;
         }
 
         //всё что было ниже тоже что-то не понятное не обращай внимание я это делал в бреду 

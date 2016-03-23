@@ -230,7 +230,42 @@ namespace heatLoss
             {
                 this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.Sql_steem8(Convert.ToInt32(cbOutDiam.SelectedValue), cbYear.Checked, cbNhwInYear.Checked, Convert.ToInt32(cBoxPipes.SelectedValue));
                 // расчёт
+                double t = 0;
+                string strT = "Ошибка";
+                string strQ = "Ошибка";
+                // условие паропровода и конденсатопровода
+                switch (cBoxPipes.SelectedIndex)
+                {
+                    case 0:
+                        t = calc.steamOnePipeUnderGround();
+                        strT = "Значение Делта Тнк подз = ";
+                        strQ = "Значение Ку нк подз = ";
+                        break;
+                    case 1:
+                        t = calc.tempTable[12].T2_P;
+                        strT = "Значение Делта Тнп подз = ";
+                        strQ = "Значение Ку нп подз = ";
+                        break;
+                }
+
+                double[,] heatLossMass = inMass(dgv_heatloss.RowCount, dgv_heatloss.ColumnCount);
+                //дополниттельная проверка на кол-во строк в массиве
+                if (heatLossMass.GetLength(0) != 0)
+                {
+                    lblQ.Visible = true;
+                    lblTemP.Visible = true;
+                    lblTemP.Text = (strT + t);
+                    //интерполяция
+                    double q = lin.massiv(heatLossMass, t); // кушки куда-то нужно девать                   
+                    lblQ.Text = (strQ + q);
+                    //График
+                    chart1.Visible = true;
+                    paintingChart(heatLossMass, t, q);
+                    //вывод данных и дальнейший расчёт
+                }
+                else MessageBox.Show("В базе данных нет значений для заданых условий");
             }
+     
 
 
         }
@@ -386,7 +421,7 @@ namespace heatLoss
                 comBInsulationType.Visible = true;
             else comBInsulationType.Visible = false;
 
-          
+
         }
         //ввод данных из строки в масиив
         public double[,] inMass(int row, int col)

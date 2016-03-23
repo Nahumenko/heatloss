@@ -353,7 +353,7 @@
             this.cBoxPipes.DataSource = this.pipelineBindingSource;
             this.cBoxPipes.DisplayMember = "pipelineSort";
             this.cBoxPipes.FormattingEnabled = true;
-            this.cBoxPipes.Location = new System.Drawing.Point(531, 89);
+            this.cBoxPipes.Location = new System.Drawing.Point(768, 34);
             this.cBoxPipes.Name = "cBoxPipes";
             this.cBoxPipes.Size = new System.Drawing.Size(121, 21);
             this.cBoxPipes.TabIndex = 21;
