@@ -7,15 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Office.Interop.Excel;
+using Excel = Microsoft.Office.Interop.Excel;
+using Application = Microsoft.Office.Interop.Excel.Application;
+using System.IO;
+
 namespace heatLoss
 {
+
     public partial class fCalculation : Form
     {
 
-        
+
         fFiveCalc fFiveCalc = new fFiveCalc();
-       public fInitalData fInitaldata = new fInitalData();
+        public fInitalData fInitaldata = new fInitalData();
 
         public fCalculation()
         {
@@ -36,11 +40,17 @@ namespace heatLoss
         {
             fFiveCalc.Owner = fInitaldata;
             fFiveCalc.ShowDialog();
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            const string template = "template.xlsm";
+            Excel.Application excel = new Excel.Application();
+            excel.Visible = true;
+            // Открываем книгу
+            excel.Application.Workbooks.Open(Path.Combine(Environment.CurrentDirectory., template);
+
 
         }
     }
