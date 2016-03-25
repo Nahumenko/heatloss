@@ -127,6 +127,7 @@
             this.tbLength.Name = "tbLength";
             this.tbLength.Size = new System.Drawing.Size(78, 20);
             this.tbLength.TabIndex = 5;
+            this.tbLength.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbLength_KeyPress);
             // 
             // btnCalc
             // 

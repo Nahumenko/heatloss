@@ -449,7 +449,33 @@ namespace heatLoss
             lblTemP.Visible = false;
             chart1.Visible = false;
         }
-
-
+        // защита тест бокса
+        private void tbLength_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= '0') && (e.KeyChar <= '9'))
+            {
+                // цифра
+                return;
+            }
+            if (e.KeyChar == '.')
+            {
+                // точку заменим запятой
+                e.KeyChar = ',';
+            }
+            if (e.KeyChar == ',')
+            {
+                if (tbLength.Text.IndexOf(',') != -1)
+                {
+                    // запятая уже есть в поле редактирования
+                    e.Handled = true;
+                }
+                return;
+            }
+            if (Char.IsControl(e.KeyChar))
+            {
+                return;
+            }
+            e.Handled = true;
+        }
     }
 }
