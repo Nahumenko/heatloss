@@ -85,5 +85,10 @@ namespace heatLoss
             connection.Close();
 
         }
+
+        private void textBPass_TextChanged(object sender, EventArgs e)
+        {
+            this.textBPass.PasswordChar = '*';
+        }
     }
 }

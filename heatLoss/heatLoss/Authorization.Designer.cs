@@ -62,6 +62,7 @@
             this.textBPass.Name = "textBPass";
             this.textBPass.Size = new System.Drawing.Size(170, 20);
             this.textBPass.TabIndex = 2;
+            this.textBPass.TextChanged += new System.EventHandler(this.textBPass_TextChanged);
             // 
             // lblUserName
             // 
