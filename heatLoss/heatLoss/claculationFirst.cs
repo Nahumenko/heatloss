@@ -110,6 +110,26 @@ namespace heatLoss
 
             return z;
         }
+        //массив
+        public double[] twoTubesUndergroundMass(bool depth)
+        {
+            double[] Tmass = new double[14];
+            if (depth == false)
+            {
+                for (int i = 0; i < 14; i++)
+                {
+                    Tmass[i] = ((tempTable[i].T1_P + tempTable[i].T2_P) / 2) - tempTable[i].Tcrm_grunt;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 14; i++)
+                {
+                    Tmass[i] = ((tempTable[i].T1_P + tempTable[i].T2_P) / 2) - tempTable[i].Tcrm_vozd;
+                }
+            }        
+            return Tmass;
+        }
         // подземная прокладка подача отдельно обратка отдельно В,Г 
         public double onePipeUndergtound(Direction direction, bool depth)
         {
