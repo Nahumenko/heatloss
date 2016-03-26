@@ -95,6 +95,23 @@ namespace heatLoss
                 deltaT2_vozd = z = t2_crG - taoV_crG;           //для обратки
             return z;
         }
+        public double[] onePipeAirMass(Direction direction)
+        {
+            double[] z = new double[14];
+            for (int i = 0; i < 14; i++)
+            {
+                t1_crG = tempTable[i].T1_P;
+                t2_crG = tempTable[i].T2_P;
+                taoV_crG = tempTable[i].Tcrm_vozd;
+
+
+                if (direction == Direction.FLOW)
+                    z[i] = t1_crG - taoV_crG;          //для подачи
+                else
+                    z[i] = t2_crG - taoV_crG;           //для обратки
+            }
+            return z;
+        }
 
         //подземная прокладка таблицы Б две трубы
         public double twoTubesUnderground(bool depth)
@@ -127,7 +144,7 @@ namespace heatLoss
                 {
                     Tmass[i] = ((tempTable[i].T1_P + tempTable[i].T2_P) / 2) - tempTable[i].Tcrm_vozd;
                 }
-            }        
+            }
             return Tmass;
         }
         // подземная прокладка подача отдельно обратка отдельно В,Г 
@@ -154,6 +171,32 @@ namespace heatLoss
             }
             return z;
         }
+        public double[] onePipeUndergtoundMass(Direction direction, bool depth)
+        {
+            double[] z = new double[14];
+            for (int i = 0; i < 14; i++)
+            {
+                t1_crG = tempTable[i].T1_P;
+                t2_crG = tempTable[i].T2_P;
+                taoGr_crG = tempTable[i].Tcrm_grunt;
+                taoV_crG = tempTable[i].Tcrm_vozd;
+                if (depth == false)
+                {
+                    if (direction == Direction.FLOW)
+                        z[i] = deltaT1_podz = t1_crG - taoGr_crG;            //для подачи
+                    else z[i] = deltaT2_podz = t2_crG - taoGr_crG;           //для обратки}
+                }
+                else
+                {
+                    if (direction == Direction.FLOW)
+                        z[i] = deltaT1_podz = t1_crG - taoV_crG;            //для подачи
+                    else z[i] = deltaT2_podz = t2_crG - taoV_crG;           //для обратки
+                }
+            }
+            return z;
+
+        }
+
         //для трубопровода расположено в здании, проходном канале
         public double onePipeHouse(Direction direction)
         {
@@ -163,6 +206,20 @@ namespace heatLoss
             if (direction == Direction.FLOW)
                 z = deltaT1_pom = t1_crG - normTempInHouse;            //для подачи
             else z = deltaT2_pom = t2_crG - normTempInHouse;           //для обратки
+            return z;
+        }
+        public double[] onePipeHouseMass(Direction direction)
+        {
+            double[] z = new double[14];
+            for (int i = 0; i < 14; i++)
+            {
+                t1_crG = tempTable[i].T1_P;
+                t2_crG = tempTable[i].T2_P;
+
+                if (direction == Direction.FLOW)
+                    z[i] = deltaT1_pom = t1_crG - normTempInHouse;            //для подачи
+                else z[i] = deltaT2_pom = t2_crG - normTempInHouse;           //для обратки
+            }
             return z;
         }
 
@@ -175,6 +232,20 @@ namespace heatLoss
             if (direction == Direction.FLOW)
                 z = deltaT1_tunel = t1_crG - normTempInTunel;            //для подачи
             else z = deltaT2_tunel = t2_crG - normTempInTunel;           //для обратки
+            return z;
+        }
+        public double[] onePipeTunnelMass(Direction direction)
+        {
+            double[] z = new double[14];
+            for (int i = 0; i < 14; i++)
+            {
+                t1_crG = tempTable[i].T1_P;
+                t2_crG = tempTable[i].T2_P;
+
+                if (direction == Direction.FLOW)
+                    z[i] = deltaT1_tunel = t1_crG - normTempInTunel;            //для подачи
+                else z[i] = deltaT2_tunel = t2_crG - normTempInTunel;           //для обратки 
+            }
             return z;
         }
 
@@ -225,10 +296,51 @@ namespace heatLoss
             }
             return q;
         }
+        public double[] onePipeAirChangedMass(double[] q, Direction direction, string s)
+        {
+            double t;
+            for (int i = 0; i < 14; i++)
+            {
+                t1_crG = tempTable[i].T1_P;
+                t2_crG = tempTable[i].T2_P;
+                taoV_crG = tempTable[i].Tcrm_vozd;
+                switch (s)
+                {
+                    default:
+                        t = taoV_crG;
+                        break;
+                    case "Tunel":
+                        t = deltaT1_tunel;
+                        break;
+                    case "house":
+                        t = deltaT2_pom;
+                        break;
+                }
+                if (direction == Direction.FLOW)
+                {
+                    q[i] = q[i] * (t2_crG - t) / (t1_crG - t);
+                }
+                else
+                {
+                    q[i] = q[i] * (t1_crG - t) / (t2_crG - t);
+                }
+
+            }
+            return q;
+        }
         // для паропровода подземной прокладки
         public double steamOnePipeUnderGround()
         {
             return deltaTnp = tempTable[12].T1_P - tempTable[12].Tcrm_grunt;
+        }
+        public double[] steamOnePipeUnderGroundMAss()
+        {
+            double[] f = new double[14];
+            for (int i = 0; i < 14; i++)
+            {
+                f[i] = tempTable[i].T1_P - tempTable[i].Tcrm_grunt;
+            }
+            return f;
         }
 
         //всё что было ниже тоже что-то не понятное не обращай внимание я это делал в бреду 

@@ -95,18 +95,34 @@ namespace heatLoss
             {
                 for (int j = 0; j < pereprava.heatLossMass.GetLength(1); j++)
                 {
-                    Excelapp.Cells[i+3, j+7] = pereprava.heatLossMass[i, j];
+                    Excelapp.Cells[i + 3, j + 7] = pereprava.heatLossMass[i, j];
                 }
             }
-            
-            //вывод Т и КУ
-            for (int i = 0; i < 14; i++)
-            {
-                Excelapp.Cells[i+7, 2] = pereprava.t1mass[i];
-                Excelapp.Cells[i+7, 3] = pereprava.q1mass[i];
-                Excelapp.Cells[i+7, 1] = pereprava.tempTable[i].month;
-            }
 
+            //вывод Т и КУ
+            if (pereprava.Tcheck == true)
+            {
+                for (int i = 0; i < 14; i++)
+                {
+                    Excelapp.Cells[i + 7, 2] = pereprava.t1mass[i];
+                    Excelapp.Cells[i + 7, 3] = pereprava.q1mass[i];
+                    Excelapp.Cells[i + 7, 1] = pereprava.tempTable[i].month;
+                }
+            }
+            else
+            {
+                Excelapp.Cells[6, 4] = "t2";
+                Excelapp.Cells[6, 5] = "q2";
+
+                for (int i = 0; i < 14; i++)
+                {
+                    Excelapp.Cells[i + 7, 2] = pereprava.t1mass[i];
+                    Excelapp.Cells[i + 7, 3] = pereprava.q1mass[i];
+                    Excelapp.Cells[i + 7, 1] = pereprava.tempTable[i].month;
+                    Excelapp.Cells[i + 7, 4] = pereprava.t2mass[i];
+                    Excelapp.Cells[i + 7, 5] = pereprava.q2mass[i];
+                }
+            }
 
 
 
