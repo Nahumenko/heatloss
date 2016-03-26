@@ -36,9 +36,10 @@
             // 
             // btnInitalData
             // 
+            this.btnInitalData.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnInitalData.Location = new System.Drawing.Point(24, 26);
             this.btnInitalData.Name = "btnInitalData";
-            this.btnInitalData.Size = new System.Drawing.Size(133, 48);
+            this.btnInitalData.Size = new System.Drawing.Size(208, 61);
             this.btnInitalData.TabIndex = 0;
             this.btnInitalData.Text = "Ввод исходных данных";
             this.btnInitalData.UseVisualStyleBackColor = true;
@@ -46,9 +47,10 @@
             // 
             // btnFiveCalc
             // 
-            this.btnFiveCalc.Location = new System.Drawing.Point(24, 119);
+            this.btnFiveCalc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnFiveCalc.Location = new System.Drawing.Point(24, 123);
             this.btnFiveCalc.Name = "btnFiveCalc";
-            this.btnFiveCalc.Size = new System.Drawing.Size(133, 48);
+            this.btnFiveCalc.Size = new System.Drawing.Size(208, 59);
             this.btnFiveCalc.TabIndex = 1;
             this.btnFiveCalc.Text = "Расчет потерь";
             this.btnFiveCalc.UseVisualStyleBackColor = true;
@@ -56,9 +58,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(24, 214);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(24, 218);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 48);
+            this.button1.Size = new System.Drawing.Size(208, 59);
             this.button1.TabIndex = 2;
             this.button1.Text = "Отчет о результатах расчета";
             this.button1.UseVisualStyleBackColor = true;

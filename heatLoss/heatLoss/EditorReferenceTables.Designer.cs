@@ -48,42 +48,47 @@
             this.теплопотериToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(697, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(901, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // температурыToolStripMenuItem
             // 
+            this.температурыToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.температурыToolStripMenuItem.Name = "температурыToolStripMenuItem";
-            this.температурыToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.температурыToolStripMenuItem.Size = new System.Drawing.Size(140, 29);
             this.температурыToolStripMenuItem.Text = "Температуры";
             this.температурыToolStripMenuItem.Click += new System.EventHandler(this.температурыToolStripMenuItem_Click);
             // 
             // наружныйДиаментрToolStripMenuItem
             // 
+            this.наружныйДиаментрToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.наружныйДиаментрToolStripMenuItem.Name = "наружныйДиаментрToolStripMenuItem";
-            this.наружныйДиаментрToolStripMenuItem.Size = new System.Drawing.Size(128, 20);
+            this.наружныйДиаментрToolStripMenuItem.Size = new System.Drawing.Size(194, 29);
             this.наружныйДиаментрToolStripMenuItem.Text = "Наружный диаметр";
             this.наружныйДиаментрToolStripMenuItem.Click += new System.EventHandler(this.наружныйДиаментрToolStripMenuItem_Click);
             // 
             // условныйДиаметрToolStripMenuItem
             // 
+            this.условныйДиаметрToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.условныйДиаметрToolStripMenuItem.Name = "условныйДиаметрToolStripMenuItem";
-            this.условныйДиаметрToolStripMenuItem.Size = new System.Drawing.Size(124, 20);
+            this.условныйДиаметрToolStripMenuItem.Size = new System.Drawing.Size(188, 29);
             this.условныйДиаметрToolStripMenuItem.Text = "Условный диаметр";
             this.условныйДиаметрToolStripMenuItem.Click += new System.EventHandler(this.условныйДиаметрToolStripMenuItem_Click);
             // 
             // объемВодыВСистемеToolStripMenuItem
             // 
+            this.объемВодыВСистемеToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.объемВодыВСистемеToolStripMenuItem.Name = "объемВодыВСистемеToolStripMenuItem";
-            this.объемВодыВСистемеToolStripMenuItem.Size = new System.Drawing.Size(145, 20);
+            this.объемВодыВСистемеToolStripMenuItem.Size = new System.Drawing.Size(222, 29);
             this.объемВодыВСистемеToolStripMenuItem.Text = "Объем воды в системе";
             this.объемВодыВСистемеToolStripMenuItem.Click += new System.EventHandler(this.объемВодыВСистемеToolStripMenuItem_Click);
             // 
             // теплопотериToolStripMenuItem
             // 
+            this.теплопотериToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.теплопотериToolStripMenuItem.Name = "теплопотериToolStripMenuItem";
-            this.теплопотериToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
+            this.теплопотериToolStripMenuItem.Size = new System.Drawing.Size(138, 29);
             this.теплопотериToolStripMenuItem.Text = "Теплопотери";
             this.теплопотериToolStripMenuItem.Click += new System.EventHandler(this.теплопотериToolStripMenuItem_Click);
             // 
@@ -93,7 +98,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(697, 334);
+            this.ClientSize = new System.Drawing.Size(901, 334);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;

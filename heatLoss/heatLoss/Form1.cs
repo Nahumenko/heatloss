@@ -82,5 +82,10 @@ namespace heatLoss
         {
             fcalc.ShowDialog();
         }
+
+        private void файлToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

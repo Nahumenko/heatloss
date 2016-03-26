@@ -205,9 +205,7 @@ namespace heatLoss
         {
             // чищу массив статического класса
             pereprava.tempTable.Clear();
-
             //заношу данные в статический класс
-
             for (int i = 0; i < dgvTemptable.RowCount; i++)
             {
                 stringOftable = new InputTableData(Convert.ToString(dgvTemptable[0, i].FormattedValue),
@@ -219,16 +217,23 @@ namespace heatLoss
                                                      (Convert.ToDouble(dgvTemptable[6, i].Value)),
                                                      (Convert.ToDouble(dgvTemptable[7, i].Value))
                                                      );
-
-               
                 //добавляю данные в статический класс
                 pereprava.tempTable.Add(stringOftable);
-
-
-
             }
-
-
+            int k = 0; //защита от пустых ячеек
+            for (int j = 1; j < dgvTemptable.RowCount; j++) //бегаем по строкам
+            {
+                for (int i = 1; i < dgvTemptable.ColumnCount; i++) //бегаем по столбцам
+                    if (dgvTemptable.Rows[j - 1].Cells[i - 1].Value == null)
+                    {
+                        k++;
+                    }
+            }
+            if (k == 0)
+            {
+                Close();
+            }
+            else { MessageBox.Show("Таблица не заполнена"); }
         }
 
         private void btnMassReturn_Click(object sender, EventArgs e)
