@@ -19,6 +19,11 @@ namespace heatLoss
         static public double T1,T2;// расчитанные перепады
         static public string methodOflyining;// тип прокладки
         static public string outsideDiametr;
+        static public double[] t1mass;
+        static public double[] t2mass;
+        static public double[] q1mass;
+        static public double[] q2mass;
+        
         // флаг двух труб
         static public bool Tcheck; // true 1 // false 2
 

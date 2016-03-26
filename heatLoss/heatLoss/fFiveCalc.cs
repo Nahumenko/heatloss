@@ -28,12 +28,14 @@ namespace heatLoss
 
         private void btnCalc_Click(object sender, EventArgs e)
         {
+            //массив кушек
+            double[] q1mass = new double[14];
 
             // проверка ввода
             if (tbLength.Text == "")
             {
                 MessageBox.Show("укажите длинну трубопровода", "Ошибка");
-           
+
             }
             else {
                 // проверка ввода
@@ -56,6 +58,8 @@ namespace heatLoss
                         case 0:
                             this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.sql_hl_addDtSP(Convert.ToInt32(cbOutDiam.SelectedValue), cbYear.Checked, cbNhwInYear.Checked, superPoz, Convert.ToInt32(cbType.SelectedValue));
                             calc.twoTubesUnderground(cBoxDepth.Checked);
+                            //for all table
+                            double[] t1mass = calc.twoTubesUndergroundMass(cBoxDepth.Checked);
                             //заносим массив
                             double[,] heatLossMass = inMass(dgv_heatloss.RowCount, dgv_heatloss.ColumnCount);
                             //дополниттельная проверка на кол-во строк в массиве
@@ -71,12 +75,17 @@ namespace heatLoss
                                     q = lin.massiv(heatLossMass, calc.deltaTcv); // кушки куда-то нужно девать
                                                                                  // условие на непроектный режим подземка
                                     q = noProjectPipe(q);
+                                    for (int i = 0; i < 14; i++)
+                                    {
+                                        q1mass[i] = lin.massiv(heatLossMass, t1mass[i]);
+                                    }
                                     lblQ.Text = ("Значение Ку Подз =" + q);
                                     //График
                                     chart1.Visible = true;
                                     paintingChart(heatLossMass, calc.deltaTcv, q);
                                     //вывод данных и дальнейший расчёт
                                     InPereprava(calc.deltaTcv, Convert.ToDouble(tbLength.Text), q, heatLossMass);
+                                    MassINStatic(q1mass, t1mass);
                                 }
                                 else
                                 {
@@ -90,6 +99,7 @@ namespace heatLoss
                                     paintingChart(heatLossMass, calc.deltaTcv, q);
                                     //вывод данных и дальнейший расчёт
                                     InPereprava(calc.deltaTcv, Convert.ToDouble(tbLength.Text), q, heatLossMass);
+                                    
 
                                 }
 
@@ -319,6 +329,19 @@ namespace heatLoss
             }
             return q;
         }
+        //в переправму массив
+        private void MassINStatic(double[] q1mass, double[] t1mass)
+        {
+            pereprava.q1mass = q1mass;
+            pereprava.t1mass = t1mass;
+        }
+        private void MassINStatic(double[] q1mass, double[] t1mass, double[] q2mass, double[] t2mass)
+        {
+            MassINStatic(q1mass, t1mass);
+            pereprava.q2mass = q2mass;
+            pereprava.t2mass = t2mass;
+        }
+
 
         private void fFiveCalc_Load(object sender, EventArgs e)
         {
@@ -463,7 +486,7 @@ namespace heatLoss
         {
             //провекра кол-ва труб в котловане
             cbPipeNumberCheck();
-           
+
         }
         // заносим данные в переправу
         private void InPereprava(double T1, double L, double Q1, double[,] heatLossMass)
