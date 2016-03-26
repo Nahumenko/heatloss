@@ -45,7 +45,9 @@ namespace heatLoss
         private void button1_Click(object sender, EventArgs e)
         {
             Microsoft.Office.Interop.Excel.Application Excelapp = new Microsoft.Office.Interop.Excel.Application();
-            Excelapp.Application.Workbooks.Add(Path.GetFullPath(@"D:\учеба\заочка\Диплом\heatloss\heatLoss\heatLoss\Resources\template.xlsx"));
+            //Excelapp.Application.Workbooks.Add(Path.GetFullPath(@"D:\учеба\заочка\Диплом\heatloss\heatLoss\heatLoss\Resources\template.xlsx"));
+            Excelapp.Application.Workbooks.Add(Path.GetFullPath(@"..\..\Resources\template.xlsx"));
+
             Excelapp.Sheets[1].activate();
             //вывод исходных данных
             for (int i = 0; i < 14; i++)
