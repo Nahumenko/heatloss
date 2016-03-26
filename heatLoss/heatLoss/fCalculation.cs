@@ -119,8 +119,8 @@ namespace heatLoss
                     Excelapp.Cells[i + 7, 2] = pereprava.t1mass[i];
                     Excelapp.Cells[i + 7, 3] = pereprava.q1mass[i];
                     Excelapp.Cells[i + 7, 1] = pereprava.tempTable[i].month;
-                    Excelapp.Cells[i + 7, 4] = pereprava.t1mass[i];
-                    Excelapp.Cells[i + 7, 5] = pereprava.q1mass[i];
+                    Excelapp.Cells[i + 7, 4] = pereprava.t2mass[i];
+                    Excelapp.Cells[i + 7, 5] = pereprava.q2mass[i];
                 }
             }
 
