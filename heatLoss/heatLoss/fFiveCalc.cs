@@ -28,8 +28,11 @@ namespace heatLoss
 
         private void btnCalc_Click(object sender, EventArgs e)
         {
-            //массив кушек
+            //массив кушек и тешек
             double[] q1mass = new double[14];
+            double[] q2mass = new double[14];
+            double[] t1mass = new double[14];
+            double[] t2mass = new double[14];
 
             // проверка ввода
             if (tbLength.Text == "")
@@ -59,7 +62,7 @@ namespace heatLoss
                             this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.sql_hl_addDtSP(Convert.ToInt32(cbOutDiam.SelectedValue), cbYear.Checked, cbNhwInYear.Checked, superPoz, Convert.ToInt32(cbType.SelectedValue));
                             calc.twoTubesUnderground(cBoxDepth.Checked);
                             //for all table
-                            double[] t1mass = calc.twoTubesUndergroundMass(cBoxDepth.Checked);
+                             t1mass = calc.twoTubesUndergroundMass(cBoxDepth.Checked);
                             //заносим массив
                             double[,] heatLossMass = inMass(dgv_heatloss.RowCount, dgv_heatloss.ColumnCount);
                             //дополниттельная проверка на кол-во строк в массиве
@@ -92,6 +95,10 @@ namespace heatLoss
                                     q = lin.massiv(heatLossMass, calc.deltaTcv) * 0.8; // кушки куда-то нужно девать
                                                                                        // условие на непроектный режим подземка
                                     q = noProjectPipe(q);
+                                    for (int i = 0; i < 14; i++)
+                                    {
+                                        q1mass[i] = lin.massiv(heatLossMass, t1mass[i])*0.8;
+                                    }
                                     //ай   MessageBox.Show(this.insulationKt2TableAdapter1.sql_Kt2(Convert.ToInt32(comBInsulationType.SelectedValue), Convert.ToInt32(cbType.SelectedValue), Convert.ToInt32(cbOutDiam.SelectedValue)).ToString());
                                     lblQ.Text = ("Значение Ку Подз =" + q);
                                     //График
@@ -99,11 +106,8 @@ namespace heatLoss
                                     paintingChart(heatLossMass, calc.deltaTcv, q);
                                     //вывод данных и дальнейший расчёт
                                     InPereprava(calc.deltaTcv, Convert.ToDouble(tbLength.Text), q, heatLossMass);
-                                    
-
+                                    MassINStatic(q1mass, t1mass);
                                 }
-
-
                             }
                             else MessageBox.Show("В базе данных нет значений для заданых условий");
                             break;
@@ -112,6 +116,7 @@ namespace heatLoss
                             //таблица
                             this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.sql_hl_addDtSP2(Convert.ToInt32(cbOutDiam.SelectedValue), cbYear.Checked, cbNhwInYear.Checked, superPoz, Convert.ToInt32(cbType.SelectedValue));
                             calc.onePipeUndergtound(Direction.FLOW, cBoxDepth.Checked);
+                            t1mass=calc.onePipeUndergtoundMass(Direction.FLOW, cBoxDepth.Checked);
                             //заносим массив
                             heatLossMass = inMass(dgv_heatloss.RowCount, dgv_heatloss.ColumnCount);
                             //дополниттельная проверка на кол-во строк в массиве
@@ -122,12 +127,17 @@ namespace heatLoss
                                 lblTemP.Text = ("Значение Делта Т1 подз = " + calc.deltaT1_podz);
                                 //интерполяция
                                 double q = lin.massiv(heatLossMass, calc.deltaT1_podz); // кушки куда-то нужно девать
+                                for(int i = 0; i < 14; i++)
+                                {
+                                    q1mass[i]= lin.massiv(heatLossMass,t1mass[i]);
+                                }
                                 lblQ.Text = ("Значение Ку1 Подз =" + q);
                                 //График
                                 chart1.Visible = true;
                                 paintingChart(heatLossMass, calc.deltaT1_podz, q);
                                 //вывод данных и дальнейший расчёт
                                 InPereprava(calc.deltaT1_podz, Convert.ToDouble(tbLength.Text), q, heatLossMass);
+                                MassINStatic(q1mass, t1mass);
                             }
                             else MessageBox.Show("В базе данных нет значений для заданых условий");
                             break;
@@ -135,6 +145,7 @@ namespace heatLoss
                             //таблица
                             this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.sql_hl_addDtSP3(Convert.ToInt32(cbOutDiam.SelectedValue), cbYear.Checked, cbNhwInYear.Checked, superPoz, Convert.ToInt32(cbType.SelectedValue));
                             calc.onePipeUndergtound(Direction.RETURN, cBoxDepth.Checked);
+                            t1mass = calc.onePipeUndergtoundMass(Direction.FLOW, cBoxDepth.Checked);
                             //заносим массив
                             heatLossMass = inMass(dgv_heatloss.RowCount, dgv_heatloss.ColumnCount);
                             //дополниттельная проверка на кол-во строк в массиве
@@ -145,12 +156,17 @@ namespace heatLoss
                                 lblTemP.Text = ("Значение Делта Т2 подз = " + calc.deltaT2_podz);
                                 //интерполяция
                                 double q = lin.massiv(heatLossMass, calc.deltaT2_podz); // кушки куда-то нужно девать
+                                for (int i = 0; i < 14; i++)
+                                {
+                                    q1mass[i] = lin.massiv(heatLossMass, t1mass[i]);
+                                }
                                 lblQ.Text = ("Значение Ку2 Подз =" + q);
                                 //График
                                 chart1.Visible = true;
                                 paintingChart(heatLossMass, calc.deltaT2_podz, q);
                                 //вывод данных и дальнейший расчёт
                                 InPereprava(calc.deltaT2_podz, Convert.ToDouble(tbLength.Text), q, heatLossMass);
+                                MassINStatic(q1mass, t1mass);
                             }
                             else MessageBox.Show("В базе данных нет значений для заданых условий");
                             break;
@@ -166,6 +182,8 @@ namespace heatLoss
                     // расчёт
                     calc.onePipeAir(Direction.FLOW);
                     calc.onePipeAir(Direction.RETURN);
+                    t1mass=calc.onePipeAirMass(Direction.FLOW);
+                    t2mass=calc.onePipeAirMass(Direction.RETURN);
                     //заносим массив
                     double[,] heatLossMass = inMass(dgv_heatloss.RowCount, dgv_heatloss.ColumnCount);
                     //дополниттельная проверка на кол-во строк в массиве
@@ -177,6 +195,11 @@ namespace heatLoss
                         //интерполяция
                         double q1 = lin.massiv(heatLossMass, calc.deltaT1_vozd); // кушки куда-то нужно девать
                         double q2 = lin.massiv(heatLossMass, calc.deltaT2_vozd); // кушки куда-то нужно девать
+                        for(int i = 0; i < 14; i++)
+                        {
+                            q1mass[i] = lin.massiv(heatLossMass, t1mass[i]);
+                            q2mass[i] = lin.massiv(heatLossMass, t2mass[i]); 
+                        }
 
                         // проверка на непроект   
                         string s = "vozd";
@@ -188,6 +211,7 @@ namespace heatLoss
                         paintingChart(heatLossMass, calc.deltaT1_vozd, q1, calc.deltaT2_vozd, q2);
                         //вывод данных и дальнейший расчёт
                         InPereprava(calc.deltaT1_podz, calc.deltaT2_podz, Convert.ToDouble(tbLength.Text), q1, q2, heatLossMass);
+                        MassINStatic(q1mass, t1mass, q2mass, t2mass);
                     }
                     else MessageBox.Show("В базе данных нет значений для заданых условий");
                 }

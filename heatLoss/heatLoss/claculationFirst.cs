@@ -95,6 +95,23 @@ namespace heatLoss
                 deltaT2_vozd = z = t2_crG - taoV_crG;           //для обратки
             return z;
         }
+        public double[] onePipeAirMass(Direction direction)
+        {
+            double[] z = new double[14];
+            for (int i=0; i < 14; i++)
+            {
+                t1_crG = tempTable[i].T1_P;
+                t2_crG = tempTable[i].T2_P;
+                taoV_crG = tempTable[i].Tcrm_vozd;
+
+                
+                if (direction == Direction.FLOW)
+                    z[i] = t1_crG - taoV_crG;          //для подачи
+                else
+                    z[i] = t2_crG - taoV_crG;           //для обратки
+            }
+            return z;
+        }
 
         //подземная прокладка таблицы Б две трубы
         public double twoTubesUnderground(bool depth)
@@ -127,7 +144,7 @@ namespace heatLoss
                 {
                     Tmass[i] = ((tempTable[i].T1_P + tempTable[i].T2_P) / 2) - tempTable[i].Tcrm_vozd;
                 }
-            }        
+            }
             return Tmass;
         }
         // подземная прокладка подача отдельно обратка отдельно В,Г 
@@ -154,6 +171,32 @@ namespace heatLoss
             }
             return z;
         }
+        public double[] onePipeUndergtoundMass (Direction direction, bool depth)
+        {
+            double[] z = new double[14];
+            for (int i = 0; i < 14; i++)
+            {
+                t1_crG = tempTable[i].T1_P;
+                t2_crG = tempTable[i].T2_P;
+                taoGr_crG = tempTable[i].Tcrm_grunt;
+                taoV_crG = tempTable[i].Tcrm_vozd;                
+                if (depth == false)
+                {
+                    if (direction == Direction.FLOW)
+                        z[i] = deltaT1_podz = t1_crG - taoGr_crG;            //для подачи
+                    else z[i] = deltaT2_podz = t2_crG - taoGr_crG;           //для обратки}
+                }
+                else
+                {
+                    if (direction == Direction.FLOW)
+                        z[i] = deltaT1_podz = t1_crG - taoV_crG;            //для подачи
+                    else z[i] = deltaT2_podz = t2_crG - taoV_crG;           //для обратки
+                }                
+            }
+            return z;
+
+        }
+
         //для трубопровода расположено в здании, проходном канале
         public double onePipeHouse(Direction direction)
         {

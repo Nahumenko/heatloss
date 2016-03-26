@@ -42,7 +42,9 @@
             this.btnCalc = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dgv_heatloss = new System.Windows.Forms.DataGridView();
+            this.codeDeltaTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.deltaTBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.valueOfHeatlossMVTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.standardHeatLossBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.outsideDiameterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cbYear = new System.Windows.Forms.CheckBox();
@@ -67,8 +69,6 @@
             this.pipelineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblSteamPipe = new System.Windows.Forms.Label();
             this.pipelineTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.pipelineTableAdapter();
-            this.codeDeltaTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.valueOfHeatlossMVTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.methodOfLayingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -154,6 +154,7 @@
             this.chart1.Size = new System.Drawing.Size(503, 266);
             this.chart1.TabIndex = 7;
             this.chart1.Text = "chart1";
+            this.chart1.Visible = false;
             // 
             // dgv_heatloss
             // 
@@ -173,10 +174,28 @@
             this.dgv_heatloss.TabIndex = 9;
             this.dgv_heatloss.Visible = false;
             // 
+            // codeDeltaTDataGridViewTextBoxColumn
+            // 
+            this.codeDeltaTDataGridViewTextBoxColumn.DataPropertyName = "codeDeltaT";
+            this.codeDeltaTDataGridViewTextBoxColumn.DataSource = this.deltaTBindingSource;
+            this.codeDeltaTDataGridViewTextBoxColumn.DisplayMember = "valueDeltaT";
+            this.codeDeltaTDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.codeDeltaTDataGridViewTextBoxColumn.HeaderText = "Темп. перепад";
+            this.codeDeltaTDataGridViewTextBoxColumn.Name = "codeDeltaTDataGridViewTextBoxColumn";
+            this.codeDeltaTDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.codeDeltaTDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.codeDeltaTDataGridViewTextBoxColumn.ValueMember = "keyDeltaT";
+            // 
             // deltaTBindingSource
             // 
             this.deltaTBindingSource.DataMember = "deltaT";
             this.deltaTBindingSource.DataSource = this._BD01_02_2016DataSet;
+            // 
+            // valueOfHeatlossMVTDataGridViewTextBoxColumn
+            // 
+            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.DataPropertyName = "ValueOfHeatlossMVT";
+            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.HeaderText = "потери, Мвт";
+            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.Name = "valueOfHeatlossMVTDataGridViewTextBoxColumn";
             // 
             // standardHeatLossBindingSource
             // 
@@ -361,24 +380,6 @@
             // pipelineTableAdapter
             // 
             this.pipelineTableAdapter.ClearBeforeFill = true;
-            // 
-            // codeDeltaTDataGridViewTextBoxColumn
-            // 
-            this.codeDeltaTDataGridViewTextBoxColumn.DataPropertyName = "codeDeltaT";
-            this.codeDeltaTDataGridViewTextBoxColumn.DataSource = this.deltaTBindingSource;
-            this.codeDeltaTDataGridViewTextBoxColumn.DisplayMember = "valueDeltaT";
-            this.codeDeltaTDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.codeDeltaTDataGridViewTextBoxColumn.HeaderText = "Темп. перепад";
-            this.codeDeltaTDataGridViewTextBoxColumn.Name = "codeDeltaTDataGridViewTextBoxColumn";
-            this.codeDeltaTDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.codeDeltaTDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.codeDeltaTDataGridViewTextBoxColumn.ValueMember = "keyDeltaT";
-            // 
-            // valueOfHeatlossMVTDataGridViewTextBoxColumn
-            // 
-            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.DataPropertyName = "ValueOfHeatlossMVT";
-            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.HeaderText = "потери, Мвт";
-            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.Name = "valueOfHeatlossMVTDataGridViewTextBoxColumn";
             // 
             // fFiveCalc
             // 
