@@ -96,13 +96,13 @@ namespace heatLoss
                     Excelapp.Cells[i+3, j+7] = pereprava.heatLossMass[i, j];
                 }
             }
-            Excelapp.Sheets[3].activate();
+            
             //вывод Т и КУ
             for (int i = 0; i < 14; i++)
             {
-                Excelapp.Cells[i+1, 2] = pereprava.t1mass[i];
-                Excelapp.Cells[i+1, 3] = pereprava.q1mass[i];
-                Excelapp.Cells[i+1, 1] = pereprava.tempTable[i].month;
+                Excelapp.Cells[i+7, 2] = pereprava.t1mass[i];
+                Excelapp.Cells[i+7, 3] = pereprava.q1mass[i];
+                Excelapp.Cells[i+7, 1] = pereprava.tempTable[i].month;
             }
 
 
