@@ -67,13 +67,13 @@ namespace heatLoss
             // разнос на две трубы
             switch (pereprava.Tcheck == true)
             {
-                
+
                 case true:
                     Excelapp.Cells[3, 1] = "Q";
                     Excelapp.Cells[3, 2] = pereprava.outsideDiametr;
                     Excelapp.Cells[3, 3] = pereprava.L;
                     Excelapp.Cells[3, 4] = pereprava.Q1;
-                    Excelapp.Cells[3, 5] = pereprava.L * pereprava.Q1;                    
+                    Excelapp.Cells[3, 5] = pereprava.L * pereprava.Q1;
                     break;
                 case false:
                     Excelapp.Cells[3, 1] = "Q1";
@@ -88,6 +88,18 @@ namespace heatLoss
                     Excelapp.Cells[4, 5] = pereprava.L * pereprava.Q2;
                     break;
             }
+            // вывод Делта т
+            for (int i = 0; i < pereprava.heatLossMass.GetLength(0); i++)
+            {
+                for (int j = 0; j < pereprava.heatLossMass.GetLength(1); j++)
+                {
+                    Excelapp.Cells[i+3, j+7] = pereprava.heatLossMass[i, j];
+                }
+            }
+
+
+
+
 
 
 
