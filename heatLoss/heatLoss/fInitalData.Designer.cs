@@ -441,7 +441,7 @@
             this.Data_temps.Name = "Data_temps";
             this.Data_temps.Size = new System.Drawing.Size(104, 36);
             this.Data_temps.TabIndex = 18;
-            this.Data_temps.Text = "Заполнение таблицы";
+            this.Data_temps.Text = "Автозаполнение таблицы";
             this.Data_temps.UseVisualStyleBackColor = true;
             this.Data_temps.Click += new System.EventHandler(this.Data_temps_Click);
             // 
