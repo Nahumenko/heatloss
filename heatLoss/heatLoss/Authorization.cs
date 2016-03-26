@@ -16,10 +16,12 @@ namespace heatLoss
     public partial class Authorization : Form
     {
         private OleDbConnection connection = new OleDbConnection();
+        
         public Authorization()
         {
             InitializeComponent();
-            connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\BD01.02.2016.mdb";
+            connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\BD01.02.2016.mdb";           
+
         }
 
 
@@ -30,6 +32,7 @@ namespace heatLoss
             {
                 connection.Open();
                 lblCheckConnection.Text = "подключение к БД прошло успешно.";
+                lblCheckConnection.ForeColor = Color.Green;
                 connection.Close();
             }
             catch (Exception ex)
@@ -84,6 +87,11 @@ namespace heatLoss
 
             connection.Close();
 
+        }
+
+        private void textBPass_TextChanged(object sender, EventArgs e)
+        {
+            this.textBPass.PasswordChar = '*';
         }
     }
 }

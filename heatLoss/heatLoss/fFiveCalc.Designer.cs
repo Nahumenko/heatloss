@@ -42,9 +42,7 @@
             this.btnCalc = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dgv_heatloss = new System.Windows.Forms.DataGridView();
-            this.codeDeltaTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.deltaTBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.valueOfHeatlossMVTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.standardHeatLossBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.outsideDiameterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cbYear = new System.Windows.Forms.CheckBox();
@@ -69,6 +67,8 @@
             this.pipelineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblSteamPipe = new System.Windows.Forms.Label();
             this.pipelineTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.pipelineTableAdapter();
+            this.codeDeltaTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.valueOfHeatlossMVTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.methodOfLayingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -127,6 +127,7 @@
             this.tbLength.Name = "tbLength";
             this.tbLength.Size = new System.Drawing.Size(78, 20);
             this.tbLength.TabIndex = 5;
+            this.tbLength.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbLength_KeyPress);
             // 
             // btnCalc
             // 
@@ -172,28 +173,10 @@
             this.dgv_heatloss.TabIndex = 9;
             this.dgv_heatloss.Visible = false;
             // 
-            // codeDeltaTDataGridViewTextBoxColumn
-            // 
-            this.codeDeltaTDataGridViewTextBoxColumn.DataPropertyName = "codeDeltaT";
-            this.codeDeltaTDataGridViewTextBoxColumn.DataSource = this.deltaTBindingSource;
-            this.codeDeltaTDataGridViewTextBoxColumn.DisplayMember = "valueDeltaT";
-            this.codeDeltaTDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.codeDeltaTDataGridViewTextBoxColumn.HeaderText = "codeDeltaT";
-            this.codeDeltaTDataGridViewTextBoxColumn.Name = "codeDeltaTDataGridViewTextBoxColumn";
-            this.codeDeltaTDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.codeDeltaTDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.codeDeltaTDataGridViewTextBoxColumn.ValueMember = "keyDeltaT";
-            // 
             // deltaTBindingSource
             // 
             this.deltaTBindingSource.DataMember = "deltaT";
             this.deltaTBindingSource.DataSource = this._BD01_02_2016DataSet;
-            // 
-            // valueOfHeatlossMVTDataGridViewTextBoxColumn
-            // 
-            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.DataPropertyName = "ValueOfHeatlossMVT";
-            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.HeaderText = "ValueOfHeatlossMVT";
-            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.Name = "valueOfHeatlossMVTDataGridViewTextBoxColumn";
             // 
             // standardHeatLossBindingSource
             // 
@@ -379,6 +362,24 @@
             // 
             this.pipelineTableAdapter.ClearBeforeFill = true;
             // 
+            // codeDeltaTDataGridViewTextBoxColumn
+            // 
+            this.codeDeltaTDataGridViewTextBoxColumn.DataPropertyName = "codeDeltaT";
+            this.codeDeltaTDataGridViewTextBoxColumn.DataSource = this.deltaTBindingSource;
+            this.codeDeltaTDataGridViewTextBoxColumn.DisplayMember = "valueDeltaT";
+            this.codeDeltaTDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.codeDeltaTDataGridViewTextBoxColumn.HeaderText = "Темп. перепад";
+            this.codeDeltaTDataGridViewTextBoxColumn.Name = "codeDeltaTDataGridViewTextBoxColumn";
+            this.codeDeltaTDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.codeDeltaTDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.codeDeltaTDataGridViewTextBoxColumn.ValueMember = "keyDeltaT";
+            // 
+            // valueOfHeatlossMVTDataGridViewTextBoxColumn
+            // 
+            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.DataPropertyName = "ValueOfHeatlossMVT";
+            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.HeaderText = "потери, Мвт";
+            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.Name = "valueOfHeatlossMVTDataGridViewTextBoxColumn";
+            // 
             // fFiveCalc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -448,8 +449,6 @@
         private System.Windows.Forms.ComboBox cbOutDiam;
         private System.Windows.Forms.BindingSource outsideDiameterBindingSource1;
         private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.DataGridViewComboBoxColumn codeDeltaTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valueOfHeatlossMVTDataGridViewTextBoxColumn;
         private System.Windows.Forms.ComboBox cbPipeNumber;
         private System.Windows.Forms.Label lblTemP;
         private System.Windows.Forms.Label lblQ;
@@ -463,5 +462,7 @@
         private System.Windows.Forms.Label lblSteamPipe;
         private System.Windows.Forms.BindingSource pipelineBindingSource;
         private _BD01_02_2016DataSetTableAdapters.pipelineTableAdapter pipelineTableAdapter;
+        private System.Windows.Forms.DataGridViewComboBoxColumn codeDeltaTDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valueOfHeatlossMVTDataGridViewTextBoxColumn;
     }
 }
