@@ -22,10 +22,8 @@ namespace heatLoss
         static public double[] t1mass;
         static public double[] t2mass;
         static public double[] q1mass;
-        static public double[] q2mass;
-        
+        static public double[] q2mass;        
         // флаг двух труб
         static public bool Tcheck; // true 1 // false 2
-
     }
 }

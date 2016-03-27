@@ -142,14 +142,14 @@
             // войтиToolStripMenuItem
             // 
             this.войтиToolStripMenuItem.Name = "войтиToolStripMenuItem";
-            this.войтиToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
+            this.войтиToolStripMenuItem.Size = new System.Drawing.Size(404, 30);
             this.войтиToolStripMenuItem.Text = "Войти";
             this.войтиToolStripMenuItem.Click += new System.EventHandler(this.войтиToolStripMenuItem_Click);
             // 
             // редактированиеСправочныхТаблицToolStripMenuItem
             // 
             this.редактированиеСправочныхТаблицToolStripMenuItem.Name = "редактированиеСправочныхТаблицToolStripMenuItem";
-            this.редактированиеСправочныхТаблицToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
+            this.редактированиеСправочныхТаблицToolStripMenuItem.Size = new System.Drawing.Size(404, 30);
             this.редактированиеСправочныхТаблицToolStripMenuItem.Text = "Редактирование справочных таблиц";
             this.редактированиеСправочныхТаблицToolStripMenuItem.Visible = false;
             this.редактированиеСправочныхТаблицToolStripMenuItem.Click += new System.EventHandler(this.редактированиеСправочныхТаблицToolStripMenuItem_Click);
@@ -169,7 +169,7 @@
             // просмотрСправкиToolStripMenuItem
             // 
             this.просмотрСправкиToolStripMenuItem.Name = "просмотрСправкиToolStripMenuItem";
-            this.просмотрСправкиToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.просмотрСправкиToolStripMenuItem.Size = new System.Drawing.Size(248, 30);
             this.просмотрСправкиToolStripMenuItem.Text = "Просмотр справки";
             // 
             // отправитьОтзывToolStripMenuItem
@@ -181,52 +181,52 @@
             this.toolStripMenuItem1,
             this.примерыРаботыToolStripMenuItem});
             this.отправитьОтзывToolStripMenuItem.Name = "отправитьОтзывToolStripMenuItem";
-            this.отправитьОтзывToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.отправитьОтзывToolStripMenuItem.Size = new System.Drawing.Size(248, 30);
             this.отправитьОтзывToolStripMenuItem.Text = "Отправить отзыв";
             // 
             // сообщитьОПролемеToolStripMenuItem
             // 
             this.сообщитьОПролемеToolStripMenuItem.Name = "сообщитьОПролемеToolStripMenuItem";
-            this.сообщитьОПролемеToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.сообщитьОПролемеToolStripMenuItem.Size = new System.Drawing.Size(301, 30);
             this.сообщитьОПролемеToolStripMenuItem.Text = "Сообщить о пролеме";
             this.сообщитьОПролемеToolStripMenuItem.Click += new System.EventHandler(this.сообщитьОПролемеToolStripMenuItem_Click);
             // 
             // отправитьПредложениеToolStripMenuItem
             // 
             this.отправитьПредложениеToolStripMenuItem.Name = "отправитьПредложениеToolStripMenuItem";
-            this.отправитьПредложениеToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.отправитьПредложениеToolStripMenuItem.Size = new System.Drawing.Size(301, 30);
             this.отправитьПредложениеToolStripMenuItem.Text = "Отправить предложение";
             this.отправитьПредложениеToolStripMenuItem.Click += new System.EventHandler(this.отправитьПредложениеToolStripMenuItem_Click);
             // 
             // отправитьОтзывToolStripMenuItem1
             // 
             this.отправитьОтзывToolStripMenuItem1.Name = "отправитьОтзывToolStripMenuItem1";
-            this.отправитьОтзывToolStripMenuItem1.Size = new System.Drawing.Size(210, 22);
+            this.отправитьОтзывToolStripMenuItem1.Size = new System.Drawing.Size(301, 30);
             this.отправитьОтзывToolStripMenuItem1.Text = "Отправить отзыв";
             this.отправитьОтзывToolStripMenuItem1.Click += new System.EventHandler(this.отправитьОтзывToolStripMenuItem1_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(207, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(298, 6);
             // 
             // примерыРаботыToolStripMenuItem
             // 
             this.примерыРаботыToolStripMenuItem.Name = "примерыРаботыToolStripMenuItem";
-            this.примерыРаботыToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.примерыРаботыToolStripMenuItem.Size = new System.Drawing.Size(301, 30);
             this.примерыРаботыToolStripMenuItem.Text = "Примеры работы";
             // 
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(248, 30);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
             // обАвторахToolStripMenuItem
             // 
             this.обАвторахToolStripMenuItem.Name = "обАвторахToolStripMenuItem";
-            this.обАвторахToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.обАвторахToolStripMenuItem.Size = new System.Drawing.Size(248, 30);
             this.обАвторахToolStripMenuItem.Text = "Об авторах";
             this.обАвторахToolStripMenuItem.Click += new System.EventHandler(this.обАвторахToolStripMenuItem_Click);
             // 
@@ -234,7 +234,7 @@
             // 
             this.monthCalendar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.monthCalendar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.monthCalendar1.Location = new System.Drawing.Point(816, 42);
+            this.monthCalendar1.Location = new System.Drawing.Point(773, 44);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 1;
             // 

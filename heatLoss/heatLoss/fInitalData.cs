@@ -12,15 +12,12 @@ namespace heatLoss
 {
     public partial class fInitalData : Form
     {
-
         //общий класс
         InputTableData stringOftable;
         public fInitalData()
         {
             InitializeComponent();
-
         }
-
         private void fInitalData_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "_BD01_02_2016DataSet.season". При необходимости она может быть перемещена или удалена.
@@ -29,10 +26,7 @@ namespace heatLoss
             this.temperatureTableAdapter.Fill(this._BD01_02_2016DataSet.temperature);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "_BD01_02_2016DataSet.region". При необходимости она может быть перемещена или удалена.
             this.regionTableAdapter.Fill(this._BD01_02_2016DataSet.region);
-
-
         }
-
         private void cbchoseMouth_CheckedChanged(object sender, EventArgs e)
         {
             if (cbchoseMouth.Checked)
@@ -51,17 +45,12 @@ namespace heatLoss
                 cbTo.Visible = false;
             }
         }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Hide();
-
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
-            // try
-            // {
             for (int j = 1; j < dgvTemptable.RowCount; j++) //бегаем по строкам
             {
                 for (int i = 1; i < dgvTemptable.ColumnCount; i++) //бегаем по столбцам
@@ -76,44 +65,26 @@ namespace heatLoss
                     }
                 break;
             }
-            // }
-            //  catch { }
-
-
-
-
             /*Hide();
             // тут должен быть код который сохраняет данные в какой-то массив
             //и добавляет кнопку начала рапсчёта на форму  Fcalculation*/
         }
-
         private void selectSeasonNameToolStripButton_Click(object sender, EventArgs e)
         {
-
-
         }
-
         private void cbTo_Click(object sender, EventArgs e)
         {
-
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
-
-
         }
-
         private void cbTo_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbTo.Visible == true)
             {
                 this.dgvTemptable.DataSource = this.temperatureTableAdapter.selectSeasonName(Convert.ToInt32(cbFrom.SelectedValue.ToString()), Convert.ToInt32(cbTo.SelectedValue.ToString()), Convert.ToInt32(regionName.SelectedValue.ToString()));
             }
-
-
         }
-
         private void cbFrom_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbFrom.Visible == true)
@@ -124,10 +95,7 @@ namespace heatLoss
                 }
                 catch { }
             }
-
-
         }
-
         private void season_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbchoseMouth.Checked)
@@ -143,7 +111,6 @@ namespace heatLoss
                 catch { }
             }
         }
-
         private void cbBetweenHeating_CheckedChanged(object sender, EventArgs e)
         {
             if (cbBetweenHeating.Checked)
@@ -157,13 +124,11 @@ namespace heatLoss
                 cbSystemOpen.Visible = false;
             }
         }
-
         private void cbSystemOpen_CheckedChanged(object sender, EventArgs e)
         {
             if (cbSystemOpen.Checked)
             {
                 cbCirculation.Visible = true;
-
             }
             else
             {
@@ -173,7 +138,6 @@ namespace heatLoss
                 //обратка 35
             }
         }
-
         private void cbCirculation_CheckedChanged(object sender, EventArgs e)
         {
             if (cbCirculation.Checked)
@@ -188,9 +152,9 @@ namespace heatLoss
                 //обратка 50
             }
         }
-
         private void button1_Click_1(object sender, EventArgs e)
         {
+            //рандом
             Random rnd = new Random();
             for (int j = 3; j <= 7; j++) //бегаем по столбцам
             {
@@ -200,7 +164,6 @@ namespace heatLoss
                 }
             }
         }
-
         private void btnMass_Click(object sender, EventArgs e)
         {
             // чищу массив статического класса
@@ -235,7 +198,6 @@ namespace heatLoss
             }
             else { MessageBox.Show("Таблица не заполнена"); }
         }
-
         private void btnMassReturn_Click(object sender, EventArgs e)
         {
             /*     for (int i = 0; i < dgvTemptable.RowCount; i++)
@@ -250,10 +212,8 @@ namespace heatLoss
                      dgvTemptable[5, i].Value = calc.tempTable[i].T1_F;
                      dgvTemptable[6, i].Value = calc.tempTable[i].T2_P;
                      dgvTemptable[7, i].Value = calc.tempTable[i].T2_F;
-                 }
-*/
-             }
-
+                 }*/
+        }
         private void Data_temps_Click(object sender, EventArgs e)
         {
             double[,] data_temp = new double[14, 5]; // Данные по температурам из отчета
@@ -271,16 +231,13 @@ namespace heatLoss
             data_temp[11, 0] = 5.4; data_temp[11, 1] = 63; data_temp[11, 2] = 63; data_temp[11, 3] = 49.9; data_temp[11, 4] = 49.9;
             data_temp[12, 0] = 0; data_temp[12, 1] = 60; data_temp[12, 2] = 60; data_temp[12, 3] = 50; data_temp[12, 4] = 50;
             data_temp[13, 0] = 0; data_temp[13, 1] = 60.8; data_temp[13, 2] = 60.8; data_temp[13, 3] = 48.5; data_temp[13, 4] = 48.5;
-
-
             for (int j = 3; j <= 7; j++)
                 for (int i = 0; i < dgvTemptable.RowCount; i++)
                 {
                     dgvTemptable.Rows[i].Cells[j].Value = data_temp[i, j - 3];
                 }
-
         }
     }
-        }
+}
 
 

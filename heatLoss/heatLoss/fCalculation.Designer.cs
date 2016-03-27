@@ -38,6 +38,8 @@
             // 
             this.btnInitalData.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnInitalData.Location = new System.Drawing.Point(24, 26);
+            this.btnInitalData.MaximumSize = new System.Drawing.Size(208, 61);
+            this.btnInitalData.MinimumSize = new System.Drawing.Size(208, 61);
             this.btnInitalData.Name = "btnInitalData";
             this.btnInitalData.Size = new System.Drawing.Size(208, 61);
             this.btnInitalData.TabIndex = 0;
@@ -78,6 +80,8 @@
             this.Controls.Add(this.btnFiveCalc);
             this.Controls.Add(this.btnInitalData);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(482, 355);
+            this.MinimumSize = new System.Drawing.Size(482, 355);
             this.Name = "fCalculation";
             this.Text = "Расчет";
             this.Load += new System.EventHandler(this.fCalculation_Load);

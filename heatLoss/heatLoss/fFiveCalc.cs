@@ -19,13 +19,10 @@ namespace heatLoss
         //класс интерполяции
         linterp lin = new linterp();
         //передаю в него таблицу исходных данных
-
         public fFiveCalc()
         {
             InitializeComponent();
-
         }
-
         private void btnCalc_Click(object sender, EventArgs e)
         {
             //массив кушек и тешек
@@ -33,16 +30,13 @@ namespace heatLoss
             double[] q2mass = new double[14];
             double[] t1mass = new double[14];
             double[] t2mass = new double[14];
-
             // проверка ввода
             if (tbLength.Text == "")
             {
                 MessageBox.Show("укажите длинну трубопровода", "Ошибка");
-
             }
             else {
                 // проверка ввода
-
                 // основной алгоритм в кейсе
                 if (cbType.SelectedIndex == 0 || cbType.SelectedIndex == 1 || cbType.SelectedIndex == 2)
                 {
@@ -172,9 +166,6 @@ namespace heatLoss
                             break;
                     }
                 }
-
-
-
                 // месеж бокс условие воздушка 
                 if (cbType.SelectedIndex == 3)
                 {
@@ -200,7 +191,6 @@ namespace heatLoss
                             q1mass[i] = lin.massiv(heatLossMass, t1mass[i]);
                             q2mass[i] = lin.massiv(heatLossMass, t2mass[i]);
                         }
-
                         // проверка на непроект   
                         string s = "vozd";
                         q1 = noProjecrPipe(q1, s);
@@ -217,7 +207,6 @@ namespace heatLoss
                     }
                     else MessageBox.Show("В базе данных нет значений для заданых условий");
                 }
-
                 if (cbType.SelectedIndex == 5)
                 {
                     this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.sql_hl(Convert.ToInt32(cbType.SelectedValue), cbNhwInYear.Checked, cbYear.Checked, Convert.ToInt32(cbOutDiam.SelectedValue));
@@ -322,7 +311,6 @@ namespace heatLoss
                             strQ = "Значение Ку нп подз = ";
                             break;
                     }
-
                     double[,] heatLossMass = inMass(dgv_heatloss.RowCount, dgv_heatloss.ColumnCount);
                     //дополниттельная проверка на кол-во строк в массиве
                     if (heatLossMass.GetLength(0) != 0)
@@ -343,7 +331,6 @@ namespace heatLoss
                         //вывод данных и дальнейший расчёт
                         InPereprava(t, Convert.ToDouble(tbLength.Text), q, heatLossMass);
                         MassINStatic(q1mass, t1mass);
-
                     }
                     else MessageBox.Show("В базе данных нет значений для заданых условий");
                 }
@@ -351,11 +338,7 @@ namespace heatLoss
                 pereprava.methodOflyining = cbType.GetItemText(cbType.SelectedItem);
                 // заносим значение наружнего диаметра
                 pereprava.outsideDiametr = cbOutDiam.GetItemText(cbOutDiam.SelectedItem);
-
             }
-
-
-
         }
         // для не проектной надземной прокладки
         private double noProjecrPipe(double q, string s)
@@ -384,7 +367,6 @@ namespace heatLoss
             }
             return q;
         }
-
         // для не проектной подземной прокладки
         private double noProjectPipe(double q)
         {
@@ -411,8 +393,6 @@ namespace heatLoss
             pereprava.q2mass = q2mass;
             pereprava.t2mass = t2mass;
         }
-
-
         private void fFiveCalc_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "_BD01_02_2016DataSet.pipeline". При необходимости она может быть перемещена или удалена.
@@ -436,20 +416,14 @@ namespace heatLoss
             {
                 checkBox3.Visible = true;
             }
-
             //провекра кол-ва труб в котловане
             cbPipeNumberCheck();
-
-
-
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show(cbType.SelectedIndex.ToString());
             //  this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.sql_hl(cbType.SelectedIndex, checkBox2.Checked, checkBox1.Checked, Convert.ToInt32(tbDiametr.Text));
             this.dgv_heatloss.DataSource = this.standardHeatLossTableAdapter.sql_hl(Convert.ToInt32(cbType.SelectedValue), cbNhwInYear.Checked, cbYear.Checked, Convert.ToInt32(cbOutDiam.SelectedValue));
-
             // попробую всё заносить в массив 
             double[,] heatLossMass = new double[dgv_heatloss.RowCount, dgv_heatloss.ColumnCount];
             for (int i = 0; i < dgv_heatloss.RowCount; i++)
@@ -462,7 +436,6 @@ namespace heatLoss
             }
             // попробую всё заносить в массив 
         }
-
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox3.Checked) { dgv_heatloss.Visible = true; }
@@ -495,8 +468,6 @@ namespace heatLoss
             paintingChart(mass, t0, q0);
             chart1.Series[1].Points.AddXY(t1, q1);
         }
-
-
         //провекра кол-ва труб в котловане на видимость
         // отоброжение не отображение елементов в зависимости установок
         private void cbPipeNumberCheck()
@@ -518,7 +489,6 @@ namespace heatLoss
                 cBoxNoProeject.Items.Add("Проектный режим работы");
                 cBoxNoProeject.Items.Add("Подающий в режиме обратного");
                 cBoxNoProeject.Items.Add("Обратный в режиме подающего");
-
             }
             else
             {
@@ -535,8 +505,6 @@ namespace heatLoss
             if (cbType.SelectedIndex == 2)
                 comBInsulationType.Visible = true;
             else comBInsulationType.Visible = false;
-
-
         }
         //ввод данных из строки в масиив
         public double[,] inMass(int row, int col)
@@ -551,12 +519,10 @@ namespace heatLoss
             }
             return newMass;
         }
-
         private void cbType_SelectedIndexChanged(object sender, EventArgs e)
         {
             //провекра кол-ва труб в котловане
             cbPipeNumberCheck();
-
         }
         // заносим данные в переправу
         private void InPereprava(double T1, double L, double Q1, double[,] heatLossMass)
@@ -574,7 +540,6 @@ namespace heatLoss
             pereprava.T2 = T2;
             pereprava.Tcheck = false;
         }
-
         private void fFiveCalc_FormClosing(object sender, FormClosingEventArgs e)
         {
             lblQ.Visible = false;

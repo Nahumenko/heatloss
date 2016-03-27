@@ -12,42 +12,33 @@ using System.IO;
 
 namespace heatLoss
 {
-
     public partial class fCalculation : Form
     {
-
-
         fFiveCalc fFiveCalc = new fFiveCalc();
         public fInitalData fInitaldata = new fInitalData();
-
         public fCalculation()
         {
             InitializeComponent();
         }
-
         private void btnInitalData_Click(object sender, EventArgs e)
         {
             fInitaldata.ShowDialog();
         }
-
         private void fCalculation_Load(object sender, EventArgs e)
         {
-
         }
-
         private void btnFiveCalc_Click(object sender, EventArgs e)
         {
             fFiveCalc.Owner = fInitaldata;
             fFiveCalc.ShowDialog();
-
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
+            //подключаем ексель
+            //загружаю шаблон
             Microsoft.Office.Interop.Excel.Application Excelapp = new Microsoft.Office.Interop.Excel.Application();
-            //Excelapp.Application.Workbooks.Add(Path.GetFullPath(@"D:\учеба\заочка\Диплом\heatloss\heatLoss\heatLoss\Resources\template.xlsx"));
             Excelapp.Application.Workbooks.Add(Path.GetFullPath(@"..\..\Resources\template.xlsx"));
-
+            // активный первый лист
             Excelapp.Sheets[1].activate();
             //вывод исходных данных
             for (int i = 0; i < 14; i++)
@@ -61,15 +52,13 @@ namespace heatLoss
                 Excelapp.Cells[i + 6, 7] = pereprava.tempTable[i].T2_P;
                 Excelapp.Cells[i + 6, 8] = pereprava.tempTable[i].T2_F;
             }
-
-            // вывод вторго расчёта
+            // вывод на второй лист
             Excelapp.Sheets[2].activate();
             // тип прокладки
             Excelapp.Cells[2, 1] = pereprava.methodOflyining;
             // разнос на две трубы
             switch (pereprava.Tcheck == true)
             {
-
                 case true:
                     Excelapp.Cells[3, 1] = "Q";
                     Excelapp.Cells[3, 2] = pereprava.outsideDiametr;
@@ -90,18 +79,22 @@ namespace heatLoss
                     Excelapp.Cells[4, 5] = pereprava.L * pereprava.Q2;
                     break;
             }
-            // вывод Делта т
-            for (int i = 0; i < pereprava.heatLossMass.GetLength(0); i++)
+            // вывод Делта т если есть права админаэ
+            if (pereprava.check == true)
             {
-                for (int j = 0; j < pereprava.heatLossMass.GetLength(1); j++)
+                for (int i = 0; i < pereprava.heatLossMass.GetLength(0); i++)
                 {
-                    Excelapp.Cells[i + 3, j + 7] = pereprava.heatLossMass[i, j];
+                    for (int j = 0; j < pereprava.heatLossMass.GetLength(1); j++)
+                    {
+                        Excelapp.Cells[i + 3, j + 7] = pereprava.heatLossMass[i, j];
+                    }
                 }
             }
 
             //вывод Т и КУ
             if (pereprava.Tcheck == true)
             {
+                // один ТП
                 for (int i = 0; i < 14; i++)
                 {
                     Excelapp.Cells[i + 7, 2] = pereprava.t1mass[i];
@@ -111,9 +104,9 @@ namespace heatLoss
             }
             else
             {
+                // два ТП
                 Excelapp.Cells[6, 4] = "t2";
                 Excelapp.Cells[6, 5] = "q2";
-
                 for (int i = 0; i < 14; i++)
                 {
                     Excelapp.Cells[i + 7, 2] = pereprava.t1mass[i];
@@ -123,22 +116,8 @@ namespace heatLoss
                     Excelapp.Cells[i + 7, 5] = pereprava.q2mass[i];
                 }
             }
-
-
-
-
-
-
+            //показываем ексель
             Excelapp.Visible = true;
-            //   pereprava.tempTable[0].month
-
-
-
-            //  Excelapp.Cells.MergeArea.Range[(1, 1), [1, 5]];
-            //(Excelapp.Cells[1, 1], Excelapp.Cells[1, 5]);
-
-
-
         }
     }
 }

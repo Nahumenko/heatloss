@@ -15,9 +15,6 @@ namespace heatLoss
         public double y0;
         public double y1;
         public double y2;
-        public double[,] arr; // массив
-
-
         //конструктор класса
         // все переменные
         public linterp(double _x0, double _x1, double _x2, double _y0, double _y1, double _y2)
@@ -29,12 +26,10 @@ namespace heatLoss
             y1 = _y1;
             y2 = _y2;
         }
-
         // конструктор
         public linterp()
         {
         }
-
         //проверка внутри класса можно ли производить интерполяцию 
         // если фолс то интерполяция не проводилась
         // если вернула тру то интерполяция провелась   
@@ -51,8 +46,6 @@ namespace heatLoss
             else z = false;
             return z;
         }
-
-
         //работа иду с массивом 
         // даёшь массив и икс, отдаёт интерпалированную кушку
         public double massiv(double[,] mass, double x)
@@ -79,13 +72,9 @@ namespace heatLoss
                     }
                 }
             }
-            else q =  mass[0, 1]*x/ mass[0, 0];
+            else q = mass[0, 1] * x / mass[0, 0];
             return q;
         }
-
-
-
-
     }
 }
 
