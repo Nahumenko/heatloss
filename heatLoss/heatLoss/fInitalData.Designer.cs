@@ -86,9 +86,10 @@
             // lblCitySelect
             // 
             this.lblCitySelect.AutoSize = true;
+            this.lblCitySelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblCitySelect.Location = new System.Drawing.Point(12, 23);
             this.lblCitySelect.Name = "lblCitySelect";
-            this.lblCitySelect.Size = new System.Drawing.Size(101, 13);
+            this.lblCitySelect.Size = new System.Drawing.Size(152, 20);
             this.lblCitySelect.TabIndex = 0;
             this.lblCitySelect.Text = "Выберите область";
             // 
@@ -96,10 +97,11 @@
             // 
             this.regionName.DataSource = this.regionBindingSource;
             this.regionName.DisplayMember = "region";
+            this.regionName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.regionName.FormattingEnabled = true;
-            this.regionName.Location = new System.Drawing.Point(142, 20);
+            this.regionName.Location = new System.Drawing.Point(170, 16);
             this.regionName.Name = "regionName";
-            this.regionName.Size = new System.Drawing.Size(121, 21);
+            this.regionName.Size = new System.Drawing.Size(121, 28);
             this.regionName.TabIndex = 1;
             this.regionName.ValueMember = "keyRegion";
             this.regionName.SelectedIndexChanged += new System.EventHandler(this.season_SelectedIndexChanged);
@@ -415,9 +417,10 @@
             // btnMass
             // 
             this.btnMass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMass.Location = new System.Drawing.Point(727, 12);
+            this.btnMass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnMass.Location = new System.Drawing.Point(685, 3);
             this.btnMass.Name = "btnMass";
-            this.btnMass.Size = new System.Drawing.Size(114, 36);
+            this.btnMass.Size = new System.Drawing.Size(166, 48);
             this.btnMass.TabIndex = 15;
             this.btnMass.Text = "Сохранить данные и закрыть";
             this.btnMass.UseVisualStyleBackColor = true;
@@ -425,7 +428,7 @@
             // 
             // btnMassReturn
             // 
-            this.btnMassReturn.Location = new System.Drawing.Point(512, 12);
+            this.btnMassReturn.Location = new System.Drawing.Point(413, 12);
             this.btnMassReturn.Name = "btnMassReturn";
             this.btnMassReturn.Size = new System.Drawing.Size(75, 23);
             this.btnMassReturn.TabIndex = 17;
@@ -437,9 +440,10 @@
             // Data_temps
             // 
             this.Data_temps.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Data_temps.Location = new System.Drawing.Point(607, 12);
+            this.Data_temps.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Data_temps.Location = new System.Drawing.Point(494, 3);
             this.Data_temps.Name = "Data_temps";
-            this.Data_temps.Size = new System.Drawing.Size(104, 36);
+            this.Data_temps.Size = new System.Drawing.Size(190, 48);
             this.Data_temps.TabIndex = 18;
             this.Data_temps.Text = "Автозаполнение таблицы";
             this.Data_temps.UseVisualStyleBackColor = true;

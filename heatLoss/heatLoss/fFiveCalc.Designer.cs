@@ -42,9 +42,7 @@
             this.btnCalc = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dgv_heatloss = new System.Windows.Forms.DataGridView();
-            this.codeDeltaTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.deltaTBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.valueOfHeatlossMVTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.standardHeatLossBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.outsideDiameterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cbYear = new System.Windows.Forms.CheckBox();
@@ -69,6 +67,8 @@
             this.pipelineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblSteamPipe = new System.Windows.Forms.Label();
             this.pipelineTableAdapter = new heatLoss._BD01_02_2016DataSetTableAdapters.pipelineTableAdapter();
+            this.codeDeltaTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.valueOfHeatlossMVTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.methodOfLayingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._BD01_02_2016DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -85,10 +85,11 @@
             // 
             this.cbType.DataSource = this.methodOfLayingBindingSource;
             this.cbType.DisplayMember = "methodOflayingSortPipeLine";
+            this.cbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cbType.FormattingEnabled = true;
             this.cbType.Location = new System.Drawing.Point(12, 2);
             this.cbType.Name = "cbType";
-            this.cbType.Size = new System.Drawing.Size(734, 21);
+            this.cbType.Size = new System.Drawing.Size(892, 28);
             this.cbType.TabIndex = 0;
             this.cbType.ValueMember = "keyMethodOfLaying";
             this.cbType.SelectedIndexChanged += new System.EventHandler(this.cbType_SelectedIndexChanged);
@@ -106,36 +107,40 @@
             // lblDiametr
             // 
             this.lblDiametr.AutoSize = true;
-            this.lblDiametr.Location = new System.Drawing.Point(19, 29);
+            this.lblDiametr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblDiametr.Location = new System.Drawing.Point(8, 42);
             this.lblDiametr.Name = "lblDiametr";
-            this.lblDiametr.Size = new System.Drawing.Size(50, 13);
+            this.lblDiametr.Size = new System.Drawing.Size(77, 20);
             this.lblDiametr.TabIndex = 1;
-            this.lblDiametr.Text = "диаметр";
+            this.lblDiametr.Text = "Диаметр";
             // 
             // lblDlina
             // 
             this.lblDlina.AutoSize = true;
-            this.lblDlina.Location = new System.Drawing.Point(125, 29);
+            this.lblDlina.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblDlina.Location = new System.Drawing.Point(111, 42);
             this.lblDlina.Name = "lblDlina";
-            this.lblDlina.Size = new System.Drawing.Size(37, 13);
+            this.lblDlina.Size = new System.Drawing.Size(58, 20);
             this.lblDlina.TabIndex = 2;
-            this.lblDlina.Text = "длина";
+            this.lblDlina.Text = "Длина";
             // 
             // tbLength
             // 
-            this.tbLength.Location = new System.Drawing.Point(100, 49);
+            this.tbLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbLength.Location = new System.Drawing.Point(104, 61);
             this.tbLength.Name = "tbLength";
-            this.tbLength.Size = new System.Drawing.Size(78, 20);
+            this.tbLength.Size = new System.Drawing.Size(78, 26);
             this.tbLength.TabIndex = 5;
             this.tbLength.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbLength_KeyPress);
             // 
             // btnCalc
             // 
+            this.btnCalc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCalc.Location = new System.Drawing.Point(812, 400);
             this.btnCalc.Name = "btnCalc";
-            this.btnCalc.Size = new System.Drawing.Size(75, 23);
+            this.btnCalc.Size = new System.Drawing.Size(75, 41);
             this.btnCalc.TabIndex = 6;
-            this.btnCalc.Text = "расчёт";
+            this.btnCalc.Text = "Расчёт";
             this.btnCalc.UseVisualStyleBackColor = true;
             this.btnCalc.Click += new System.EventHandler(this.btnCalc_Click);
             // 
@@ -145,7 +150,7 @@
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(22, 109);
+            this.chart1.Location = new System.Drawing.Point(12, 128);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
@@ -167,35 +172,17 @@
             this.codeDeltaTDataGridViewTextBoxColumn,
             this.valueOfHeatlossMVTDataGridViewTextBoxColumn});
             this.dgv_heatloss.DataSource = this.standardHeatLossBindingSource;
-            this.dgv_heatloss.Location = new System.Drawing.Point(642, 109);
+            this.dgv_heatloss.Location = new System.Drawing.Point(603, 128);
             this.dgv_heatloss.Name = "dgv_heatloss";
             this.dgv_heatloss.RowHeadersVisible = false;
-            this.dgv_heatloss.Size = new System.Drawing.Size(245, 266);
+            this.dgv_heatloss.Size = new System.Drawing.Size(301, 266);
             this.dgv_heatloss.TabIndex = 9;
             this.dgv_heatloss.Visible = false;
-            // 
-            // codeDeltaTDataGridViewTextBoxColumn
-            // 
-            this.codeDeltaTDataGridViewTextBoxColumn.DataPropertyName = "codeDeltaT";
-            this.codeDeltaTDataGridViewTextBoxColumn.DataSource = this.deltaTBindingSource;
-            this.codeDeltaTDataGridViewTextBoxColumn.DisplayMember = "valueDeltaT";
-            this.codeDeltaTDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.codeDeltaTDataGridViewTextBoxColumn.HeaderText = "Темп. перепад";
-            this.codeDeltaTDataGridViewTextBoxColumn.Name = "codeDeltaTDataGridViewTextBoxColumn";
-            this.codeDeltaTDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.codeDeltaTDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.codeDeltaTDataGridViewTextBoxColumn.ValueMember = "keyDeltaT";
             // 
             // deltaTBindingSource
             // 
             this.deltaTBindingSource.DataMember = "deltaT";
             this.deltaTBindingSource.DataSource = this._BD01_02_2016DataSet;
-            // 
-            // valueOfHeatlossMVTDataGridViewTextBoxColumn
-            // 
-            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.DataPropertyName = "ValueOfHeatlossMVT";
-            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.HeaderText = "потери, Мвт";
-            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.Name = "valueOfHeatlossMVTDataGridViewTextBoxColumn";
             // 
             // standardHeatLossBindingSource
             // 
@@ -210,21 +197,23 @@
             // cbYear
             // 
             this.cbYear.AutoSize = true;
+            this.cbYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cbYear.Location = new System.Drawing.Point(202, 50);
             this.cbYear.Name = "cbYear";
-            this.cbYear.Size = new System.Drawing.Size(171, 17);
+            this.cbYear.Size = new System.Drawing.Size(257, 24);
             this.cbYear.TabIndex = 10;
-            this.cbYear.Text = "Год (выберите, если с 1994 )";
+            this.cbYear.Text = "Год (выберите, если с 1994 )   ";
             this.cbYear.UseVisualStyleBackColor = true;
             // 
             // cbNhwInYear
             // 
             this.cbNhwInYear.AutoSize = true;
+            this.cbNhwInYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cbNhwInYear.Location = new System.Drawing.Point(202, 74);
             this.cbNhwInYear.Name = "cbNhwInYear";
-            this.cbNhwInYear.Size = new System.Drawing.Size(175, 17);
+            this.cbNhwInYear.Size = new System.Drawing.Size(257, 24);
             this.cbNhwInYear.TabIndex = 11;
-            this.cbNhwInYear.Text = "Часы (выберите, если <5000)";
+            this.cbNhwInYear.Text = "Часы (выберите, если <5000)  ";
             this.cbNhwInYear.UseVisualStyleBackColor = true;
             // 
             // standardHeatLossTableAdapter
@@ -247,10 +236,11 @@
             // 
             this.cbOutDiam.DataSource = this.outsideDiameterBindingSource1;
             this.cbOutDiam.DisplayMember = "nameOutsideDiameter";
+            this.cbOutDiam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cbOutDiam.FormattingEnabled = true;
-            this.cbOutDiam.Location = new System.Drawing.Point(12, 49);
+            this.cbOutDiam.Location = new System.Drawing.Point(12, 59);
             this.cbOutDiam.Name = "cbOutDiam";
-            this.cbOutDiam.Size = new System.Drawing.Size(69, 21);
+            this.cbOutDiam.Size = new System.Drawing.Size(69, 28);
             this.cbOutDiam.TabIndex = 13;
             this.cbOutDiam.ValueMember = "keyOutsideDiameter";
             // 
@@ -262,24 +252,26 @@
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(768, 4);
+            this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox3.Location = new System.Drawing.Point(700, 102);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(119, 17);
+            this.checkBox3.Size = new System.Drawing.Size(183, 24);
             this.checkBox3.TabIndex = 14;
-            this.checkBox3.Text = "Таблица значений";
+            this.checkBox3.Text = "Таблица значений    ";
             this.checkBox3.UseVisualStyleBackColor = true;
             this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
             // cbPipeNumber
             // 
+            this.cbPipeNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cbPipeNumber.FormattingEnabled = true;
             this.cbPipeNumber.Items.AddRange(new object[] {
             "двухтрубная прокладка",
             "подающий отдельно",
             "обратный отдельно"});
-            this.cbPipeNumber.Location = new System.Drawing.Point(383, 61);
+            this.cbPipeNumber.Location = new System.Drawing.Point(475, 42);
             this.cbPipeNumber.Name = "cbPipeNumber";
-            this.cbPipeNumber.Size = new System.Drawing.Size(121, 21);
+            this.cbPipeNumber.Size = new System.Drawing.Size(121, 28);
             this.cbPipeNumber.TabIndex = 15;
             // 
             // lblTemP
@@ -305,21 +297,23 @@
             // cBoxDepth
             // 
             this.cBoxDepth.AutoSize = true;
-            this.cBoxDepth.Location = new System.Drawing.Point(688, 61);
+            this.cBoxDepth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cBoxDepth.Location = new System.Drawing.Point(202, 98);
             this.cBoxDepth.Name = "cBoxDepth";
-            this.cBoxDepth.Size = new System.Drawing.Size(185, 17);
+            this.cBoxDepth.Size = new System.Drawing.Size(257, 24);
             this.cBoxDepth.TabIndex = 18;
-            this.cBoxDepth.Text = "Заглубление ТП 0,7 м и менее ";
+            this.cBoxDepth.Text = "Заглубление ТП 0,7 м и менее";
             this.cBoxDepth.UseVisualStyleBackColor = true;
             // 
             // comBInsulationType
             // 
             this.comBInsulationType.DataSource = this.insulationTypeBindingSource;
             this.comBInsulationType.DisplayMember = "insulation";
+            this.comBInsulationType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comBInsulationType.FormattingEnabled = true;
-            this.comBInsulationType.Location = new System.Drawing.Point(531, 61);
+            this.comBInsulationType.Location = new System.Drawing.Point(475, 72);
             this.comBInsulationType.Name = "comBInsulationType";
-            this.comBInsulationType.Size = new System.Drawing.Size(121, 21);
+            this.comBInsulationType.Size = new System.Drawing.Size(121, 28);
             this.comBInsulationType.TabIndex = 19;
             this.comBInsulationType.ValueMember = "keyInsulationType";
             // 
@@ -338,6 +332,7 @@
             // 
             // cBoxNoProeject
             // 
+            this.cBoxNoProeject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cBoxNoProeject.FormattingEnabled = true;
             this.cBoxNoProeject.Items.AddRange(new object[] {
             "перевода на непроектный режим работы не было",
@@ -345,19 +340,20 @@
             "Два в режиме обратного",
             "Подающий в режиме обратного",
             "Обратный в режиме подающего"});
-            this.cBoxNoProeject.Location = new System.Drawing.Point(688, 84);
+            this.cBoxNoProeject.Location = new System.Drawing.Point(700, 72);
             this.cBoxNoProeject.Name = "cBoxNoProeject";
-            this.cBoxNoProeject.Size = new System.Drawing.Size(185, 21);
+            this.cBoxNoProeject.Size = new System.Drawing.Size(185, 28);
             this.cBoxNoProeject.TabIndex = 20;
             // 
             // cBoxPipes
             // 
             this.cBoxPipes.DataSource = this.pipelineBindingSource;
             this.cBoxPipes.DisplayMember = "pipelineSort";
+            this.cBoxPipes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cBoxPipes.FormattingEnabled = true;
-            this.cBoxPipes.Location = new System.Drawing.Point(768, 34);
+            this.cBoxPipes.Location = new System.Drawing.Point(700, 42);
             this.cBoxPipes.Name = "cBoxPipes";
-            this.cBoxPipes.Size = new System.Drawing.Size(121, 21);
+            this.cBoxPipes.Size = new System.Drawing.Size(185, 28);
             this.cBoxPipes.TabIndex = 21;
             this.cBoxPipes.ValueMember = "keyPipeline";
             // 
@@ -369,17 +365,36 @@
             // lblSteamPipe
             // 
             this.lblSteamPipe.AutoSize = true;
-            this.lblSteamPipe.Location = new System.Drawing.Point(649, 156);
+            this.lblSteamPipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblSteamPipe.Location = new System.Drawing.Point(612, 163);
             this.lblSteamPipe.Name = "lblSteamPipe";
-            this.lblSteamPipe.Size = new System.Drawing.Size(238, 65);
+            this.lblSteamPipe.Size = new System.Drawing.Size(277, 120);
             this.lblSteamPipe.TabIndex = 22;
-            this.lblSteamPipe.Text = "При совместной прокладке паропровода \r\nи конденсатопровода в непроходном канале,\r" +
-    "\nудельные среднегодовые потери \r\nопределяются раздельно для паропровода \r\nи конд" +
-    "енсатопровода.";
+            this.lblSteamPipe.Text = "При совместной прокладке паро-\r\nпровода и конденсатопровода в\r\nнепроходном канале" +
+    ",удельные \r\nсреднегодовые потери определя-\r\nются раздельно для паропровода \r\nи к" +
+    "онденсатопровода.";
             // 
             // pipelineTableAdapter
             // 
             this.pipelineTableAdapter.ClearBeforeFill = true;
+            // 
+            // codeDeltaTDataGridViewTextBoxColumn
+            // 
+            this.codeDeltaTDataGridViewTextBoxColumn.DataPropertyName = "codeDeltaT";
+            this.codeDeltaTDataGridViewTextBoxColumn.DataSource = this.deltaTBindingSource;
+            this.codeDeltaTDataGridViewTextBoxColumn.DisplayMember = "valueDeltaT";
+            this.codeDeltaTDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.codeDeltaTDataGridViewTextBoxColumn.HeaderText = "Темп. перепад";
+            this.codeDeltaTDataGridViewTextBoxColumn.Name = "codeDeltaTDataGridViewTextBoxColumn";
+            this.codeDeltaTDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.codeDeltaTDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.codeDeltaTDataGridViewTextBoxColumn.ValueMember = "keyDeltaT";
+            // 
+            // valueOfHeatlossMVTDataGridViewTextBoxColumn
+            // 
+            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.DataPropertyName = "ValueOfHeatlossMVT";
+            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.HeaderText = "Потери, МВт";
+            this.valueOfHeatlossMVTDataGridViewTextBoxColumn.Name = "valueOfHeatlossMVTDataGridViewTextBoxColumn";
             // 
             // fFiveCalc
             // 
